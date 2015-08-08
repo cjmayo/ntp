@@ -23,7 +23,7 @@
 						<table width="100%">
 							<tbody>
 								<tr>
-									<td valign="top">Adress<br>
+									<td valign="top">Address<br>
 									</td>
 									<td valign="top">127.127.44.u<br>
 									</td>
@@ -59,12 +59,12 @@
 		The refclock_neoclock4x driver supports the NeoClock4X receiver available from <a href="http://www.linum.com">Linum Software GmbH</a>. The receiver is available as a <a href="http://www.dcf77.de">DCF77</a> or TDF receiver. Both receivers have the same output string. For more information about the NeoClock4X receiver please visit <a href="http://www.linux-funkuhr.de">http://www.linux-funkuhr.de</a>. &nbsp;
 		<h2>Fudge Factors</h2>
 		<dl>
-			<dt><b><a href="../clockopt.html">time1 time</a></b>
+			<dt><a href="../clockopt.html"><b>time1 time</b></a>
 			<dd>Specifies the time offset calibration factor with the default value off 0.16958333 seconds. This offset is used&nbsp; to correct serial line and operating system delays incurred in capturing time stamps. If you want to fudge the time1 offset <b>ALWAYS</b> add a value off 0.16958333. This is neccessary to compensate to delay that is caused by transmit the timestamp at 2400 Baud. If you want to compensate the delay that the DCF77 or TDF radio signal takes to travel to your site simply add the needed millisecond delay to the given value. Note that the time here is given in seconds.
 			<dd>Default setting is 0.16958333 seconds.<br>
 		</dl>
 		<dl>
-			<dt><b><a href="../clockopt.html">time2 time</a></b>
+			<dt><a href="../clockopt.html"><b>time2 time</b></a>
 			<dd>Not used by this driver.
 		</dl>
 		<dl>
