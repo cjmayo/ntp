@@ -11,11 +11,11 @@
 
 	<body>
 		<h3>NTP PARSE clock data formats</h3>
-		<p>The parse driver currently supports several clocks with different query mechanisms. In order for you to find a sample that might be similar to a clock you might want to integrate into parse I'll sum up the major features of the clocks (this information is distributed in the parse/clk_*.c and ntpd/refclock_parse.c files).</p>
 <p>Last update:
   <!-- #BeginDate format:En2m -->21-Oct-2010  23:44<!-- #EndDate -->
     UTC</p>
 		<hr>
+		<p>The parse driver currently supports several clocks with different query mechanisms. In order for you to find a sample that might be similar to a clock you might want to integrate into parse I'll sum up the major features of the clocks (this information is distributed in the parse/clk_*.c and ntpd/refclock_parse.c files).</p>
 		<h4>Meinberg clocks</h4>
 		<pre>
 Meinberg: start=&lt;STX&gt;, end=&lt;ETX&gt;, sync on start
@@ -118,7 +118,6 @@ Meinberg: start=&lt;STX&gt;, end=&lt;ETX&gt;, sync on start
 </pre>
 		<p>The Uni Erlangen formats should be used preferably. Newer Meinberg GPS receivers can be configured to transmit that format, for older devices there may be a special firmware version available.</p>
 		<p>For the Meinberg parse look into clk_meinberg.c<br><br></p>
-		<hr>
 		<h4>Raw DCF77 Data via serial line</h4>
 		<p>RAWDCF: end=TIMEOUT&gt;1.5s, sync each char (any char),generate psuedo time codes, fixed format</p>
 		<p>direct DCF77 code input</p>
@@ -177,7 +176,6 @@ Meinberg: start=&lt;STX&gt;, end=&lt;ETX&gt;, sync on start
 	58 	P3    - Date Parity (even)
 	59	      - usually missing (minute indication), except for leap insertion
 </pre>
-		<hr>
 		<h4>Schmid clock</h4>
 		<p>Schmid clock: needs poll, binary input, end='\xFC', sync start</p>
 		<p>The Schmid clock is a DCF77 receiver that sends a binary time code at the reception of a flag byte. The contents if the flag byte determined the time code format. The binary time code is delimited by the byte 0xFC.</p>
@@ -207,7 +205,6 @@ Meinberg: start=&lt;STX&gt;, end=&lt;ETX&gt;, sync on start
 					bits 5-7: Zero
 	Bit 6:	time in backup mode, units of 5 minutes (unused here)
 </pre>
-		<hr>
 		<h4>Trimble SV6 ASCII time code (TAIP)</h4>
 		<p>Trimble SV6: needs poll, ascii timecode, start='&gt;', end='&lt;', query='&gt;QTM&lt;', eol='&lt;'</p>
 		<p>Trimble SV6 is a GPS receiver with PPS output. It needs to be polled. It also need a special tty mode setup (EOL='&lt;').</p>
@@ -231,7 +228,6 @@ Meinberg: start=&lt;STX&gt;, end=&lt;ETX&gt;, sync on start
 	----33445566600112222BB7__-_____--99-	Parse
 	&gt;RTM                      1     ;*  &lt; 	Check
 </pre>
-		<hr>
 		<h4>ELV DCF7000</h4>
 		<p>ELV DCF7000: end='\r', pattern=&quot; - - - - - - - \r&quot;</p>
 		<p>The ELV DCF7000 is a cheap DCF77 receiver sending each second a time code (though not very precise!) delimited by '`r'</p>
@@ -243,7 +239,6 @@ Meinberg: start=&lt;STX&gt;, end=&lt;ETX&gt;, sync on start
 		FF&amp;0x2	- DST switch warning
 		FF&amp;0x4  - unsynchronised
 </pre>
-		<hr>
 		<h4>HOPF 6021 und Kompatible</h4>
 		<p>HOPF Funkuhr 6021 mit serieller Schnittstelle Created by F.Schnekenbuehl &lt;frank@comsys.dofn.de&gt; from clk_rcc8000.c Nortel DASA Network Systems GmbH, Department: ND250 A Joint venture of Daimler-Benz Aerospace and Nortel.</p>
 		<pre>
@@ -293,7 +288,6 @@ Meinberg: start=&lt;STX&gt;, end=&lt;ETX&gt;, sync on start
       x 1 1 0  - Saturday
       x 1 1 1  - Sunday
 </pre>
-		<hr>
 		<h4>Diem Computime Clock</h4>
 		<p>The Computime receiver sends a datagram in the following format every minute</p>
 		<pre>   
@@ -312,7 +306,6 @@ Meinberg: start=&lt;STX&gt;, end=&lt;ETX&gt;, sync on start
    CR   Carriage return 
    LF   Linefeed
 </pre>
-		<hr>
 		<h4>WHARTON 400A Series Clock with a 404.2 Serial interface</h4>
 		<p>The WHARTON 400A Series clock is able to send date/time serial messages in 7 output formats. We use format 1 here because it is the shortest. We set up the clock to send a datagram every second. For use with this driver, the WHARTON 400A Series clock must be set-up as follows :</p>
 		<pre>
