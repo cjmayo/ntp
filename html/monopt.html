@@ -31,13 +31,13 @@
   type are collectively called the generation file set for that type. The files
   in the file set are the members of that set.</p>
 <p>File sets have names specific to the type and generation epoch. The names
-  are constructed from three concatenated elements <i><tt>prefix</tt></i>, <i><tt>filename</tt></i> and <i><tt>suffix</tt></i>:</p>
+  are constructed from three concatenated elements <tt><i>prefix</i></tt>, <tt><i>filename</i></tt> and <tt><i>suffix</i></tt>:</p>
 <dl>
-  <dt><i><tt>prefix</tt></i></dt>
+  <dt><tt><i>prefix</i></tt></dt>
   <dd>The directory path specified in the <tt>statsdir</tt> command.</dd>
-  <dt><i><tt>name</tt></i></dt>
+  <dt><tt><i>name</i></tt></dt>
   <dd>The name specified by the <tt>file</tt> option of the <tt>filegen</tt> command.</dd>
-  <dt><i><tt>suffix</tt></i></dt>
+  <dt><tt><i>suffix</i></tt></dt>
   <dd>A string of elements bdginning with . (dot) followed by a number of elements
     depending on the file set type.</dd>
 </dl>
@@ -46,11 +46,10 @@
   automatically summarized and archived for retrospective analysis.</p>
 <h4 id="cmd">Monitoring Commands and Options</h4>
 <p>Unless noted otherwise, further information about these commands is on the <a href="decode.html">Event Messages and Status Codes</a> page.</p></a> page.</p><dl>
-  <dt id="filegen"><tt>filegen <i>name</i> [file <i>filename</i>] [type <i>type</i>]
-    [link | nolink] [enable | disable]</tt></dt>
+  <dt id="filegen"><tt>filegen <i>name</i> [file <i>filename</i>] [type <i>type</i>] [link | nolink] [enable | disable]</tt></dt>
   <dd>
     <dl>
-      <dt><i><tt>name</tt></i></dt>
+      <dt><tt><i>name</i></tt></dt>
       <dd>Specifies the file set type from the list in the next section.</dd>
       <dt><tt>file <i>filename</i></tt></dt>
       <dd>Specifies the filename prefix. The default is the file set type, such as "loopstats".</dd>
@@ -241,8 +240,7 @@
   <dt><tt>peerstats</tt></dt>
   <dd>Record peer statistics. Each NTP packet or reference clock update received
     appends one line to the <tt>peerstats</tt> file set:</dd>
-  <dd><tt>48773 10847.650 127.127.4.1 9714 -0.001605376 0.000000000 0.001424877
-    0.000958674</tt></dd>
+  <dd><tt>48773 10847.650 127.127.4.1 9714 -0.001605376 0.000000000 0.001424877 0.000958674</tt></dd>
   <dd>
     <table width="100%" border="1" cellspacing="2" cellpadding="2">
       <tr>

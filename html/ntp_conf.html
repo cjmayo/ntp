@@ -86,10 +86,10 @@
   <dd>This function creates a FIFO queue. It basically calls the <tt>create_priority_queue</tt> function with the <tt>get_fifo_order</tt><b> </b>function as its argument.</dd>
   <dt><tt>void destroy_queue(queue *<i>my_queue</i>)</tt></dt>
   <dd>This function deletes <tt><i>my_queue</i></tt><b> </b>and frees up all the memory allocated to it an its elements.</dd>
-  <dt><tt>int empty(queue *</tt><i><tt>my_queue</tt></i><tt>)</tt></dt>
-  <dd>This function checks to see if <i><tt>my_queue</tt></i> is empty. Returns <tt>true</tt> if <tt><i>my_queue</i></tt> does not have any elements, else it returns false.</dd>
+  <dt><tt>int empty(queue *</tt><tt><i>my_queue</i></tt><tt>)</tt></dt>
+  <dd>This function checks to see if <tt><i>my_queue</i></tt> is empty. Returns <tt>true</tt> if <tt><i>my_queue</i></tt> does not have any elements, else it returns false.</dd>
   <dt><tt>queue *enqueue(queue *<i>my_queue</i>, void *<i>my_node</i>)</tt></dt>
-  <dd>This function adds an element, <i><tt>my_node</tt></i>, to a queue, <i><tt>my_queue</tt></i>. <i><tt>my_node</tt></i> must be allocated on the heap using the <tt>get_node</tt> function instead of <tt>malloc</tt>.</dd>
+  <dd>This function adds an element, <tt><i>my_node</i></tt>, to a queue, <tt><i>my_queue</i></tt>. <tt><i>my_node</i></tt> must be allocated on the heap using the <tt>get_node</tt> function instead of <tt>malloc</tt>.</dd>
   <dt><tt>void *dequeue(queue *<i>my_queue</i>)</tt></dt>
   <dd>This function returns the element at the front of the queue. This element will be element with the highest priority.</dd>
   <dt><tt>int get_no_of_elements(queue *<i>my_queue</i>)</tt></dt>
@@ -123,7 +123,7 @@
 <p><tt>%token T_Discard<br>
   %token T_Dispersion</tt></p>
 <p>Other tokens do have types. For example, a <tt>T_Double</tt> token is returned by the scanner whenever it sees a floating-point double in the configuration file. The value associated with the token is the actual number that was read in the configuration file and its type (after conversion) is double. Hence, the token <tt>T_Double</tt> will have to be declared as follows in the prologue of <b>ntp_config.y</b> file:</p>
-<p><tt>%token &lt;Double&gt; T_Double </tt></p>
+<p><tt>%token &lt;Double&gt; T_Double</tt></p>
 <p>Note that the declaration given in the angled brackets is not <tt>double</tt> but <tt>Double</tt>, which is the name of the variable given in the <tt>%union {}</tt> declaration above.</p>
 <p>Finally, non-terminal symbols may also have values associated with them, which have types. This is because Bison allows non-terminal symbols to have actions associated with them. Actions may be thought of as small functions which get executed whenever the RHS of a non-terminal is detected. The return values of these functions are the values associated with the non-terminals. The types of the non-terminals are specified with a <tt>%type</tt> declaration as shown below:</p>
 <p><tt>%type &lt;Queue&gt; address_list<br>
