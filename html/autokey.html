@@ -83,7 +83,7 @@
 <p><tt># cd /usr/local/etc<br>
   # ntp-keygen -T</tt></p>
 <p>and for the other hosts the same commands without the <tt>-T</tt> option. This generates an RSA private/public host key file and a self-signed certificate file for  the RSA digital signature algorithm  with  the MD5 message digest algorithm. For the THs  a  trusted certificate is generated; for the others a nontreusted certificate is generated. Include in the <tt>ntp.conf</tt> configuration file for all hosts other than  the primary servers, A, B and R, something like</p>
-<p><tt>  # server <em>host</em> autokey<br>
+<p><tt># server <em>host</em> autokey<br>
   # crypto<br>
   # driftfile /etc/ntp.drift</tt></p>
 <p>where <tt><em>host</em></tt> is the selected server name as shown in the figure.  Servers A, B and R are configured for local reference clocks or trusted remoter servers as required.</p>
