@@ -63,7 +63,7 @@
             <li>If you are shipping binaries in a kit it is strongly recommended that you ship this file (winnt.html) along with the binaries.
         </ol>
         <h4>Configuration File</h4>
-        <p>The default NTP configuration file path is %SystemRoot%<tt>\system32\drivers\etc\. </tt>(%SystemRoot% is an environmental variable that can be determined by typing &quot;set&quot; at the &quot;Command Prompt&quot; or from the &quot;System&quot; icon in the &quot;Control Panel&quot;).</p>
+        <p>The default NTP configuration file path is %SystemRoot%<tt>\system32\drivers\etc\.</tt> (%SystemRoot% is an environmental variable that can be determined by typing &quot;set&quot; at the &quot;Command Prompt&quot; or from the &quot;System&quot; icon in the &quot;Control Panel&quot;).</p>
         <p>Refer to your system environment and create your<tt> ntp.conf</tt> file in the directory corresponding to your system&nbsp; installation. The older <tt>&lt;WINDIR&gt;\ntp.conf</tt> is still supported but you will get a log entry reporting that the first file wasn't found.
         <h4>Installation Instructions</h4>
         <p>The <tt>instsrv</tt> program in the instsrv subdirectory of the distribution can be used to install 'ntpd' as a service and start automatically at boot time. Instsrv is automatically compiled with the rest of the distribution if you followed the steps above.</p>
