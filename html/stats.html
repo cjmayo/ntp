@@ -21,7 +21,7 @@
   <li class="inline"><a href="#quality">3. Quality of Service</a></li>
 </ul>
 <hr>
-<h4 id="intro">1. Introduction</h4>
+<h4 id="intro">Introduction</h4>
 
 <p>This page describes several statistics provided in the NTP specification and reference implementation and how they determine the accuracy and error measured during routine and exceptional operation. These statistics provide the following information.</p>
 <ul>
@@ -36,7 +36,7 @@
 <p>Figure 1. Statistics Budget</p>
 </div>
 <p>The data represented in boxes labeled Server are contained in fields in packet received from the server. The data represented in boxes labeled Peer are computed by the on-wire protocol, as described below. The algorithms of the box labeled Selection and Combining Algorithms process the peer data to select a system peer. The System box represents summary data inherited from the system peer. These data are available to application programs and dependent downstream clients.</p>
-<h4 id="budget">2. Statistics Summary</h4>
+<h4 id="budget">Statistics Summary</h4>
 <p>Each NTP synchronization source is characterized by the offset &theta; and delay &delta; samples measured by the on-wire protocol, as described on the <a href="warp.html">How NTP Works</a> page. In addition, the dispersion &epsilon; sample is initialized with the sum of the source precision &rho;<sub>R</sub> and the client precision &rho; (not shown) as each source packet is received. The dispersion increases at a rate of 15 &mu;s/s after that. For this purpose, the precision is equal to the latency to read the system clock. The offset, delay and dispersion are called the sample statistics.</p>
 <blockquote>
   <p>Note. In very fast networks where the client clock frequency is not within 1 PPM or so of the the server clock frequency, the roundtrip delay may have small negative values.  This is usually a temporary condition when the client is first started. When using the roundtrip delay in calculations, negative values are assumed zero.</p>
@@ -46,7 +46,7 @@
 <p>The composition of the source population and the system peer selection is redetermined as each update from each source is received. The system peer and system variables are determined as described on the <a href="prefer.html">Mitigation Rules and the <tt>prefer</tt> Keyword</a> page.  The system variables &Theta;, &Delta;, &Epsilon; and &Phi; are updated from the system peer variables of the same name and the system stratum set one greater than the system peer stratum. The system statistics are recorded by the <tt>loopstats</tt> option of the <a href="monopt.html#filegen"><tt>filegen</tt></a> command. System variables are displayed by the <tt>rv</tt> command of the <a href="ntpq.html#system"><tt>ntpq</tt></a> program.</p>
 <p>Although it might seem counterintuitive, a cardinal rule in the selection process is, once a sample has been selected by the clock filter algorithm, older samples are no longer selectable. This applies also to the clock select algorithm. Once the peer variables for a source have been selected, older variables of the same or other sources are no longer selectable. The reason for these rules is to limit the time delay in the clock discipline algorithm. This is necessary to preserve the optimum impulse response and thus the risetime and overshoot.</p>
 <p>This means that not every sample can be used to update the peer variables, and up to seven samples can be ignored between selected samples. This fact has been carefully considered in the discipline algorithm design with due consideration for feedback loop delay and minimum sampling rate. In engineering terms, even if only one sample in eight survives, the resulting sample rate is twice the Nyquist rate at any time constant and poll interval.</p>
-<h4 id="quality">3. Quality of Service</h4>
+<h4 id="quality">Quality of Service</h4>
 <p>This section discusses how an NTP client determines the system performance using a peer population including reference clocks and remote servers. This is determined for each peer from two statistics, <em>peer jitter</em> and <em>root distance.</em> Peer jitter is determined from various jitter components as described above. It represents the expected error in determining the clock offset estimate. Root distance represents the maximum error of the estimate due to all causes.</p>
 <p>The root distance statistic is computed as one-half the <em> root delay</em> of the primary source of time; i.e., the reference clock, plus the <em> root dispersion</em> of that source. The root variables are included in the NTP packet header received from each source. At each update the root delay is recomputed as the sum of the root delay in the packet plus the peer delay, while the root dispersion is recomputed as the sum of the root dispersion in the packet plus the peer dispersion.</p>
 <blockquote>
