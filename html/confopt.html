@@ -64,11 +64,12 @@ Walt Kelly</a>
 	<dd>When the server is reachable, send a burst of  packets instead of the usual one.  This option is valid only with  the <tt>server</tt> command and type s addresses. It is a recommended option when the <tt>maxpoll</tt> option is greater than	10 (1024 s). Additional information about this option is on the <a href="poll.html">Poll Program</a> page.</dd>
   <dt><tt>iburst</tt></dt>
 	<dd>When the server is unreachable, send a burst of  packets instead of the usual one.  This option is valid only with the <tt>server</tt> command and type <tt>s</tt> addresses. It is a recommended option with this command. Additional information about this option is on the <a href="poll.html">Poll Program</a> page.</dd>
-    <dt><tt>ident</tt> <em><tt>group</tt></em></dt>
+    <dt><tt>ident <em>group</em></tt></dt>
     <dd>Specify the group name for the association.  See the <a href="autokey.html">Autokey Public-Key Authentication</a> page for further information.</dd>
-  <dt><tt>key</tt> <i><tt>key</tt></i></dt>
-  <dd>Send and receive packets authenticated by the symmetric key scheme described in the <a href="authentic.html">Authentication Support</a> page. The <i><tt>key</tt></i> specifies the key identifier with values from 1 to 65534, inclusive. This option is mutually exclusive with the <tt>autokey</tt> option.</dd>	<dt><tt>minpoll <i>minpoll<br>
-	</i></tt><tt>maxpoll <i>maxpoll</i></tt></dt>
+  <dt><tt>key <i>key</i></tt></dt>
+  <dd>Send and receive packets authenticated by the symmetric key scheme described in the <a href="authentic.html">Authentication Support</a> page. The <i><tt>key</tt></i> specifies the key identifier with values from 1 to 65534, inclusive. This option is mutually exclusive with the <tt>autokey</tt> option.</dd>
+	<dt><tt>minpoll <i>minpoll</i></tt><br>
+	<tt>maxpoll <i>maxpoll</i></tt></dt>
 	<dd>These options specify the minimum and maximum poll intervals for NTP messages, in seconds as a power of two. The maximum poll interval defaults to 10 (1024 s), but can be increased by the <tt>maxpoll</tt> option to an upper limit of 17 (36 hr). The minimum poll interval defaults to 6 (64 s), but can be decreased by the <tt>minpoll</tt> option to a lower limit of 3 (8 s).  Additional information about this option is on the <a href="poll.html">Poll Program</a> page.</dd>
 	<dt><tt>mode <i>option</i></tt></dt>
 	<dd>Pass the <tt><i>option</i></tt> to a reference clock driver, where <tt><i>option</i></tt> is an integer in the range from 0 to 255, inclusive. This option is valid	only with type r addresses.</dd>
@@ -81,7 +82,7 @@ Walt Kelly</a>
 	<dt><tt>true</tt></dt>
 	<dd>Mark the association to assume truechimer status; that is, always survive the selection and clustering algorithms. This option can be used with any association, but is most useful for reference clocks with large jitter on the serial port and precision pulse-per-second (PPS) signals. Caution: this option defeats the algorithms designed to cast out falsetickers and can allow these sources to set the system clock. This option is valid only with the <tt>server</tt> and <tt>peer</tt> commands.</dd>
 	<dt><tt>ttl <i>ttl</i></tt></dt>
-	<dd>This option specifies the time-to-live <i><tt>ttl</tt></i> for the <tt>broadcast</tt> command and the maximum <i><tt>ttl</tt></i> for the expanding ring search used by the <tt>manycastclient</tt> command. Selection of the proper value, which defaults to 127, is something of a black art and should be coordinated with the network administrator. This option is invalid with type r addresses.</dd>
+	<dd>This option specifies the time-to-live <tt><i>ttl</i></tt> for the <tt>broadcast</tt> command and the maximum <tt><i>ttl</i></tt> for the expanding ring search used by the <tt>manycastclient</tt> command. Selection of the proper value, which defaults to 127, is something of a black art and should be coordinated with the network administrator. This option is invalid with type r addresses.</dd>
 	<dt><tt>version <i>version</i></tt></dt>
 	<dd>Specifies the version number to be used for
 outgoing NTP packets. Versions 1-4 are the choices, with version 4 the default.</dd>
@@ -96,7 +97,7 @@ outgoing NTP packets. Versions 1-4 are the choices, with version 4 the default.<
 	<dd>Enable reception of manycast client messages (type m) to the multicasts group address(es) (type m) specified. At least one address is required. Note that, in order to avoid accidental or malicious disruption, both the server and client should operate using symmetric key or public key authentication as described in the <a href="authopt.html">Authentication Options</a> page.</dd>
 	<dt id="multicastclient"><tt>multicastclient <i>address</i> [...]</tt></dt>
 	<dd>Enable reception of multicast server messages to the multicast group address(es) (type m) specified. Upon receiving a message for the first time, the multicast client measures the nominal server propagation delay using a brief client/server exchange with the server, then enters the broadcast client mode, in which it synchronizes to succeeding multicast messages. Note that, in order to avoid accidental or malicious disruption in this mode, both the server and client should operate using symmetric key or public key authentication as described in the <a href="authopt.html">Authentication Options</a> page.</dd>
-	<dt id="mdnstries"><tt>mdnstries</tt> <i>number</i></dt>
+	<dt id="mdnstries"><tt>mdnstries <i>number</i></tt></dt>
 	<dd>If we are participating in mDNS, after we have synched for the first time we attempt to register with the mDNS system.  If that registration attempt fails, we try again at one minute intervals for up to <tt>mdnstries</tt> times.  After all, <tt>ntpd</tt> may be starting before mDNS.  The default value for <tt>mdnstries</tt> is 5.</dd>
 </dl>
 <hr>
