@@ -86,20 +86,20 @@
 <p><tt>  # server <em>host</em> autokey<br>
   # crypto<br>
   # driftfile /etc/ntp.drift</tt></p>
-<p>where <em><tt>host</tt></em> is the selected server name as shown in the figure.  Servers A, B and R are configured for local reference clocks or trusted remoter servers as required.</p>
+<p>where <tt><em>host</em></tt> is the selected server name as shown in the figure.  Servers A, B and R are configured for local reference clocks or trusted remoter servers as required.</p>
 <p>In the above configuration examples, the default  host name is the string  returned by the Unix <tt>gethostname()</tt> routine, ordinarily the   DNS name of the host. This  name is used as the subject and issuer names on the certificate, as well as the default  password for the encrypted keys file. The   host name can be changed using the <tt>-s</tt> option of the <tt>ntp-keygen</tt> program. The default password can be changed using the <tt>-p</tt> option of the <tt>ntp-keygen</tt> program and the <tt>pw</tt> option of the <tt>crypto</tt> configuration command.</p>
 <p>Group names can be added to this configuration by including the <tt>-s <em>host</em>@<em>group</em></tt> option with the <tt>ntp-keygen</tt> program. For the purpose of illustration, the <tt><em>host</em></tt> string is empty, signifying the default host name.  For example,  @<tt>yellow</tt>  can be used for the Alice group,  @<tt>orange</tt> for the Helen group and  @<tt>blue</tt> for the Carol group.  In addition, for TH X the <tt>ident yellow</tt> option should be added to the  <tt>server</tt> command for the Alice group and the <tt>ident orange</tt> option should be added to the <tt>server</tt> command for the Helen group.</p>
 <h4 id="scfg">Configuration - Identity Schemes</h4>
 <p> The example in this section uses the IFF identity scheme, but others, including GQ and MV, can be used as well.  It's best to start with a functioning TC configuration and add  commands as necessary. We start with the subnets of Figure 1 configured as in the previous section. Recall that the parent subnet TA for Alice is C and for Helen is S. Each  of the TAs generates an encrypted server keys file and nonencrypted client parameters file for the IFF identity scheme using the <tt>-I</tt> option of the <tt>ntp-keygen</tt> program. Note the TAs are not necessarily trusted hosts, so may not need the <tt>-T</tt> option.</p>
 <p>The   nonencrypted client parameters     can be exported using the  command</p>
 <p><tt>ntp-keygen -e &gt;<i>file</i></tt>,</p>
-<p>where the <tt>-e</tt> option redirects the  client parameters to <em><tt>file</tt></em> via the standard output stream for a mail application or stored locally for later distribution to one or more THs.   In a similar fashion the  encrypted keys file can be exported using the command</p>
+<p>where the <tt>-e</tt> option redirects the  client parameters to <tt><em>file</em></tt> via the standard output stream for a mail application or stored locally for later distribution to one or more THs.   In a similar fashion the  encrypted keys file can be exported using the command</p>
 <p><tt>ntp-keygen -q <em>passw2</em> &gt;<i>file</i></tt>,</p>
-<p>where <em><tt>passwd2</tt></em> is the read password for another TA. We won't need this file here.</p>
-<p> While the file names used for the exported files are arbitrary, it is common practice to use the name given as the first line in the file with the filestamp suppressed. Thus, the nonencryted parameters file from each TA  is copied to X with this name.</p>
-<p>To complete the configuration, the TH includes the client parameters file name in the <tt>ident</tt> option of the  the <tt>server</tt> command for the TA association</p>
+<p>where <tt><em>passwd2</em></tt> is the read password for another TA. We won't need this file here.</p>
+<p> While the file names used for the exported files are arbitrary, it is common practice to use the name given as the first line in the file with the filestamp suppressed. Thus, the nonencryted parameters file from each TA is copied to X with this name.</p>
+<p>To complete the configuration, the TH includes the client parameters file name in the <tt>ident</tt> option of the <tt>server</tt> command for the TA association</p>
 <p><tt>server 1.2.3.4 ident <em>group</em>,</tt></p>
-<p> where <em><tt>group</tt></em> is the file name given above. </p>
+<p> where <tt><em>group</em></tt> is the file name given above. </p>
 <h4 id="ident">Identity Schemes and Cryptotypes</h4>
 <p>A specific combination of authentication and identity schemes is called a <em>cryptotype</em>, which applies to clients and servers separately. A group can be configured using more than one cryptotype combination, although not all combinations are interoperable. Note however that some cryptotype combinations may successfully intemperate with each other, but may not represent good security practice. The server and client cryptotypes are defined by the the following codes.</p>
 <dl>
