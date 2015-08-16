@@ -80,8 +80,7 @@ The driver begins operation immediately upon startup. It first searches for one 
 <p>There are several other messages that can occur; these are documented in the source listing.</p>
 <h4>Monitor Data</h4>
 When enabled by the <tt>filegen</tt> facility, every received timecode is written to the <tt>clockstats</tt> file in the following format:
-<p><tt>sq yyyy ddd hh:mm:ss l d du lset agc ident metric errs freq avg<br>
-  </tt></p>
+<p><tt>sq yyyy ddd hh:mm:ss l d du lset agc ident metric errs freq avg</tt></p>
 The fields beginning with <tt>yyyy</tt> and extending through <tt>du</tt> are decoded from the received data and are in fixed-length format. The remaining fields are in variable-length format. The fields are as follows:
 <dl>
   <dt><tt>s</tt></dt>
