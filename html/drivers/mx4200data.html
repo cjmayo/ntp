@@ -34,10 +34,10 @@
 				</ul>
 		</ul>
 		<hr>
-		<h2><a name="control">Control Port Sentences</a></h2>
+		<h2 id="control">Control Port Sentences</h2>
 		<p>The Control (CDU) Port is used to initialize, monitor, and control the receiver. The structure of the control port sentences is based on the <cite>NMEA-0183</cite> Standard for Interfacing Marine Electronics Navigation Devices (version 1.5). For more details, please refer to the <cite>NMEA-0183</cite> Specification available from the <a href="http://www.nmea.org/">National Marine Electronics Association</a>.</p>
 		<p>Reserved characters are used to indicate the beginning and the end of records in the data stream, and to delimit data fields within a sentence. Only printable ASCII characters (Hex 20 through 7F) may be used in a sentence. <a href="#table_2">Table 2</a> lists the reserved characters and defines their usage. <a href="#table_1">Table 1</a> illustrates the general Magnavox proprietary NMEA sentence format.</p>
-		<h4><a name="table_1">Table 1. Magnavox Proprietary NMEA Sentence Format</a></h4>
+		<h4 id="table_1">Table 1. Magnavox Proprietary NMEA Sentence Format</h4>
 		<code>$PMVXG,XXX,...................*CK</code>
 		<p></p>
 		<table border>
@@ -78,7 +78,7 @@
 				<td>Optional Checksum</td>
 			</tr>
 		</table>
-		<h4><a name="table_2">Table 2. NMEA Sentence Reserved Characters</a></h4>
+		<h4 id="table_2">Table 2. NMEA Sentence Reserved Characters</h4>
 		<table border>
 			<tr>
 				<th>Character</th>
@@ -126,9 +126,9 @@
 			</tr>
 		</table>
 		<p>NULL fields are fields which do not contain any data. They would appear as two commas together in the sentence format, except for the final field. Some Magnavox proprietary sentences require that the format contain NULL fields. mandatory NULL fields are identified by an '*' next to the respective field.</p>
-		<h2><a name="input">Control Port Input Sentences</a></h2>
+		<h2 id="input">Control Port Input Sentences</h2>
 		These are the subset of the MX4200 control port input sentences sent by the NTP driver to the GPS receiver.
-		<h3><a name="input_000">$PMVXG,000</a></h3>
+		<h3 id="input_000">$PMVXG,000</h3>
 		<h4>Initialization/Mode Control - Part A</h4>
 		Initializes the time, position and antenna height of the MX4200.
 		<p></p>
@@ -225,7 +225,7 @@
 		Example:<br>
 		<code>$PMVXG,000,,,,,,,,,,*48</code><br>
 		<code>$PMVXG,000,,,,,5128.4651,N,00020.0715,W,58.04,*4F</code>
-		<h3><a name="input_001">$PMVXG,001</a></h3>
+		<h3 id="input_001">$PMVXG,001</h3>
 		<h4>Initialization/Mode Control - Part B</h4>
 		Specifies various navigation parameters: Altitude aiding, acceleration DOP limits, and satellite elevation limits.
 		<p></p>
@@ -316,7 +316,7 @@
 		</table>
 		Example:<br>
 		<code>$PMVXG,001,3,,0.1,0.1,10,10,5,U,0*06</code>
-		<h3><a name="input_007">$PMVXG,007</a></h3>
+		<h3 id="input_007">$PMVXG,007</h3>
 		<h4>Control Port Output Configuration</h4>
 		This message enables or disables output of the specified sentence and defines the output rate. The user sends this message for each sentence that the receiver is to output.
 		<p></p>
@@ -398,7 +398,7 @@
 		</table>
 		Example:<br>
 		<code>$PMVXG,007,022,0,1,,1,,,*4F</code>
-		<h3><a name="input_023">$PMVXG,023</a></h3>
+		<h3 id="input_023">$PMVXG,023</h3>
 		<h4>Time Recovery Configuration</h4>
 		This message is used to enable/disable the time recovery feature of the receiver. The time synchronization for the 1PPS output is specified in addition to a user time bias and an error tolerance for a valid pulse. This record is accepted in units configured for time recovery. If the back panel contains a 1PPS outlet, the receiver is a time recovery unit.
 		<p></p>
@@ -478,7 +478,7 @@
 		</table>
 		Example:<br>
 		<code>$PMVXG,023,S,U,A,500,0,1,*16</code>
-		<h3><a name="input_gpq">$CDGPQ,YYY</a></h3>
+		<h3 id="input_gpq">$CDGPQ,YYY</h3>
 		<h4>Query From a Remote Device / Request to Output a Sentence</h4>
 		Enables the controller to request a one-time transmission of a specific block label. To output messages at a periodic rate, refer to input sentence <a href="#input_007">$PMVXG,007</a>.
 		<p></p>
@@ -526,9 +526,9 @@
 		</table>
 		Example:<br>
 		<code>$CDGPQ,030*5E</code>
-		<h2><a name="output">Control Port Output Sentences</a></h2>
+		<h2 id="output">Control Port Output Sentences</h2>
 		These are the subset of the MX4200 control port output sentences recognized by the NTP driver.
-		<h3><a name="output_000">$PMVXG,000</a></h3>
+		<h3 id="output_000">$PMVXG,000</h3>
 		<h4>Receiver Status</h4>
 		Returns the current status of the receiver including the operating mode, number of satellites visible, and the number of satellites being tracked.
 		<p></p>
@@ -585,7 +585,7 @@
 		</table>
 		Example:<br>
 		<code>$PMVXG,000,TRK,3,3,0122,1*19</code>
-		<h3><a name="output_021">$PMVXG,021</a></h3>
+		<h3 id="output_021">$PMVXG,021</h3>
 		<h4>Position, Height, Velocity</h4>
 		This sentence gives the receiver position, height, navigation mode and velocity north/east. <em>This sentence is intended for post analysis applications.</em>
 		<p></p>
@@ -683,7 +683,7 @@
 		</table>
 		Example:<br>
 		<code>$PMVXG,021,142244.00,5128.4744,N,00020.0593,W,00054.4,0047.4,0000.1,-000.2,03*66</code>
-		<h3><a name="output_022">$PMVXG,022</a></h3>
+		<h3 id="output_022">$PMVXG,022</h3>
 		<h4>DOPs</h4>
 		This sentence reports the DOP (Dilution Of Precision) values actually used in the measurement processing corresponding to the satellites listed. The satellites are listed in receiver channel order. Fields 11-16 are output only on 12-channel receivers.
 		<p></p>
@@ -810,7 +810,7 @@
 		</table>
 		Example:<br>
 		<code>$PMVXG,022,142243.00,00.7,00.8,01.9,27,26,10,09,13,23*77</code>
-		<h3><a name="output_030">$PMVXG,030</a></h3>
+		<h3 id="output_030">$PMVXG,030</h3>
 		<h4>Software Configuration</h4>
 		This sentence contains the navigation processor and baseband firmware version numbers.
 		<p></p>
@@ -839,7 +839,7 @@
 		</table>
 		Example:<br>
 		<code>$PMVXG,030,DA35,015</code>
-		<h3><a name="output_101">$PMVXG,101</a></h3>
+		<h3 id="output_101">$PMVXG,101</h3>
 		<h4>Control Sentence Accept/Reject</h4>
 		This sentence is returned (on the Control Port) for every <strong>$PMVXG</strong> and <strong>$XXGPQ</strong> sentence that is received.
 		<p></p>
@@ -888,7 +888,7 @@
 		</table>
 		Example:<br>
 		<code>$PMVXG,101,GPQ,0,,030*0D</code>
-		<h3><a name="output_523">$PMVXG,523</a></h3>
+		<h3 id="output_523">$PMVXG,523</h3>
 		<h4>Time Recovery Configuration</h4>
 		This sentence contains the configuration of the time recovery function of the receiver.
 		<p></p>
@@ -959,7 +959,7 @@
 		</table>
 		Example:<br>
 		<code>$PMVXG,523,S,U,A,0500,000000,1,0*23</code>
-		<h3><a name="output_830">$PMVXG,830</a></h3>
+		<h3 id="output_830">$PMVXG,830</h3>
 		<h4>Time Recovery Results</h4>
 		This sentence is output approximately 1 second preceding the 1PPS output. It indicates the exact time of the next pulse, whether or not the time mark will be valid (based on operator-specified error tolerance), the time to which the pulse is synchronized, the receiver operating mode, and the time error of the <strong>last</strong> 1PPS output. The leap second flag (Field #11) is not output by older receivers.
 		<p></p>

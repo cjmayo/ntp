@@ -304,7 +304,7 @@
       <dt><tt>time1 <i>time</i></tt></dt>
       <dd>Specifies the PPS time offset calibration factor, in seconds
       and fraction, with default 0.0.</dd>
-      <dt><a name="fudgetime2"><tt>time2 <i>time</i></tt></a></dt>
+      <dt id="fudgetime2"><tt>time2 <i>time</i></tt></a></dt>
       <dd><em>[Primary Unit]</em> Specifies the TPV/TIME time offset
       calibration factor, in seconds and fraction, with default
       0.0.</dd>
@@ -337,14 +337,14 @@
 
     <!-- -- footnotes -------------------------------------------- -->
 
-    <p><sup><a name="fn1" href="#fn1bl">1) </a></sup>Data transmission
+    <p><sup id="fn1" href="#fn1bl">1)</sup> Data transmission
       an decoding is done only once by the primary unit. The decoded
       data is then processed independently in both clock units. This
       avoids double transmission over two sockets and decoding the
       same data twice, but the primary unit is always needed as a
       downside of this approach.
     </p>
-    <p><sup><a name="fn2" href="#fn2bl">2) </a></sup>The clock driver
+    <p><sup id="fn2" href="#fn2bl">2)</sup> The clock driver
       suppresses the processing PPS records when the TPV/TIME data
       indicates the receiver has no fix. It can also deal with
       situations where the PPS signal is not delivered
