@@ -94,7 +94,7 @@
 <p>The   nonencrypted client parameters     can be exported using the  command</p>
 <p><tt>ntp-keygen -e &gt;<i>file</i></tt>,</p>
 <p>where the <tt>-e</tt> option redirects the  client parameters to <tt><em>file</em></tt> via the standard output stream for a mail application or stored locally for later distribution to one or more THs.   In a similar fashion the  encrypted keys file can be exported using the command</p>
-<p><tt>ntp-keygen -q <em>passw2</em> &gt;<i>file</i></tt>,</p>
+<p><tt>ntp-keygen -q <em>passwd2</em> &gt;<i>file</i></tt>,</p>
 <p>where <tt><em>passwd2</em></tt> is the read password for another TA. We won't need this file here.</p>
 <p> While the file names used for the exported files are arbitrary, it is common practice to use the name given as the first line in the file with the filestamp suppressed. Thus, the nonencryted parameters file from each TA is copied to X with this name.</p>
 <p>To complete the configuration, the TH includes the client parameters file name in the <tt>ident</tt> option of the <tt>server</tt> command for the TA association</p>
