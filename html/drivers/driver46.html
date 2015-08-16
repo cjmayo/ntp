@@ -208,7 +208,7 @@
     <p>Units with numbers &ge;128 act as secondary clock unit for the
       primary clock unit (u mod 128). A secondary unit processes only
       the PPS data from <i>GPSD</i> and needs the corresponding master
-      unit to work<a href="#fn1" name="fn1bl"><sup>1</sup></a>. Use
+      unit to work<sup><a href="#fn1" name="fn1bl">1</a></sup>. Use
       the 'noselect' keyword on the primary unit if you are not
       interested in its data.
     </p><p>The secondary unit employs the usual precautions before
@@ -223,8 +223,8 @@
       unit asserts the PPS flag on the clock as long as PPS data is
       available. This makes the unit eligible as PPS peer and should
       only be used if the GPS receiver can be trusted for the quality
-      of its PPS signal<a href="fn2"
-      name="fn2bl"><sup>2</sup></a>. The PPS flag gets cleared if no
+      of its PPS signal<sup><a href="fn2"
+      name="fn2bl">2</a></sup>. The PPS flag gets cleared if no
       PPS records can be aquired for some time. The unit also flushes
       the sample buffer at this point to avoid the use of stale PPS
       data.</p>
@@ -337,14 +337,14 @@
 
     <!-- -- footnotes -------------------------------------------- -->
 
-    <p><a name="fn1" href="#fn1bl"><sup>1</sup>) </a>Data transmission
+    <p><sup><a name="fn1" href="#fn1bl">1) </a></sup>Data transmission
       an decoding is done only once by the primary unit. The decoded
       data is then processed independently in both clock units. This
       avoids double transmission over two sockets and decoding the
       same data twice, but the primary unit is always needed as a
       downside of this approach.
     </p>
-    <p><a name="fn2" href="#fn2bl"><sup>2</sup>) </a>The clock driver
+    <p><sup><a name="fn2" href="#fn2bl">2) </a></sup>The clock driver
       suppresses the processing PPS records when the TPV/TIME data
       indicates the receiver has no fix. It can also deal with
       situations where the PPS signal is not delivered
