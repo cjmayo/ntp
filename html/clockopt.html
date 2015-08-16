@@ -20,7 +20,7 @@
 <hr>
 <h4 id="addrs">Reference Clock Adddresses</h4>
 <p>Unless noted otherwise, further information about these ccommands is on the <a href="refclock.html">Reference Clock Support</a> page.</p><p>Reference clocks are identified by a syntactically correct but invalid IP address, in order to distinguish them from ordinary NTP peers. These  addresses are of the form 127.127.<em>t</em>.<em>u</em>, where <em>t</em> is an integer denoting the clock type and <em>u</em> indicates the unit number in the range 0-3. While it may seem overkill, it is in fact sometimes useful to configure multiple reference clocks of the same type, in which case the unit numbers must be unique.</p>
-<h4 id="cmd"> Commands and Options</h4>
+<h4 id="cmd">Commands and Options</h4>
 <dl>
   <dt id="server"><tt>server 127.127.<i>t.u</i> [prefer] [mode <i>int</i>] [minpoll <i>int</i>] [maxpoll <i>int</i>]</tt></dt>
   <dd>This command can be used to configure reference clocks in special ways. The options are interpreted as follows:
