@@ -125,7 +125,7 @@
     </p>
     <p>
       <table border="1" frame="box" rules="all">
-      <th colspan="3">The Mode Word</th>
+      <tr><th colspan="3">The Mode Word</th><th></th><th></th></tr>
 	<tr> <td>Bits</td><td>Value</td><td>Description</td>
 	</tr>
 	<tr> <td rowspan="4"align="center">0..1</td>
@@ -148,6 +148,7 @@
 	  </td>
 	</tr>
 	<tr>
+	  <td></td>
 	  <td align="center">1</td>
 	  <td>Strict operation. This mode needs a valid PPS and a
 	    valid STI to combine the absolute time from the STI with
@@ -162,7 +163,9 @@
 	    cannot be fudge-compensated.
 	  </td>
 	</tr>
-	<tr><td align="center">2</td>
+	<tr>
+	  <td></td>
+	  <td align="center">2</td>
 	  <td>Automatic mode. Tries to operate in strict mode unless
 	    it fails to process valid samples for some time, currently
 	    120s. Then it reverts to STI-only operation until the PPS
@@ -177,10 +180,12 @@
 	    all.</td>
 	</tr>
 	<tr>
+	  <td></td>
 	  <td align="center">3</td>
 	  <td><i>(reserved for future extension, do not use)</i></td>
 	</tr>
 	<tr>
+	  <td></td>
 	  <td align="center">2..31</td>
 	  <td colspan="2"><i>(reserved for future extension, do not
 	  use)</i></td>
@@ -243,7 +248,7 @@
       records.
     </p><p>
       <table border="1" frame="box" rules="all">
-	<th colspan="2">The Clockstats Line</th>
+	<tr><th colspan="2">The Clockstats Line</th><th></th>
 	<tr> <td>field</td><td>Description</td>	</tr>
 	<tr>
 	  <td align="center">1</td>
