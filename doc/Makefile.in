@@ -20,10 +20,11 @@ ALLSPHINXOPTS   = -D release=$(PACKAGE_VERSION) -d $(BUILDDIR)/doctrees $(PAPERO
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) source
 
-.PHONY: help clean html htmlsource dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest coverage gettext
+.PHONY: help clean copyright html htmlsource dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest coverage gettext
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
+	@echo "  copyright  to make the copyright notice"
 	@echo "  html       to make standalone HTML files"
 	@echo "  htmlsource to make standalone HTML files and include reST source files"
 	@echo "  dirhtml    to make HTML files named index.html in directories"
@@ -52,6 +53,11 @@ help:
 
 clean:
 	rm -rf $(BUILDDIR)
+
+copyright:
+	$(SPHINXBUILD) -b text $(ALLSPHINXOPTS) $(BUILDDIR)/text source/copyright.rst
+	@echo
+	@echo "Build finished. The copyright.txt file is in $(BUILDDIR)/text."
 
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
