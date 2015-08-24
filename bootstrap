@@ -15,8 +15,8 @@
 #
 #  1.  Autoconf and Automake.
 #
-#  2.  lynx.  This is used to extract the COPYRIGHT file extracted from
-#      the html documentation.
+#  2.  Sphinx.  This is used to build the html documentation and
+#      the COPYRIGHT file from the reST files in doc/source.
 #
 #  *** The following are no longer needed for simple builds from the repo
 #  3.  AutoGen.  The repository does *not* contain the files generated from
