@@ -4378,6 +4378,7 @@ AC_CONFIG_FILES([tests/ntpq/Makefile])
 AC_CONFIG_FILES([tests/sandbox/Makefile])
 AC_CONFIG_FILES([tests/sec-2853/Makefile])
 AC_CONFIG_FILES([util/Makefile])
+AC_CONFIG_FILES([doc/Makefile])
 
 perllibdir="${datadir}/ntp/lib"
 AC_DEFINE_DIR([PERLLIBDIR], [perllibdir], [data dir])
