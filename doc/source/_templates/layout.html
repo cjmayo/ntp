@@ -1,0 +1,6 @@
+{% extends "!layout.html" %}
+{% block rootrellink %}
+  <li><a href="http://ntp.org">ntp.org</a>&nbsp;|</li>
+  <li><a href="{{ pathto('index') }}">{{ _('Home') }}</a>&nbsp;|</li>
+  {{ super() }}
+{% endblock %}
