@@ -66,7 +66,7 @@ DISTCLEANFILES = .gcc-warning
 BUILT_SOURCES =				\
 	.gcc-warning			\
 	libtool				\
-	html/.datecheck			\
+	html/index.html			\
 	$(srcdir)/COPYRIGHT		\
 	$(srcdir)/.checkChangeLog	\
 	$(NULL)
@@ -83,9 +83,9 @@ BUILT_SOURCES =				\
 	@sleep 1
 	@touch $@
 
-html/.datecheck: FRC.html
-	cd $(srcdir)/html && \
-	../scripts/build/checkHtmlFileDates
+html/index.html:
+	cd $(srcdir)/doc && \
+	make html && mv -f build/html/* $(abs_top_builddir)/html
 
 libtool: $(LIBTOOL_DEPS)
 	./config.status --recheck
@@ -155,7 +155,7 @@ BHOST=`(hostname || uname -n)`
 		echo " "; \
 	fi
 
-FRC.CommitLog FRC.checkcvo FRC.checkhost FRC.distwarn FRC.html FRC.sntp:
+FRC.CommitLog FRC.checkcvo FRC.checkhost FRC.distwarn FRC.sntp:
 	@: do-nothing action prevents any default
 
 # HMS: what was I trying to do with this?

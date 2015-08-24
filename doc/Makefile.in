@@ -54,6 +54,9 @@ help:
 clean:
 	rm -rf $(BUILDDIR)
 
+all:
+	@: Do nothing
+
 copyright:
 	$(SPHINXBUILD) -b text $(ALLSPHINXOPTS) $(BUILDDIR)/text source/copyright.rst
 	@echo
