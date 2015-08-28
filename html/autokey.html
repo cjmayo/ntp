@@ -47,7 +47,7 @@
 <p>The certificates derived from each association are combined in the cache with duplicates suppressed. If it happens that two different associations contribute certificates to the cache, a certificate on the trail from one association  could expire before any on another trail. In this case the remaining trails  will survive until the expired certificate is replaced. Once saved in the cache, a certificate remains valid until it expires or is replaced by a new one.</p>
 <p> It is important to note that the certificate trail is validated only at startup when an association is mobilized. Once validated in this way,  the server remains valid until it  is demobilized, even if  certificates on the trail to the THs expire. While the certificate trail authenticates each host on the trail to  the THs, it does not   validate  the time values themselves. Ultimately, this is determined by the NTP on-wire protocol.</p>
 <p>Example</p>
-<div align="center"><img src="pic/flt8.gif" alt="gif">
+<div align="center"><img src="pic/flt8.png" alt="png">
   <p>Figure 1. Example Configuration</p>
 </div>
 <p>Figure 1 shows an example configuration with three NTP subnets, Alice, Helen and Carol. Alice and Helen are parent groups for Carol with TA C belonging to Alice and TA S belonging to Helen.  Hosts A and B are THs of Alice, host R is the TH of Helen and host X is the TH of Carol. Assume that all associations are client/server,  child subnet TH X has two mobilized associations, one to Alice TA host C and the other to Carol TA host S. While not shown in the figure, Alice hosts A and B could configure symmetric mode associations between them for redundancy and backup.</p>
@@ -60,7 +60,7 @@
 <p>NTP security groups are an extension of the NTP subnets described in the previous section. They include in addition to certificate trails one or another identity schemes described on the <a href="http://www.eecis.udel.edu/~mills/ident.html">Autokey Identity Schemes</a> page. NTP secure groups are used to define cryptographic compartments and security
   hierarchies. The identity scheme insures that the server is authentic and not victim of masquerade by an intruder acting as a middleman.</p>
 <p> An NTP secure group is an NTP subnet  configured as an acyclic tree rooted on the THs. The THs are at the lowest stratum of the secure group. They  run an identity exchange with the TAs of  parent subnets All group hosts construct an  unbroken  certificate trail from each host, possibly via intermediate hosts, and ending at a TH of that group. The TH verifies authenticity with the  TA of the parent subnet using an identity exchange.</p>
-<div align="center"><img src="pic/flt9.gif" alt="gif">
+<div align="center"><img src="pic/flt9.png" alt="png">
   <p>Figure 2. Identify Scheme</p>
 </div>
 <p>The identity exchange is run between a TA acting as a server and a TH acting as a client. As shown in Figure 2, the  identity exchange involves a challenge-response protocol where a client generates a nonce and sends it to the server. The server performs a mathematical operation involving a second nonce and the secret group key, and sends the result along with a hash to the client. The client performs a another mathematical operation and verifies the result with the hash.</p>

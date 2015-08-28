@@ -25,11 +25,11 @@
   address of each core server. Each orphan child chooses the orphan
   parent as the core server with the smallest metric.</p>
 <p>For orphan mode to work well, each core server with available sources should operate at the same stratum. All core servers and orphan children should include the same <font face="Courier New, Courier, Monaco, monospace">tos</font> command in the configuration file. Each orphan child should include in the configuration file all root servers.</p>
-<div align="center"> <img src="pic/peer.gif" alt="gif">
+<div align="center"> <img src="pic/peer.png" alt="png">
   <p>Figure 1. Orphan Peer Configuration</p>
 </div>
 <p>For example, consider the peer network configuration in Figure 1, where two or more campus primary or secondary (stratum 2) servers are configured with reference clocks or public Internet primary servers and with each other using symmetric modes. With this configuration a server that loses all sources continues to discipline the system clock using the other servers as backup. Only the core servers and orphan children need to be enabled for orphan mode.</p>
-<div align="center"> <img src="pic/broad.gif" alt="gif">
+<div align="center"> <img src="pic/broad.png" alt="png">
   <p>Figure 2. Orphan Broadcast Configuration</p>
 </div>
 <p>For broadcast networks each core server is configured in both broadcast server and broadcast client modes as shown in Figure 2. Orphan children operate as broadcast clients of all core servers. As in peer networks, the core servers back up each other and only they and the orphan children need to be enabled for orphan mode.</p>
