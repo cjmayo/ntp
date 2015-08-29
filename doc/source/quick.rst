@@ -24,7 +24,7 @@ Server Discovery <discover>` page. There are
 about two dozen public time servers operated by the `National Institutes
 of Science and Technology
 (NIST) <http://tf.nist.gov/tf-cgi/servers.cgi>`__, `US Naval Observatory
-(USNO) <http://tycho.usno.navy.mil/ntp.html>`__, `Canadian National
+(USNO) <http://www.usno.navy.mil/USNO/time/ntp>`__, `Canadian National
 Research Council
 (NRC) <http://www.nrc-cnrc.gc.ca/eng/services/time/network_time.html>`__
 and many others available on the Internet. Lists of public primary and
