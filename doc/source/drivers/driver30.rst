@@ -143,6 +143,6 @@ that performance has been reproduced. For more details on this aspect:
 `Sub-Microsecond timekeeping under
 FreeBSD <http://phk.freebsd.dk/rover.html>`__.
 
-.. |image0| image:: ../pic/oncore_utplusbig.gif
-.. |image1| image:: ../pic/oncore_evalbig.gif
+.. |image0| image:: ../pic/oncore_utplusbig.png
+.. |image1| image:: ../pic/oncore_evalbig.png
 .. |image2| image:: ../pic/oncore_remoteant.jpg

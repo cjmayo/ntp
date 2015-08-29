@@ -378,4 +378,4 @@ one to several minutes with modern architectures such as UltraSPARC and
 up to tens of minutes to an hour with older architectures such as SPARC
 IPC.
 
-.. |image0| image:: pic/sx5.gif
+.. |image0| image:: pic/sx5.png

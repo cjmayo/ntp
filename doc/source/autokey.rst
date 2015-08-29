@@ -939,5 +939,5 @@ provisions are now available whether or not the OpenSSL library is
 available. However, the functions that can download these values from
 servers remains available.
 
-.. |image0| image:: pic/flt8.gif
-.. |image1| image:: pic/flt9.gif
+.. |image0| image:: pic/flt8.png
+.. |image1| image:: pic/flt9.png

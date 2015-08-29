@@ -55,4 +55,4 @@ In the interior of the wedge scattergram far from the limb lines, the
 corrections are less effective and can lead to significant errors if the
 area between the limb lines is heavily populated.
 
-.. |image0| image:: pic/flt4.gif
+.. |image0| image:: pic/flt4.png

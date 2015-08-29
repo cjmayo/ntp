@@ -570,5 +570,5 @@ Fudge Factors
 ``flag4 0 | 1``
     Enable verbose ``clockstats`` recording if set.
 
-.. |image0| image:: ../pic/offset1211.gif
-.. |image1| image:: ../pic/freq1211.gif
+.. |image0| image:: ../pic/offset1211.png
+.. |image1| image:: ../pic/freq1211.png

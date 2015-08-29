@@ -237,4 +237,4 @@ Questions or Comments:
 `Bernd Altmeier <mailto:altmeier@atlsoft.de>`__\ `
 Ing.-Büro für Software www.ATLSoft.de <http://www.ATLSoft.de>`__
 
-.. |image0| image:: ../pic/fg6021.gif
+.. |image0| image:: ../pic/fg6021.png

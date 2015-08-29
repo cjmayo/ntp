@@ -538,7 +538,7 @@ Additional Information
 .. |Image PZF511| image:: ../pic/pzf511.jpg
 .. |Image C51| image:: ../pic/c51.jpg
 .. |Image GPS167| image:: ../pic/gps167.jpg
-.. |Image IGEL clock| image:: ../pic/igclock.gif
-.. |Image SVeeSix-CM3| image:: ../pic/pd_om011.gif
-.. |Image Lassen-SK8| image:: ../pic/pd_om006.gif
-.. |Image DCF77 Interface Board| image:: ../pic/fg6021.gif
+.. |Image IGEL clock| image:: ../pic/igclock.png
+.. |Image SVeeSix-CM3| image:: ../pic/pd_om011.png
+.. |Image Lassen-SK8| image:: ../pic/pd_om006.png
+.. |Image DCF77 Interface Board| image:: ../pic/fg6021.png

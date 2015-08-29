@@ -211,4 +211,4 @@ estimated error and maximum error are reported to user programs via the
 :doc:`Kernel Model for Precision Timekeeping
 <kern>` page for further information.
 
-.. |image0| image:: pic/stats.gif
+.. |image0| image:: pic/stats.png

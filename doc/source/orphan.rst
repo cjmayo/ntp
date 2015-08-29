@@ -104,5 +104,5 @@ is automatically configured as described in the NTP specification. If
 all UTC sources are lost, all core servers become orphans and the orphan
 children will select the same core server to become the orphan parent.
 
-.. |image0| image:: pic/peer.gif
-.. |image1| image:: pic/broad.gif
+.. |image0| image:: pic/peer.png
+.. |image1| image:: pic/broad.png

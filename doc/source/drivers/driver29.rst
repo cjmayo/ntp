@@ -2524,5 +2524,5 @@ https://lists.ntp.org/pipermail/hackers/2006-April/002216.html
 
 (last updated January 15, 2007)
 
-.. |image0| image:: ../pic/driver29.gif
+.. |image0| image:: ../pic/driver29.png
 .. |jpg| image:: ../pic/thunderbolt.jpg

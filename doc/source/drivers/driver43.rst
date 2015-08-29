@@ -103,4 +103,4 @@ Additional Information
 <../refclock>`
 
 .. |Trimble Acutime 2000| image:: ../pic/driver43_2.jpg
-.. |RIPE NCC clock card| image:: ../pic/driver43_1.gif
+.. |RIPE NCC clock card| image:: ../pic/driver43_1.png

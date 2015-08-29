@@ -224,5 +224,5 @@ additional information on statistacl principles and performance metrics,
 see the :doc:`Performance Metrics
 <stats>` page.
 
-.. |image0| image:: pic/time1.gif
-.. |image1| image:: pic/fig_3_1.gif
+.. |image0| image:: pic/time1.png
+.. |image1| image:: pic/fig_3_1.png

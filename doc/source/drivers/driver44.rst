@@ -89,4 +89,4 @@ time**
 Please send any comments or question to
 `neoclock4x@linum.com <mailto:neoclock4@linum.com>`__.
 
-.. |NeoClock4X - DCF77 receiver| image:: ../pic/neoclock4x.gif
+.. |NeoClock4X - DCF77 receiver| image:: ../pic/neoclock4x.png

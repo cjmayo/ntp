@@ -142,5 +142,5 @@ value of ``mindist``, with default 1 ms. This value can be changed using
 the ``mindist`` option of the :ref:`tos
 <miscopt-tos>` command.
 
-.. |image0| image:: pic/flt3.gif
-.. |image1| image:: pic/flt6.gif
+.. |image0| image:: pic/flt3.png
+.. |image1| image:: pic/flt6.png

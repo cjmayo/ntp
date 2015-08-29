@@ -92,4 +92,4 @@ statistics passed on to dependent clients. Note the use of root distance
 is to favor the survivors with the lowest root distance and thus the
 smallest maximum error.
 
-.. |image0| image:: pic/flt7.gif
+.. |image0| image:: pic/flt7.png

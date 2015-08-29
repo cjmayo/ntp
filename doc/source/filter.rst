@@ -117,6 +117,6 @@ register, or more to the point, the output sample rate can never be less
 than one in eight input samples. The clock discipline algorithm is
 specifically designed to operate at this rate.
 
-.. |image0| image:: pic/flt5.gif
-.. |image1| image:: pic/flt1.gif
-.. |image2| image:: pic/flt2.gif
+.. |image0| image:: pic/flt5.png
+.. |image1| image:: pic/flt1.png
+.. |image2| image:: pic/flt2.png

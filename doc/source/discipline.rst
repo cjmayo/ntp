@@ -211,4 +211,4 @@ The interval can be changed using the ``orphanwait`` option of the
 :ref:`tos
 <miscopt-tos>` command.
 
-.. |image0| image:: pic/discipline.gif
+.. |image0| image:: pic/discipline.png

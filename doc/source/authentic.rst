@@ -176,4 +176,4 @@ Public Key Cryptography
 See the :doc:`Autokey Public-Key Authentication
 <autokey>` page.
 
-.. |image0| image:: pic/sx5.gif
+.. |image0| image:: pic/sx5.png
