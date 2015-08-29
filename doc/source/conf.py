@@ -1,3 +1,5 @@
+from sphinx.util.texescape import tex_replacements
+
 extensions = ['sphinx.ext.extlinks']
 source_suffix = ['.rst']
 project = 'NTP'
@@ -20,3 +22,11 @@ extlinks = {
 def setup(app):
   app.add_object_type('confval', 'confval',
     'pair: %s; configuration value')
+  # Define LaTeX mathematical symbol replacements
+  # To lookup see:
+  # http://www.w3.org/Math/characters/html/symbol.html
+  # https://en.wikibooks.org/wiki/LaTeX/Mathematics
+  tex_replacements.extend((
+    (u'\u2212', '$-$'),
+    (u'\u2265', '$\ge$'),
+  ))
