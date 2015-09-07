@@ -1,7 +1,9 @@
 JJY Receivers
 =============
 
-:doc:`JAPANESE<driver40-ja>`
+.. only:: html
+
+  :doc:`JAPANESE<driver40-ja>`
 
 Synopsis
 --------

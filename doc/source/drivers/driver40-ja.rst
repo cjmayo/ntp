@@ -1,5 +1,5 @@
-JJY Receivers
-=============
+JJY Receivers (日本語)
+======================
 
 :doc:`ENGLISH（英語）<driver40>`
 

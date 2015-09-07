@@ -136,10 +136,13 @@ latex:
 	@echo "Run \`make' in that directory to run these through (pdf)latex" \
 	      "(use \`make latexpdf' here to do that automatically)."
 
-latexpdf:
+latexpdf: clean
+	# driver40-ja.rst contains Japanese characters which breaks pdflatex
+	mv source/drivers/driver40-ja.rst source/drivers/driver40-ja.rst.skip
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
 	@echo "Running LaTeX files through pdflatex..."
 	$(MAKE) -C $(BUILDDIR)/latex all-pdf
+	mv source/drivers/driver40-ja.rst.skip source/drivers/driver40-ja.rst
 	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/latex."
 
 latexpdfja:
