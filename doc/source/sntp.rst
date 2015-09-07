@@ -15,10 +15,10 @@ used to query a Network Time Protocol (NTP) server and display the time
 offset of the system clock relative to the server clock. Run as root it
 can correct the system clock to this offset as well. It can be run as an
 interactive command or from a script by a ``cron`` job. The program
-implements the SNTP client protocol defined in RFC 5905, including the
+implements the SNTP client protocol defined in :rfc:`5905`, including the
 full on-wire protocol but does not provide the sanity checks, access
 controls, security functions and mitigation algorithms as in the full
-NTP version 4 specification, also defined in RFC 5905.
+NTP version 4 specification, also defined in :rfc:`5905`.
 
 By default, ``sntp`` writes the local date and time (i.e., not UTC) to
 the standard output in the format

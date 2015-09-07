@@ -70,7 +70,7 @@ detailed description of these parts and the files used is given below:
 Detailed Description
 ----------------------------------------------------
 
-**ntp\_scanner.c**
+``ntp_scanner.c``
     This file contains the scanner. The scanner is a small program that
     converts an input NTP configuration file into a set of **tokens**
     that correspond to **lexemes** in the input. Lexemes are strings in
@@ -103,7 +103,7 @@ Detailed Description
     Every time the scanner reads a lexeme, it compares it against the
     list of reserved words. If it finds a match, it returns the
     corresponding token for that keyword.
-**ntp\_data\_structures.c**
+``ntp_data_structures.c``
     This file contains an implementation of a generic priority queue and
     FIFO queue. By generic, we mean that these queues can hold element
     of any type (integers, user-defined structs, etc.), provided that
@@ -145,7 +145,7 @@ Detailed Description
 ``void append_queue(queue *q1, queue *q2)``
     This function adds all the elements of ``q2`` to ``q1``. The queue
     ``q2`` is destroyed in the process.
-**ntp\_config.y**
+``ntp_config.y``
     This file is structured as a standard Bison file and consists of
     three main parts, separated by ``%%``:
 
@@ -162,7 +162,7 @@ Detailed Description
 #. The epilogue: This section is left empty on purpose. It is
    traditionally used to code the support functions needed to build the
    ASTs Since, we have moved all the support functions to
-   **ntp\_config.c**, this section is left empty.
+   ``ntp_config.c``, this section is left empty.
 
 Prologue and Bison Declarations
 -------------------------------
@@ -172,25 +172,44 @@ the prologue section. Note that terminals and non-terminals may have
 values associated with them and these values have types. (More on this
 later). An unnamed union has to be declared with all the possible types
 at the start of the prologue section. For example, we declare the
-following union at the start of the **ntp\_config.y** file:
+following union at the start of the ``ntp_config.y`` file:
 
-``%union {       char *String;       double Double;       int Integer;       void *VoidPtr;       queue *Queue;       struct attr_val *Attr_val;       struct address_node *Address_node;       struct setvar_node *Set_var;       /* Simulation types */       server_info *Sim_server;       script_info *Sim_script;   }``
+.. code:: c
+
+   %union {
+       char *String;
+       double Double;
+       int Integer;
+       void *VoidPtr;
+       queue *Queue;
+       struct attr_val *Attr_val;
+       struct address_node *Address_node;
+       struct setvar_node *Set_var;
+       /* Simulation types */
+       server_info *Sim_server;
+       script_info *Sim_script;
+   }
 
 Some tokens may not have any types. For example, tokens that correspond
 to reserved words do not usually have types as they simply indicate that
 a reserved word has been read in the input file. Such tokens have to be
 declared as follows:
 
-``%token T_Discard   %token T_Dispersion``
+.. code:: c
+
+   %token T_Discard
+   %token T_Dispersion
 
 Other tokens do have types. For example, a ``T_Double`` token is
 returned by the scanner whenever it sees a floating-point double in the
 configuration file. The value associated with the token is the actual
 number that was read in the configuration file and its type (after
 conversion) is double. Hence, the token ``T_Double`` will have to be
-declared as follows in the prologue of **ntp\_config.y** file:
+declared as follows in the prologue of ``ntp_config.y`` file:
 
-``%token <Double> T_Double``
+.. code:: c
+
+   %token <Double> T_Double
 
 Note that the declaration given in the angled brackets is not ``double``
 but ``Double``, which is the name of the variable given in the
@@ -204,7 +223,10 @@ detected. The return values of these functions are the values associated
 with the non-terminals. The types of the non-terminals are specified
 with a ``%type`` declaration as shown below:
 
-``%type <Queue> address_list   %type <Integer> boolean``
+.. code:: c
+
+   %type <Queue> address_list
+   %type <Integer> boolean
 
 The ``%type`` declaration may be omitted for non-terminals that do not
 return any value and do not have type information associated with them.
@@ -215,7 +237,10 @@ The Rules Section
 The rule section only consists of phrase-structure grammar rules. Each
 rule typically has the following format:
 
-``LHS : RHS [{ Actions }]       ;``
+.. code:: c
+
+   LHS : RHS [{ Actions }]
+       ;
 
 where LHS consists of a single non-terminal symbol and the RHS consists
 of one or more terminal and non-terminal symbols. The ``Actions`` are
@@ -224,9 +249,17 @@ that Bison can only process LALR(1) grammars, which imposes additional
 restrictions on the kind of rules that can be specified. Examples of
 rules are shown below:
 
-``orphan_mode_command       : T_Tos tos_option_list           { append_queue(my_config.orphan_cmds, $2); }       ;``
+.. code:: c
 
-``tos_option_list       : tos_option_list tos_option { $$ = enqueue($1, $2); }       | tos_option { $$ = enqueue_in_new_queue($1); }       ;``
+   orphan_mode_command
+       : T_Tos tos_option_list
+           { append_queue(my_config.orphan_cmds, $2); }
+       ;
+
+   tos_option_list
+       : tos_option_list tos_option { $$ = enqueue($1, $2); }
+       | tos_option { $$ = enqueue_in_new_queue($1); }
+       ;
 
 The ``$n`` notation, where ``n`` is an integer, is used to refer to the
 value of a terminal or non-terminal symbol. All terminals and
@@ -239,19 +272,19 @@ the LHS of the rule.
 Invoking Bison
 --------------
 
-Bison needs to be invoked in order to convert the **ntp\_config.y** file
+Bison needs to be invoked in order to convert the ``ntp_config.y`` file
 into a C source file. To invoke Bison, simply enter the command:
 
 ``bison ntp_config.y``
 
 at the command prompt. If no errors are detected, an
-**ntp\_config.tab.c** file will be generated by default. This generated
-file can be directly included into the **ntp\_config.c** file.
+``ntp_config.tab.c`` file will be generated by default. This generated
+file can be directly included into the ``ntp_config.c`` file.
 
 If Bison report shift-reduce errors or reduce-reduce errors, it means
 that the grammar specified using the rules in not LALR(1). To debug such
 a grammar, invoke Bison with a ``-v`` switch, as shown below. This will
-generate a **ntp\_config.output** file, which will contain a description
+generate a ``ntp_config.output`` file, which will contain a description
 of the generated state machine, together with a list of states that have
 shift-reduce/reduce-reduce conflicts. You can then change the rules to
 remove such conflicts.
@@ -261,7 +294,7 @@ remove such conflicts.
 For more information, refer to the `Bison
 manual <http://www.gnu.org/software/bison/manual/>`__.
 
-**ntp\_config.c**
+``ntp_config.c``
 
 This file contains the major chunk of the configuration code including
 all the support functions needed for building and traversing the ASTs.
@@ -284,15 +317,15 @@ the NTP reference implementation:
 
 #. Write phrase-structure grammar rules for the syntax of the new
    command. Add these rules to the rules section of the
-   **ntp\_config.y** file.
+   ``ntp_config.y`` file.
 #. Write the action to be performed on recognizing the rules. These
    actions will be used to build the AST.
 #. If new reserved words are needed, add these to the
-   ``struct key_tok keyword_list[]``\ structure in the **ntp\_config.c**
+   ``struct key_tok keyword_list[]``\ structure in the ``ntp_config.c``
    file. This will allow the scanner to recognize these reserved words
    and generate the desired tokens on recognizing them.
 #. Specify the types of all the terminals and non-terminal symbols in
-   the prologue section of the **ntp\_config.c** file.
+   the prologue section of the ``ntp_config.c`` file.
 #. Write a function with a ``config_`` prefix that will be executed for
    this new command. Make sure this function is called in the
    ``config_ntpd()``\ function.

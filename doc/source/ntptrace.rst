@@ -13,8 +13,8 @@ Description
 ``ntptrace`` is a ``perl`` script that uses the ``ntpq`` utility program
 to follow the chain of NTP servers from a given host back to the primary
 time source. For ``ntptrace`` to work properly, each of these servers
-must implement the NTP Control and Monitoring Protocol specified in RFC
-1305 and enable NTP Mode 6 packets.
+must implement the NTP Control and Monitoring Protocol specified in
+:rfc:`1305` and enable NTP Mode 6 packets.
 
 If given no arguments, ``ntptrace`` starts with ``localhost``. Here is
 an example of the output from ``ntptrace``:
@@ -34,7 +34,7 @@ stratum-1 servers) the reference clock ID. All times are given in
 seconds. Note that the stratum is the server hop count to the primary
 source, while the synchronization distance is the estimated error
 relative to the primary source. These terms are precisely defined in
-RFC-1305.
+:rfc:`1305`.
 
 Options
 -------

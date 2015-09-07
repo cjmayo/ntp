@@ -13,7 +13,7 @@ Description
 The ``ntpq`` utility program is used to monitor NTP daemon ``ntpd``
 operations and determine performance. It uses the standard NTP mode 6
 control message formats defined in Appendix B of the NTPv3 specification
-RFC1305. The same formats are used in NTPv4, although some of the
+:rfc:`1305`. The same formats are used in NTPv4, although some of the
 variable names have changed and new ones added. The description on this
 page is for the NTPv4 variables.
 
@@ -44,8 +44,7 @@ Note that in contexts where a host name is expected, a ``-4`` qualifier
 preceding the host name forces DNS resolution to the IPv4 namespace,
 while a ``-6`` qualifier forces DNS resolution to the IPv6 namespace.
 
-For examples and usage, see the :doc:`NTP
-Debugging Techniques <debug>` page.
+For examples and usage, see the :doc:`NTP Debugging Techniques <debug>` page.
 
 Command line options are described following. Specifying a command line
 option other than ``-i`` or ``-n`` will cause the specified query
@@ -115,10 +114,10 @@ following.
 
 .. _ntpq-addvars:
 
-``addvars name [ = value] [...]``
-``rmvars name [...]``
-
-.. option:: clearvars
+.. option::
+    addvars name [ = value] [...]
+    rmvars name [...]
+    clearvars
 
     The arguments to this command consist of a list of items of the form
     ``name = value``, where the ``= value`` is ignored, and can be
@@ -140,7 +139,8 @@ following.
 
 .. _ntpq-debug:
 
-``debug more | less | off``
+.. option:: debug more | less | off
+
     Turns internal query program debugging on and off.
 
 .. _ntpq-delay:
@@ -190,7 +190,8 @@ following.
 
 .. _ntpq-ntpversion:
 
-``ntpversion 1 | 2 | 3 | 4``
+.. option:: ntpversion 1 | 2 | 3 | 4
+
     Sets the NTP version number which ``ntpq`` claims in packets.
     Defaults to 2, Note that mode-6 control messages (and modes, for
     that matter) didn't exist in NTP version 1.
@@ -241,7 +242,9 @@ associations.
 .. option:: associations
 
     Display a list of mobilized associations in the form
+
     ``ind assid status conf reach auth condition last_event cnt``
+
     +------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
     | Variable         | Description                                                                                                                                  |
     +------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
@@ -249,7 +252,7 @@ associations.
     +------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
     | ``assid``        | association ID                                                                                                                               |
     +------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-    | ``status``       | :ref:`peer status word <decode-peer>`                                                      |
+    | ``status``       | :ref:`peer status word <decode-peer>`                                                                                                        |
     +------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
     | ``conf``         | ``yes``: persistent, ``no``: ephemeral                                                                                                       |
     +------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
@@ -257,24 +260,26 @@ associations.
     +------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
     | ``auth``         | ``ok``, ``yes``, ``bad`` and ``none``                                                                                                        |
     +------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-    | ``condition``    | selection status (see the ``select`` field of the :ref:`peer status word <decode-peer>`)   |
+    | ``condition``    | selection status (see the ``select`` field of the :ref:`peer status word <decode-peer>`)                                                     |
     +------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-    | ``last_event``   | event report (see the ``event`` field of the :ref:`peer status word <decode-peer>`)        |
+    | ``last_event``   | event report (see the ``event`` field of the :ref:`peer status word <decode-peer>`)                                                          |
     +------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-    | ``cnt``          | event count (see the ``count`` field of the :ref:`peer status word <decode-peer>`)         |
+    | ``cnt``          | event count (see the ``count`` field of the :ref:`peer status word <decode-peer>`)                                                           |
     +------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. _ntpq-cv:
 
-``clockvar assocID [name [ = value [...]] [...]``
-``cv assocID [name [ = value [...] ][...]``
-    Display a list of :ref:`clock variables
-    <ntpq-clock>` for those associations
-    supporting a reference clock.
+.. option::
+    clockvar assocID [name [ = value [...]] [...]
+    cv assocID [name [ = value [...] ][...]
+
+    Display a list of :ref:`clock variables  <ntpq-clock>`
+    for those associations supporting a reference clock.
 
 .. _ntpq-:config:
 
-``:config [...]``
+.. option:: :config [...]
+
     Send the remainder of the command line, including whitespace, to the
     server as a run-time configuration command in the same format as the
     configuration file. This command is experimental until further
@@ -342,6 +347,7 @@ associations.
     ``count``, ``avgint``, ``lstint``, or any of those preceded by a
     minus sign (hyphen) to reverse the sort order. The output columns
     are:
+
     +----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
     | Column               | Description                                                                                                                                                                                                                                              |
     +----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -366,11 +372,12 @@ associations.
 
 .. _ntpq-mreadvar:
 
-``mreadvar assocID assocID [ variable_name [ = value[ ... ]``
+.. option:: mreadvar assocID assocID [ variable_name [ = value[ ... ]
 
 .. _ntpq-mrv:
 
-``mrv assocID assocID [ variable_name [ = value[ ... ]``
+.. option:: mrv assocID assocID [ variable_name [ = value[ ... ]
+
     Perform the same function as the ``readvar`` command, except for a
     range of association IDs. This range is determined from the
     association list cached by the most recent ``associations`` command.
@@ -388,14 +395,15 @@ associations.
 
     Display a list of peers in the form
     ``[tally]remote refid st t when pool reach delay offset jitter``
+
     +---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
     | Variable      | Description                                                                                                                                                                                                  |
     +---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | ``[tally]``   | single-character code indicating current value of the ``select`` field of the :ref:`peer status word <decode-peer>`                                        |
+    | ``[tally]``   | single-character code indicating current value of the ``select`` field of the :ref:`peer status word <decode-peer>`                                                                                          |
     +---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
     | ``remote``    | host name (or IP number) of peer                                                                                                                                                                             |
     +---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | ``refid``     | association ID or :ref:`kiss code <decode-kiss>`                                                                                                           |
+    | ``refid``     | association ID or :ref:`kiss code <decode-kiss>`                                                                                                                                                             |
     +---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
     | ``st``        | stratum                                                                                                                                                                                                      |
     +---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -416,8 +424,10 @@ associations.
 
 .. _ntpq-rv:
 
-``readvar assocID name [ = value ] [,...]``
-``rv assocID [ name ] [,...]``
+.. option::
+    readvar assocID name [ = value ] [,...]
+    rv assocID [ name ] [,...]
+
     Display the specified variables. If ``assocID`` is zero, the
     variables are from the :ref:`system
     variables <ntpq-system>` name space,
@@ -449,7 +459,8 @@ associations.
 
 .. _ntpq-writevar:
 
-``writevar assocID name = value [,...]``
+.. option:: writevar assocID name = value [,...]
+
     Write the specified variables. If the ``assocID`` is zero, the
     variables are from the :ref:`system
     variables <ntpq-system>` name space,
@@ -502,7 +513,7 @@ variables are displayed in some configurations.
 +------------------+----------------------------------------------------------------------------------------------------+
 | Variable         | Description                                                                                        |
 +------------------+----------------------------------------------------------------------------------------------------+
-| ``status``       | :ref:`system status word <decode-sys>`           |
+| ``status``       | :ref:`system status word <decode-sys>`                                                             |
 +------------------+----------------------------------------------------------------------------------------------------+
 | ``version``      | NTP software version and build time                                                                |
 +------------------+----------------------------------------------------------------------------------------------------+
@@ -528,7 +539,7 @@ variables are displayed in some configurations.
 +------------------+----------------------------------------------------------------------------------------------------+
 | ``clock``        | date and time of day                                                                               |
 +------------------+----------------------------------------------------------------------------------------------------+
-| ``refid``        | reference ID or :ref:`kiss code <decode-kiss>`   |
+| ``refid``        | reference ID or :ref:`kiss code <decode-kiss>`                                                     |
 +------------------+----------------------------------------------------------------------------------------------------+
 | ``reftime``      | reference time                                                                                     |
 +------------------+----------------------------------------------------------------------------------------------------+
@@ -590,11 +601,11 @@ association. Not all variables are displayed in some configurations.
 +----------------------------+------------------------------------------------------------------------------------------------------------------------------+
 | ``associd``                | association ID                                                                                                               |
 +----------------------------+------------------------------------------------------------------------------------------------------------------------------+
-| ``status``                 | :ref:`peer status word <decode-peer>`                                      |
+| ``status``                 | :ref:`peer status word <decode-peer>`                                                                                        |
 +----------------------------+------------------------------------------------------------------------------------------------------------------------------+
-| ``srcadr       srcport``   | source (remote) IP address and port                                                                                          |
+| ``srcadr srcport``         | source (remote) IP address and port                                                                                          |
 +----------------------------+------------------------------------------------------------------------------------------------------------------------------+
-| ``dstadr       dstport``   | destination (local) IP address and port                                                                                      |
+| ``dstadr dstport``         | destination (local) IP address and port                                                                                      |
 +----------------------------+------------------------------------------------------------------------------------------------------------------------------+
 | ``leap``                   | leap indicator (0-3)                                                                                                         |
 +----------------------------+------------------------------------------------------------------------------------------------------------------------------+
@@ -606,7 +617,7 @@ association. Not all variables are displayed in some configurations.
 +----------------------------+------------------------------------------------------------------------------------------------------------------------------+
 | ``rootdisp``               | total root dispersion to the primary reference clock                                                                         |
 +----------------------------+------------------------------------------------------------------------------------------------------------------------------+
-| ``refid``                  | reference ID or :ref:`kiss code <decode-kiss>`                             |
+| ``refid``                  | reference ID or :ref:`kiss code <decode-kiss>`                                                                               |
 +----------------------------+------------------------------------------------------------------------------------------------------------------------------+
 | ``reftime``                | reference time                                                                                                               |
 +----------------------------+------------------------------------------------------------------------------------------------------------------------------+
@@ -622,9 +633,9 @@ association. Not all variables are displayed in some configurations.
 +----------------------------+------------------------------------------------------------------------------------------------------------------------------+
 | ``ppoll``                  | peer poll exponent (log:sub:`2` s) (3-17)                                                                                    |
 +----------------------------+------------------------------------------------------------------------------------------------------------------------------+
-| ``headway``                | headway (see :doc:`Rate Management and the Kiss-o'-Death Packet) <rate>`   |
+| ``headway``                | headway (see :doc:`Rate Management and the Kiss-o'-Death Packet) <rate>`                                                     |
 +----------------------------+------------------------------------------------------------------------------------------------------------------------------+
-| ``flash``                  | :ref:`flash status word <decode-flash>`                                    |
+| ``flash``                  | :ref:`flash status word <decode-flash>`                                                                                      |
 +----------------------------+------------------------------------------------------------------------------------------------------------------------------+
 | ``offset``                 | filter offset                                                                                                                |
 +----------------------------+------------------------------------------------------------------------------------------------------------------------------+
@@ -638,7 +649,7 @@ association. Not all variables are displayed in some configurations.
 +----------------------------+------------------------------------------------------------------------------------------------------------------------------+
 | ``bias``                   | unicast/broadcast bias                                                                                                       |
 +----------------------------+------------------------------------------------------------------------------------------------------------------------------+
-| ``xleave``                 | interleave delay (see :doc:`NTP Interleaved Modes <xleave>`)               |
+| ``xleave``                 | interleave delay (see :doc:`NTP Interleaved Modes <xleave>`)                                                                 |
 +----------------------------+------------------------------------------------------------------------------------------------------------------------------+
 
 The bias variable is calculated when the first broadcast packet is
@@ -683,7 +694,7 @@ some configurations.
 +------------------+---------------------------------------------------------------------------------------------+
 | ``associd``      | association ID                                                                              |
 +------------------+---------------------------------------------------------------------------------------------+
-| ``status``       | :ref:`clock status word <decode-clock>`   |
+| ``status``       | :ref:`clock status word <decode-clock>`                                                     |
 +------------------+---------------------------------------------------------------------------------------------+
 | ``device``       | device description                                                                          |
 +------------------+---------------------------------------------------------------------------------------------+

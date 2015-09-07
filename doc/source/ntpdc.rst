@@ -225,14 +225,20 @@ that they make no modification of the server configuration state.
     that this peer was cast off in the falseticker detection, while a
     ``+`` indicates that the peer made it through. A ``*`` denotes the
     peer the server is currently synchronizing with.
-``showpeer peer_address [...]``
+
+.. option:: showpeer peer_address [...]
+
     Shows a detailed display of the current peer variables for one or
     more peers. Most of these values are described in the NTP Version 2
     specification.
-``pstats peer_address [...]``
+
+.. option:: pstats peer_address [...]
+
     Show per-peer statistic counters associated with the specified
     peer(s).
-``clockstat clock_peer_address [...]``
+
+.. option:: clockstat clock_peer_address [...]
+
     Obtain and print information concerning a peer clock. The values
     obtained provide information on the setting of fudge factors and
     other clock performance information.
@@ -261,7 +267,7 @@ that they make no modification of the server configuration state.
 
     Print a variety of system state variables, i.e., state related to
     the local server. All except the last four lines are described in
-    the NTP Version 3 specification, RFC-1305.
+    the NTP Version 3 specification, :rfc:`1305`.
     The ``system flags`` show various system flags, some of which can be
     set and cleared by the ``enable`` and ``disable`` configuration
     commands, respectively. These are the ``auth``, ``bclient``,
@@ -328,9 +334,10 @@ that they make no modification of the server configuration state.
     monitor facility. The version number should not normally need to be
     specified. At most, 600 entries are displayed by ``monlist``. To
     display the entire MRU list, use the ``ntpq`` program's
-    :ref:`mrulist
-    <ntpq-mrulist>` command.
-``clkbug clock_peer_address [...]``
+    :ref:`mrulist <ntpq-mrulist>` command.
+
+.. option:: clkbug clock_peer_address [...]
+
     Obtain debugging information for a reference clock driver. This
     information is provided only by some clock drivers and is mostly
     undecodable without a copy of the driver source in hand.
@@ -368,8 +375,10 @@ security.
 
 The following commands all make authenticated requests.
 
-``addpeer peer_address [ keyid ] [ version ] [ minpoll# | prefer | minpoll N | maxpoll N [...] ]``
-``addpeer peer_address [ prefer | minpoll N | maxpoll N | keyid N | version N [...] ]``
+.. option::
+    addpeer peer_address [ keyid ] [ version ] [ minpoll# | prefer | minpoll N | maxpoll N [...] ]
+    addpeer peer_address [ prefer | minpoll N | maxpoll N | keyid N | version N [...] ]
+
     Add a configured peer association at the given address and operating
     in symmetric active mode. Note that an existing association with the
     same peer may be deleted when this command is executed, or may
@@ -396,23 +405,31 @@ The following commands all make authenticated requests.
     dynamic interface update mechanism may complete the configuration
     when new interfaces appear (e.g. WLAN/PPP interfaces) at a later
     time and thus render the association operable.
-``addserver peer_address [ address [ keyid ] [ version ] [ minpoll | prefer | iburst | burst | minpoll N | maxpoll N [...] ] prefer | iburst | burst | minpoll N | maxpoll N | keyid N | version N [...] ]``
+
+.. option:: addserver peer_address [ address [ keyid ] [ version ] [ minpoll | prefer | iburst | burst | minpoll N | maxpoll N [...] ] prefer | iburst | burst | minpoll N | maxpoll N | keyid N | version N [...] ]
+
     Identical to the addpeer command, except that the operating mode is
     client.
-``broadcast peer_address [ keyid ] [ version ] [ prefer ]``
+
+.. option:: broadcast peer_address [ keyid ] [ version ] [ prefer ]
+
     Identical to the addpeer command, except that the operating mode is
     broadcast. In this case a valid non-zero key identifier and key are
     required. The ``peer_address`` parameter can be the broadcast
     address of the local network or a multicast group address assigned
     to NTP. If a multicast address, a multicast-capable kernel is
     required.
-``unconfig peer_address [...]``
+
+.. option:: unconfig peer_address [...]
+
     This command causes the configured bit to be removed from the
     specified peer(s). In many cases this will cause the peer
     association to be deleted. When appropriate, however, the
     association may persist in an unconfigured mode if the remote peer
     is willing to continue on in this fashion.
-``fudge peer_address [ time1 ] [ time2 ] [ stratum ] [ refid ]``
+
+.. option:: fudge peer_address [ time1 ] [ time2 ] [ stratum ] [ refid ]
+
     This command provides a way to set certain data for a reference
     clock. See the source listing for further information.
 
@@ -422,14 +439,19 @@ The following commands all make authenticated requests.
 
     These commands operate in the same way as the ``enable`` and
     ``disable`` configuration file commands of ``ntpd``. See the
-    :doc:`Miscellaneous Options
-    <miscopt>` page for further information.
-``restrict address mask flag [ flag ]``
+    :doc:`Miscellaneous Options <miscopt>` page for further information.
+
+.. option:: restrict address mask flag [ flag ]
+
     This command operates in the same way as the ``restrict``
     configuration file commands of ``ntpd``.
-``unrestrict address mask flag [ flag ]``
+
+.. option:: unrestrict address mask flag [ flag ]
+
     Unrestrict the matching entry from the restrict list.
-``delrestrict address mask [ ntpport ]``
+
+.. option:: delrestrict address mask [ ntpport ]
+
     Delete the matching entry from the restrict list.
 
 .. option:: readkeys
@@ -438,8 +460,11 @@ The following commands all make authenticated requests.
     set to be obtained by rereading the keys file (which must have been
     specified in the ``ntpd`` configuration file). This allows
     encryption keys to be changed without restarting the server.
-``trustedkey keyid [...]``
-``untrustedkey keyid [...]``
+
+.. option::
+    trustedkey keyid [...]
+    untrustedkey keyid [...]
+
     These commands operate in the same way as the ``trustedkey`` and
     ``untrustedkey`` configuration file commands of ``ntpd``.
 
@@ -453,10 +478,14 @@ The following commands all make authenticated requests.
 
     Display the traps set in the server. See the source listing for
     further information.
-``addtrap [ address [ port ] [ interface ]``
+
+.. option:: addtrap [ address [ port ] [ interface ]
+
     Set a trap for asynchronous messages. See the source listing for
     further information.
-``clrtrap [ address [ port ] [ interface]``
+
+.. option:: clrtrap [ address [ port ] [ interface]
+
     Clear a trap for asynchronous messages. See the source listing for
     further information.
 

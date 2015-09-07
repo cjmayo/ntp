@@ -43,22 +43,30 @@ startup. The crux of the simulator configuration is specified using a
 time quantities are in seconds and all frequency quantities are in parts
 per million (PPM):
 
-| <*simulate\_command*\ > ::= ``simulate`` { <*init\_statement\_list*\ >
-  <*server\_list*\ > }
-|  <*init\_statement\_list*\ > ::= <init\_statement\_list>
-  <init\_statement> ; \| <init\_statement> ;
-|  <*init\_statement*\ > ::= ``beep_delay`` = <number> \|
-  ``simulation_duration`` = <number>
-|  <*server\_list*\ > ::= <*server\_list*\ > <server> \| <server>
-|  <*server\_list*\ > ::= ``server`` = <address> { ``server_offset`` =
-  <number> ; <act\_list> }
-|  <*act\_list*\ > ::= <*act\_list*\ > <*act*\ > \| <*act*\ >
-|  <*act*\ > ::= ``duration`` = <number> { <*act\_stmt\_list*\ > }
-|  <*act\_stmt\_list*\ > ::= <*act\_stmt\_list*\ > <*act\_stmt*\ > ; \|
-  <*act\_stmt*\ > ;
-|  <*act\_stmt*\ > ::= ``freq_offset`` = <number> \| ``wander`` =
-  <number> \| ``jitter`` = <number> \| ``prop_delay`` = <number> \|
-  ``proc_delay`` = <number>
+<*simulate\_command*\ > ::= ``simulate`` { <*init\_statement\_list*\ >
+<*server\_list*\ > }
+
+<*init\_statement\_list*\ > ::= <init\_statement\_list>
+<init\_statement> ; \| <init\_statement> ;
+
+<*init\_statement*\ > ::= ``beep_delay`` = <number> \|
+``simulation_duration`` = <number>
+
+<*server\_list*\ > ::= <*server\_list*\ > <server> \| <server>
+
+<*server\_list*\ > ::= ``server`` = <address> { ``server_offset`` =
+<number> ; <act\_list> }
+
+<*act\_list*\ > ::= <*act\_list*\ > <*act*\ > \| <*act*\ >
+
+<*act*\ > ::= ``duration`` = <number> { <*act\_stmt\_list*\ > }
+
+<*act\_stmt\_list*\ > ::= <*act\_stmt\_list*\ > <*act\_stmt*\ > ; \|
+<*act\_stmt*\ > ;
+
+<*act\_stmt*\ > ::= ``freq_offset`` = <number> \| ``wander`` =
+<number> \| ``jitter`` = <number> \| ``prop_delay`` = <number> \|
+``proc_delay`` = <number>
 
 In addition to the ``simulate`` command, other standard NTP
 configuration commands can be specified. These commands have the same
@@ -93,41 +101,40 @@ simulated servers, each of which has two acts.
             beep_delay = 3600;
 
             # Server 1
-        server = louie.udel.edu {
-            server_offset = 0;
+            server = louie.udel.edu {
+                server_offset = 0;
                 duration = 50000 {
-            freq_offset = 400;
-            wander = 1.0;
-            jitter = 0.001;
-            prop_delay = 0.001;
-            proc_delay = 0.001;
-            }
+                    freq_offset = 400;
+                    wander = 1.0;
+                    jitter = 0.001;
+                    prop_delay = 0.001;
+                    proc_delay = 0.001;
+                }
                 duration = 6400 {
-            freq_offset = 200;
-            wander = 1.0;
-            jitter = 0.001;
-            prop_delay = 0.001;
-            proc_delay = 0.001;
+                    freq_offset = 200;
+                    wander = 1.0;
+                    jitter = 0.001;
+                    prop_delay = 0.001;
+                    proc_delay = 0.001;
+                }
             }
-        }
 
             # Server 2
-        server = baldwin.udel.edu {
-            server_offset = 0.02;
-            duration = 10000 {
-            freq_offset = 400;
-            wander = 1.0;
-            jitter = 0.001;
-            prop_delay = 0.5;
-            proc_delay = 0.001;
-            }
-            duration = 60000 {
-            freq_offset = 200;
-            wander = 1.0;
-            jitter = 0.05;
-            prop_delay = 0.005;
-            proc_delay = 0.001;
+            server = baldwin.udel.edu {
+                server_offset = 0.02;
+                duration = 10000 {
+                    freq_offset = 400;
+                    wander = 1.0;
+                    jitter = 0.001;
+                    prop_delay = 0.5;
+                    proc_delay = 0.001;
+                }
+                duration = 60000 {
+                    freq_offset = 200;
+                    wander = 1.0;
+                    jitter = 0.05;
+                    prop_delay = 0.005;
+                    proc_delay = 0.001;
+                }
             }
         }
-     }
-      

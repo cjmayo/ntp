@@ -106,6 +106,8 @@ command line options apply to ``ntpdsim.``
 Files
 ----------------------------------
 
-| ``/etc/ntp.conf`` - the default name of the configuration file
-|  ``/etc/ntp.drift`` - the default name of the drift file
-|  ``/etc/ntp.keys`` - the default name of the key file
+``/etc/ntp.conf`` - the default name of the configuration file
+
+``/etc/ntp.drift`` - the default name of the drift file
+
+``/etc/ntp.keys`` - the default name of the key file

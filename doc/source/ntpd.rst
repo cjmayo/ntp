@@ -16,9 +16,9 @@ Description
 
 The ``ntpd`` program is an operating system daemon that synchronizes the
 system clock to remote NTP time servers or local reference clocks. It is
-a complete implementation of NTP version 4 defined by RFC-5905, but also
-retains compatible with version 3 defined by RFC-1305 and versions 1 and
-2, defined by RFC-1059 and RFC-1119, respectively. The program can
+a complete implementation of NTP version 4 defined by :rfc:`5905`, but also
+retains compatible with version 3 defined by :rfc:`1305` and versions 1 and
+2, defined by :rfc:`1059` and :rfc:`1119`, respectively. The program can
 operate in any of several modes, including client/server, symmetric and
 broadcast modes, and with both symmetric-key and public key-cryptography
 
@@ -103,7 +103,7 @@ Command Line Options
 
 .. option:: -i <jaildir>
 
-    Chroot the server to the directory *``jaildir``*. This option also
+    Chroot the server to the directory ``jaildir``. This option also
     implies that the server attempts to drop root privileges at startup
     (otherwise, chroot gives very little additional security), and it is
     only available if the OS supports to run the server without full
@@ -118,9 +118,7 @@ Command Line Options
     This option also implies not opening other addresses, except
     wildcard and localhost. This option is deprecated. Please consider
     using the configuration file
-    :ref:`interface
-    <miscopt-interface>` command, which is more
-    versatile.
+    :ref:`interface <miscopt-interface>` command, which is more versatile.
 
 .. option:: -k <keyfile>
 
@@ -146,9 +144,8 @@ Command Line Options
 
     Do not listen to virtual interfaces, defined as those with names
     containing a colon. This option is deprecated. Please consider using
-    the configuration file :ref:`interface
-    <miscopt-interface>` command, which is more
-    versatile.
+    the configuration file
+    :ref:`interface  <miscopt-interface>` command, which is more versatile.
 
 .. option:: -M
 
@@ -199,20 +196,24 @@ Command Line Options
     Add a key number to the trusted key list. This option can occur more
     than once. This is the same operation as the ``trustedkey key``
     command.
-``-u user[:group]``
+
+.. option:: -u user[:group]
+
     Specify a user, and optionally a group, to switch to. This option is
     only available if the OS supports running the server without full
     root privileges. Currently, this option is supported under NetBSD
     (configure with ``--enable-clockctl``) and Linux (configure with
     ``--enable-linuxcaps``).
-``-U number, --updateinterval=number``\ 
+
+.. option:: -U number, --updateinterval=number
+
     Number of seconds to wait between interface list scans to pick up
     old and delete network interface. Set to 0 to disable dynamic
     interface list updating. The default is to scan every 5 minutes.
 
-.. option:: -v <variable>
-
-.. option:: -V <variable>
+.. option::
+    -v <variable>
+    -V <variable>
 
     Add a system variable listed by default.
 
