@@ -36,8 +36,7 @@ restrict the acceptable range from the ``floor`` option, inclusive, to
 the ``ceiling`` option, exclusive. Potential servers operating at the
 same stratum as the client will be avoided, unless the ``cohort`` option
 is present. Additional filters can be supplied using the methods
-described on the :doc:`Authentication Support
-<authentic>` page.
+described on the :doc:`Authentication Support <authentic>` page.
 
 The pruning process uses a set of unreach counters, one for each
 association created by the configuration or discovery processes. At each
@@ -59,8 +58,7 @@ otherwise have similar characteristics.
 
 Following is a summary of each scheme. Note that reference to option
 applies to the commands described on the
-:doc:`Configuration Options
-<confopt>` page. See that page for
+:doc:`Configuration Options <confopt>` page. See that page for
 applicability and defaults.
 
 .. _discover-bcst:
@@ -100,8 +98,7 @@ multicast address 224.0.1.1 and IPv6 address FF05::101 (site local) to
 NTP, but these addresses should be used only where the multicast span
 can be reliably constrained to protect neighbor networks. In general,
 administratively scoped IPv4 group addresses should be used, as
-described in RFC-2365, or GLOP group addresses, as described in
-RFC-2770.
+described in :rfc:`2365`, or GLOP group addresses, as described in :rfc:`2770`.
 
 A multicast server is configured using the ``broadcast`` command, but
 specifying a multicast address instead of a broadcast address. A
@@ -131,15 +128,13 @@ or different keys. In one scenario on a broadcast LAN, a set of
 broadcast clients and servers share the same key along with another set
 that share a different key. Only the clients with matching key will
 respond to a server broadcast. Further information is on the
-:doc:`Authentication Support
-<authentic>` page.
+:doc:`Authentication Support <authentic>` page.
 
 Public key cryptography can be used with some restrictions. If multiple
 servers belonging to different secure groups share the same broadcast
 LAN, the clients on that LAN must have the client keys for all of them.
 This scenario is illustrated in the example on the
-:doc:`Autokey Public Key Authentication
-<autokey>` page.
+:doc:`Autokey Public Key Authentication <autokey>` page.
 
 .. _discover-mcst:
 
@@ -155,7 +150,7 @@ paradigm with the additional feature that active means are used to grab
 additional servers should the number of associations fall below the
 ``maxclock`` option of the ``tos`` command.
 
-The manycast paradigm is not the anycast paradigm described in RFC-1546,
+The manycast paradigm is not the anycast paradigm described in :rfc:`1546`,
 which is designed to find a single server from a clique of servers
 providing the same service. The manycast paradigm is designed to find a
 plurality of redundant servers satisfying defined optimality criteria.

@@ -30,8 +30,8 @@ the orphan parent.
 
 Hosts sharing the same common subnet, including potential orphan parents
 and potential orphan children, can be enabled for orphan mode using the
-``orphan stratum`` option of the :ref:`tos
-command <miscopt-tos>`, where ``stratum`` is
+``orphan stratum`` option of the :ref:`tos command <miscopt-tos>`,
+where ``stratum`` is
 some stratum less than 16 and greater than any anticipated stratum that
 might occur with configured Internet time servers. However, sufficient
 headroom should remain so every subnet host dependent on the orphan
@@ -46,8 +46,7 @@ after that. The delay is intended to allow time for other sources to
 become reachable and selectable. Only when the delay has expired with no
 sources will orphan mode be enabled. By default the delay is 300 s (five
 minutes), but this can be changed using the ``orphanwait`` option of the
-:ref:`tos
-<miscopt-tos>` command.
+:ref:`tos <miscopt-tos>` command.
 
 A orphan parent with no sources shows reference ID LOOP if operating at
 stratum 1 and 127.0.0.1 (IPv4 loopback address) otherwise. While
@@ -61,17 +60,10 @@ should operate at the same stratum. All core servers and orphan children
 should include the same tos command in the configuration file. Each
 orphan child should include in the configuration file all root servers.
 
-.. raw:: html
+.. figure:: pic/peer.png
+  :align: center
 
-   <div align="center">
-
-|image0|
-
-Figure 1. Orphan Peer Configuration
-
-.. raw:: html
-
-   </div>
+  Figure 1. Orphan Peer Configuration
 
 For example, consider the peer network configuration in Figure 1, where
 two or more campus primary or secondary (stratum 2) servers are
@@ -81,17 +73,10 @@ that loses all sources continues to discipline the system clock using
 the other servers as backup. Only the core servers and orphan children
 need to be enabled for orphan mode.
 
-.. raw:: html
+.. figure:: pic/broad.png
+  :align: center
 
-   <div align="center">
-
-|image1|
-
-Figure 2. Orphan Broadcast Configuration
-
-.. raw:: html
-
-   </div>
+  Figure 2. Orphan Broadcast Configuration
 
 For broadcast networks each core server is configured in both broadcast
 server and broadcast client modes as shown in Figure 2. Orphan children
@@ -103,6 +88,3 @@ In normal operation subnet hosts operate below stratum 5, so the subnet
 is automatically configured as described in the NTP specification. If
 all UTC sources are lost, all core servers become orphans and the orphan
 children will select the same core server to become the orphan parent.
-
-.. |image0| image:: pic/peer.png
-.. |image1| image:: pic/broad.png

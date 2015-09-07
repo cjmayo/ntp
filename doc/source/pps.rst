@@ -20,17 +20,10 @@ levels are usually incompatible with the serial port interface signals.
 Note that NTP no longer supports connection via the RD pin of a serial
 port.
 
-.. raw:: html
+.. figure:: pic/gadget.jpg
+  :align: center
 
-   <div align="center">
-
-|image0|
-
-A Gadget Box built by Chuck Hanavin
-
-.. raw:: html
-
-   </div>
+  A Gadget Box built by Chuck Hanavin
 
 .. _pps-gadget:
 
@@ -49,8 +42,7 @@ a timecode receiver or precision oscillator with a TTL PPS output. The
 other converts the timecode modulation broadcast by Canadian
 time/frequency standard station CHU into a 300-bps serial character
 stream at EIA levels and is for use with the
-:doc:`Radio CHU Audio Demodulator/Decoder
-<drivers/driver7>` driver.
+:doc:`Radio CHU Audio Demodulator/Decoder <drivers/driver7>` driver.
 
 .. _pps-opsys:
 
@@ -75,13 +67,12 @@ PPS Driver
 PPS support requires is built into some drivers, in particular the WWVB
 and NMEA drivers, and may be added to other drivers in future.
 Alternatively, the PPS driver described on the
-:doc:`Type 22 PPS Clock Discipline
-<drivers/driver22>` page can be used. It
+:doc:`Type 22 PPS Clock Discipline <drivers/driver22>` page can be used. It
 operates in conjunction with another source that provides seconds
 numbering. The selected source is designate a prefer peer, as using the
 ``prefer`` option, as described on the
-:doc:`Mitigation Rules and the prefer Keyword
-<prefer>` page. The prefer peer is ordinarily
+:doc:`Mitigation Rules and the prefer Keyword <prefer>` page.
+The prefer peer is ordinarily
 the radio clock that provides the PPS signal, but in principle another
 radio clock or even a remote Internet server could be designated
 preferred Note that the ``pps`` configuration command has been obsoleted
@@ -112,5 +103,3 @@ kernel support is enabled (if available). For historical reasons, the
 NTP algorithms are selected by by default, since performance is
 generally better using older, slower systems. However, performance is
 generally better with kernl support using newer, faster systems.
-
-.. |image0| image:: pic/gadget.jpg

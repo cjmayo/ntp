@@ -23,7 +23,7 @@ For type m addresses the IANA has assigned the multicast group address
 IPv4 224.0.1.1 and IPv6 ff05::101 (site local) exclusively to NTP, but
 other nonconflicting addresses can be used.
 
-If the Basic Socket Interface Extensions for IPv6 (RFC-2553) is
+If the Basic Socket Interface Extensions for IPv6 (:rfc:`2553`) is
 detected, support for the IPv6 address family is generated in addition
 to the default IPv4 address family. IPv6 addresses can be identified by
 the presence of colons ":" in the address field. IPv6 addresses can be
@@ -39,26 +39,26 @@ Server Commands
 ----------------------------------------------
 
 Unless noted otherwise, further information about these commands is on
-the :doc:`Association Management
-<assoc>` page.
+the :doc:`Association Management <assoc>` page.
 
 .. _confopt-server:
 
-``server address [options ...]``
-``peer address [options ...]``
-``broadcast address [options ...]``
-``manycastclient address [options ...]``
-``pool address [options ...]``
+::
 
-.. confval:: unpeer [address | associd]
+  server address [options ...]
+  peer address [options ...]
+  broadcast address [options ...]
+  manycastclient address [options ...]
+  pool address [options ...]
+  unpeer [address | associd]
 
-    These commands specify the remote server name or address to be used
-    and the mode in which to operate. The *address* can be either a DNS
-    name or a IPv4 or IPv6 address in standard notation. In general,
-    multiple commands of each type can be used for different server and
-    peer addresses or multicast groups.
+These commands specify the remote server name or address to be used
+and the mode in which to operate. The *address* can be either a DNS
+name or a IPv4 or IPv6 address in standard notation. In general,
+multiple commands of each type can be used for different server and
+peer addresses or multicast groups.
 
-    .. confval:: server
+.. confval:: server
 
         For type s and r addresses (only), this command mobilizes a
         persistent client mode association with the specified remote
@@ -68,7 +68,7 @@ the :doc:`Association Management
 
 .. _confopt-peer:
 
-    .. confval:: peer
+.. confval:: peer
 
         For type s addresses (only), this command mobilizes a persistent
         symmetric-active mode association with the specified remote
@@ -76,7 +76,7 @@ the :doc:`Association Management
 
 .. _confopt-broadcast:
 
-    .. confval:: broadcast
+.. confval:: broadcast
 
         For type b and m addressees (only), this command mobilizes a
         broadcast or multicast server mode association. Note that type b
@@ -85,7 +85,7 @@ the :doc:`Association Management
 
 .. _confopt-manycastclient:
 
-    .. confval:: manycastclient
+.. confval:: manycastclient
 
         For type m addresses (only), this command mobilizes a
         preemptable manycast client mode association for the multicast
@@ -97,27 +97,25 @@ the :doc:`Association Management
 
 .. _confopt-pool:
 
-    .. confval:: pool
+.. confval:: pool
 
         For type s addresses (only) this command mobilizes a preemptable
         pool client mode association for the DNS name specified. The DNS
         name must resolve to one or more IPv4 or IPv6 addresses.
         Additional information about this command is on the
-        :ref:`Automatic Server Discovery
-        <discover-pool>` page. The
+        :ref:`Automatic Server Discovery <discover-pool>` page. The
         `www.pool.ntp.org <http://www.pool.ntp.org/>`__ page describes a
         compatible pool of public NTP servers.
 
 .. _confopt-unpeer:
 
-    .. confval:: unpeer
+.. confval:: unpeer
 
         This command removes a previously configured association. An
         address or association ID can be used to identify the
         association. Either an IP address or DNS name can be used. This
         command is most useful when supplied via
-        :doc:`ntpq
-        <ntpq>` runtime configuration commands
+        :doc:`ntpq  <ntpq>` runtime configuration commands
         ``:config`` and ``config-from-file``.
 
 .. _confopt-option:
@@ -140,8 +138,7 @@ Server Command Options
     usual one. This option is valid only with the ``server`` command and
     type s addresses. It is a recommended option when the ``maxpoll``
     option is greater than 10 (1024 s). Additional information about
-    this option is on the :doc:`Poll Program
-    <poll>` page.
+    this option is on the :doc:`Poll Program <poll>` page.
 
 .. confval:: iburst
 
@@ -149,8 +146,7 @@ Server Command Options
     the usual one. This option is valid only with the ``server`` command
     and type ``s`` addresses. It is a recommended option with this
     command. Additional information about this option is on the
-    :doc:`Poll Program
-    <poll>` page.
+    :doc:`Poll Program <poll>` page.
 
 .. confval:: ident <group>
 
@@ -161,8 +157,8 @@ Server Command Options
 .. confval:: key <key>
 
     Send and receive packets authenticated by the symmetric key scheme
-    described in the :doc:`Authentication
-    Support <authentic>` page. The *``key``*
+    described in the :doc:`Authentication Support <authentic>` page.
+    The ``<key>``
     specifies the key identifier with values from 1 to 65534, inclusive.
     This option is mutually exclusive with the ``autokey`` option.
 
@@ -258,25 +254,25 @@ Auxiliary Commands
     accidental or malicious disruption in this mode, both the server and
     client should operate using symmetric key or public key
     authentication as described in the
-    :doc:`Authentication Options
-    <authopt>` page. Note that the volley is
+    :doc:`Authentication Options <authopt>` page. Note that the volley is
     required with public key authentication in order to run the Autokey
     protocol.
 
 .. _confopt-manycastserver:
 
-``manycastserver address [...]``
+.. confval:: manycastserver <address> [...]
+
     Enable reception of manycast client messages (type m) to the
     multicasts group address(es) (type m) specified. At least one
     address is required. Note that, in order to avoid accidental or
     malicious disruption, both the server and client should operate
     using symmetric key or public key authentication as described in the
-    :doc:`Authentication Options
-    <authopt>` page.
+    :doc:`Authentication Options <authopt>` page.
 
 .. _confopt-multicastclient:
 
-``multicastclient address [...]``
+.. confval:: multicastclient <address> [...]
+
     Enable reception of multicast server messages to the multicast group
     address(es) (type m) specified. Upon receiving a message for the
     first time, the multicast client measures the nominal server
@@ -286,8 +282,7 @@ Auxiliary Commands
     to avoid accidental or malicious disruption in this mode, both the
     server and client should operate using symmetric key or public key
     authentication as described in the
-    :doc:`Authentication Options
-    <authopt>` page.
+    :doc:`Authentication Options <authopt>` page.
 
 .. _confopt-mdnstries:
 

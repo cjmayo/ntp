@@ -42,11 +42,11 @@ like this:
 
 ::
 
-    restrict default nopeer                 # deny new associations
-    restrict 128.175.0.0 mask 255.255.0.0       # allow campus access
-    restrict 128.4.0.0 mask 255.255.0.0 none    # allow ECE and CIS access
+    restrict default nopeer                       # deny new associations
+    restrict 128.175.0.0 mask 255.255.0.0         # allow campus access
+    restrict 128.4.0.0 mask 255.255.0.0 none      # allow ECE and CIS access
     restrict 128.4.1.0 mask 255.255.255.0 notrust # require authentication on subnet 1
-    restrict time.nist.gov                      # allow access
+    restrict time.nist.gov                        # allow access
 
 While this facility may be useful for keeping unwanted, broken or
 malicious clients from congesting innocent servers, it should not be

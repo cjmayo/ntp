@@ -7,17 +7,10 @@ uses a sliding window of eight samples and picks out the sample with the
 least expected error. This page describes the algorithm design
 principles along with an example of typical performance.
 
-.. raw:: html
+.. figure:: pic/flt5.png
+  :align: center
 
-   <div align="center">
-
-|image0|
-
-Figure 1. Wedge Scattergram
-
-.. raw:: html
-
-   </div>
+  Figure 1. Wedge Scattergram
 
 Figure 1 shows a typical *wedge scattergram* plotting sample points of
 offset versus delay collected over a 24-hr period. As the delay
@@ -38,8 +31,7 @@ case with DSL links is when downloading or uploading a large file.
 During the download or upload process, the delays may be significantly
 different resulting in large errrors. However, these errors can be
 largely eliminated using samples near the limb lines, as described on
-the :doc:`Huff-n'-Puff Filter
-<huffpuff>` page.
+the :doc:`huffpuff` page.
 
 In the clock filter algorithm the offset and delay samples from the
 on-wire protocol are inserted as the youngest stage of an eight-stage
@@ -64,7 +56,7 @@ The peer dispersion statistic is determined as a weighted sum of the
 dispersion samples in the shift register. Initially, the dispersion of
 all shift register stages is set to a large number "infinity" equal to
 16 s. The weight factor for each stage, starting from the youngest
-numbered *i* = 1, is 2\ :sup:`-*i*`, which means the peer dispersion is
+numbered *i* = 1, is 2\ :sup:`-i`, which means the peer dispersion is
 approximately 16 s.
 
 As samples enter the register, the peer dispersion drops from 16 s to 8
@@ -74,28 +66,18 @@ the select threshold of 1.5 s in about four updates. This gives some
 time for meaningful comparison between sources, if more than one are
 available. The dispersion continues to grow at the same rate as the
 sample dispersion. For additional information on statistacl principles
-and performance metrics, see the
-:doc:`Performance Metrics
-<stats>` page.
+and performance metrics, see the :doc:`stats` page.
 
 As explained elsewhere, when a source becomes unreachable, the poll
 process inserts a dummy infinity sample in the shift register for each
 poll sent. After eight polls, the register returns to its original
 state.
 
-.. raw:: html
+.. rst-class:: centered
 
-   <div align="center">
+  |image1|  |image2|
 
-|image1|  
-
-|image2|
-
-Figure 2. Raw (left) and Filtered (right) Offsets
-
-.. raw:: html
-
-   </div>
+  Figure 2. Raw (left) and Filtered (right) Offsets
 
 Figure 2 shows the performance of the algorithm for a typical Internet
 path over a 24-hr period. The graph on the left shows the raw offsets
@@ -117,6 +99,5 @@ register, or more to the point, the output sample rate can never be less
 than one in eight input samples. The clock discipline algorithm is
 specifically designed to operate at this rate.
 
-.. |image0| image:: pic/flt5.png
 .. |image1| image:: pic/flt1.png
 .. |image2| image:: pic/flt2.png

@@ -170,7 +170,7 @@ one minute. A bit of the time code is sent once a second.
 ::
 
         The preferred tty setting is:
-            CFLAG           (B50|CS8|CREAD|CLOCAL)
+            CFLAG       (B50|CS8|CREAD|CLOCAL)
             IFLAG       0
             OFLAG       0
             LFLAG       0
@@ -208,27 +208,27 @@ encoding:
         15      R     - alternate antenna
         16      A1    - expect zone change (1 hour before)
         17 - 18 Z1,Z2 - time zone
-             0  0 illegal
-             0  1 MEZ  (MET)
-             1  0 MESZ (MED, MET DST)
-             1  1 illegal
-        19  A2    - expect leap insertion/deletion (1 hour before)
-        20  S     - start of time code (1)
+                 0  0 illegal
+                 0  1 MEZ  (MET)
+                 1  0 MESZ (MED, MET DST)
+                 1  1 illegal
+        19      A2    - expect leap insertion/deletion (1 hour before)
+        20      S     - start of time code (1)
         21 - 24 M1    - BCD (lsb first) Minutes
         25 - 27 M10   - BCD (lsb first) 10 Minutes
-        28  P1    - Minute Parity (even)
+        28      P1    - Minute Parity (even)
         29 - 32 H1    - BCD (lsb first) Hours
         33 - 34 H10   - BCD (lsb first) 10 Hours
-        35  P2    - Hour Parity (even)
+        35      P2    - Hour Parity (even)
         36 - 39 D1    - BCD (lsb first) Days
         40 - 41 D10   - BCD (lsb first) 10 Days
         42 - 44 DW    - BCD (lsb first) day of week (1: Monday -> 7: Sunday)
         45 - 49 MO1   - BCD (lsb first) Month
-        50  MO10  - 10 Months
+        50      MO10  - 10 Months
         51 - 53 Y1    - BCD (lsb first) Years
         54 - 57 Y10   - BCD (lsb first) 10 Years
-        58  P3    - Date Parity (even)
-        59        - usually missing (minute indication), except for leap insertion
+        58      P3    - Date Parity (even)
+        59            - usually missing (minute indication), except for leap insertion
 
 Schmid clock
 ------------
@@ -292,16 +292,16 @@ Special flags are:
 ::
 
            PARSE_F_PPSPPS      - use CIOGETEV for PPS time stamping
-            PARSE_F_PPSONSECOND - the time code is not related to
-                          the PPS pulse (so use the time code
-                          only for the second epoch)
+           PARSE_F_PPSONSECOND - the time code is not related to
+                                 the PPS pulse (so use the time code
+                                 only for the second epoch)
 
         Timecode
         0000000000111111111122222222223333333   / char
         0123456789012345678901234567890123456   \ posn
-        >RTMhhmmssdddDDMMYYYYoodnnvrrrrr;*xx< Actual
+        >RTMhhmmssdddDDMMYYYYoodnnvrrrrr;*xx<   Actual
         ----33445566600112222BB7__-_____--99-   Parse
-        >RTM                      1     ;*  <     Check
+        >RTM                      1     ;*  <   Check
 
 ELV DCF7000
 -----------
@@ -390,7 +390,7 @@ minute
        
        Timestamp    T:YY:MM:MD:WD:HH:MM:SSCRLF 
        Pos          0123456789012345678901 2 3
-            0000000000111111111122 2 2
+                    0000000000111111111122 2 2
        Parse        T:  :  :  :  :  :  :  \r\n
        
        T    Startcharacter "T" specifies start of the timestamp 
@@ -413,22 +413,22 @@ driver, the WHARTON 400A Series clock must be set-up as follows :
 
 ::
 
-                        Programmable    Selected
-                        Option No   Option
-        BST or CET display      3       9 or 11
-        No external controller      7       0
-        Serial Output Format 1      9       1
-        Baud rate 9600 bps      10      96
-        Bit length 8 bits       11      8
-        Parity even         12      E
+                                Programmable    Selected
+                                Option No       Option
+        BST or CET display         3              9 or 11
+        No external controller     7              0
+        Serial Output Format 1     9              1
+        Baud rate 9600 bps        10             96
+        Bit length 8 bits         11              8
+        Parity even               12              E
 
 WHARTON 400A Series output format 1 is as follows :
 
 ::
 
        Timestamp    STXssmmhhDDMMYYSETX
-       Pos      0  12345678901234
-            0  00000000011111
+       Pos          0  12345678901234
+                    0  00000000011111
       
        STX  start transmission (ASCII 0x02)
        ETX  end transmission (ASCII 0x03)
@@ -439,7 +439,7 @@ WHARTON 400A Series output format 1 is as follows :
        MM   Month expressed in reversed decimal (January is 1)
        YY   Year (without century) expressed in reversed decimal
        S    Status byte : 0x30 +
-            bit 0   0 = MSF source      1 = DCF source
-            bit 1   0 = Winter time     1 = Summer time
+            bit 0   0 = MSF source          1 = DCF source
+            bit 1   0 = Winter time         1 = Summer time
             bit 2   0 = not synchronised    1 = synchronised
             bit 3   0 = no early warning    1 = early warning

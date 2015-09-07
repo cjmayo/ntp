@@ -32,29 +32,24 @@ it in the system timescale at the appropriate epoch.
 The interface routines in the ``ntp_refclock.c`` source file call the
 following driver routines via a transfer vector:
 
-.. option:: startup
-
+``startup``
     The association has just been mobilized. The driver may allocate a
     private structure and open the device(s) required.
 
-.. option:: shutdown
-
+``shutdown``
     The association is about to be demobilized. The driver should close
     all device(s) and free private structures.
 
-.. option:: receive
-
+``receive``
     A timecode string is ready for retrieval using the
     ``refclock_gtlin()`` or ``refclock_gtraw()`` routines and provide
     clock updates.
 
-.. option:: poll
-
+``poll``
     Called at poll timeout, by default 64 s. Ordinarily, the driver will
     send a poll sequence to the radio as required.
 
-.. option:: timer
-
+``timer``
     Called once per second. This can be used for housekeeping functions.
     In the case with pulse-per-second (PPS) signals, this can be used to
     process the signals and provide clock updates.
@@ -136,7 +131,7 @@ decidedly beyond the scope of this page.
     The ``clocktypes`` array is used for certain control message
     displays functions. It should be initialized with the reference
     clock class assigned to the driver, as per the NTP specification
-    RFC-1305. See the ``./include/ntp_control.h`` header file for the
+    :rfc:`1305`. See the ``./include/ntp_control.h`` header file for the
     assigned classes.
 ``./ntpd/refclock_conf.c``
     This file contains a list of external structure definitions which
@@ -158,8 +153,7 @@ Interface Routine Overview
     used. Default peer variables which identify the clock and establish
     its reference ID and stratum are set here. It returns one if success
     and zero if the clock address is invalid or already running,
-    insufficient resources are available or the driver declares a bum
-    rap.
+    insufficient resources are available or the driver declares a bum rap.
 ``refclock_unpeer`` - shut down a clock
     This routine is used to shut down a clock and return its resources
     to the system.
@@ -181,8 +175,7 @@ Interface Routine Overview
     filter, selection and combining algorithms can be used to suppress
     misbehaving radios and to mitigate between them when more than one
     is available for backup.
-``refclock_gtraw``, ``refclock_gtlin`` - read the buffer and on-time
-timestamp
+``refclock_gtraw``, ``refclock_gtlin`` - read the buffer and on-time timestamp
     These routines return the data received from the clock and the
     on-time timestamp. The ``refclock_gtraw`` routine returns a batch of
     one or more characters returned by the Unix terminal routines in raw
@@ -198,13 +191,9 @@ timestamp
     of serial ports. It can handle POSIX (``termios``), SYSV
     (``termio``) and BSD (``sgtty``) interfaces with varying degrees of
     success. The routine returns one if success and zero if failure.
-
-.. option:: refclock_ppsapi
-
+``refclock_ppsapi``
     This routine initializes the Pulse-per-Second interface (see below).
-
-.. option:: refclock_pps
-
+``refclock_pps``
     This routine is called once per second to read the latest PPS offset
     and save it in the circular buffer (see below).
 
@@ -213,7 +202,7 @@ timestamp
 Pulse-per-Second Interface
 -----------------------------------------------------
 
-When the Pulse-per-Second Application Interface (RFC 2783) is present, a
+When the Pulse-per-Second Application Interface (:rfc:`2783`) is present, a
 compact PPS interface is available to all drivers. See the
 :doc:`Mitigation Rules and the Prefer Peer
 <prefer>` page for further information. To use

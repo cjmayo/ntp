@@ -18,16 +18,14 @@ sumarized as follows:
 #. A *stratum error* occurs if (1) the source had never been
    synchronized or (2) the stratum of the source is below the ``floor``
    option or not below the ``ceiling`` option of the
-   :ref:`tos
-   <miscopt-tos>` command. The default values
+   :ref:`tos <miscopt-tos>` command. The default values
    for these options are 0 and 15, respectively. Note that 15 is a valid
    stratum, but a server operating at that stratum cannot synchronize
    clients.
 #. A *distance error* occurs for a source if the root distance (also
    known ad synchronization distance) of the source is not below the
    distance threshold ``maxdist`` option of the
-   :ref:`tos
-   <miscopt-tos>` command. The default value
+   :ref:`tos <miscopt-tos>` command. The default value
    for this option is 1.5 s for networks including only the Earth, but
    this should be increased to 2.5 s for networks including the Moon.
 #. A *loop* *error* occurs if the source is synchronized to the client.
@@ -40,7 +38,7 @@ sumarized as follows:
 Sources showing one or more of these errors are considered
 nonselectable; only the selectable candidates are considered in the
 following algorithm. Given the measured offset θ\ :sub:`0` and root
-distance λ, this defines a *correctness interval* [θ:sub:`0` − λ,
+distance λ, this defines a *correctness interval* [θ\ :sub:`0` − λ,
 θ\ :sub:`0` + λ] of points where the true value of θ lies somewhere on
 the interval. The given problem is to determine from a set of
 correctness intervals, which represent truechimers and which represent
@@ -61,17 +59,10 @@ best offset estimate is the midpoint of its correctness interval. A
 candidate with a correctness interval that contains no points in the
 intersection interval is a falseticker.
 
-.. raw:: html
+.. figure:: pic/flt3.png
+  :align: center
 
-   <div align="center">
-
-|image0|
-
-Figure 1. Intersection Interval
-
-.. raw:: html
-
-   </div>
+  Figure 1. Intersection Interval
 
 Figure 1 shows correctness intervals for each of four candidates A, B, C
 and D. We need to find the maximum number of candidates that contain
@@ -102,17 +93,10 @@ time. On the other hand, the midpoint sample produced by the clock
 filter algorithm is the maximum likelihood estimate and thus best
 represents the truechimer time.
 
-.. raw:: html
+.. figure:: pic/flt6.png
+  :align: center
 
-   <div align="center">
-
-|image1|
-
-Figure 2. Clock Select Algorithm
-
-.. raw:: html
-
-   </div>
+  Figure 2. Clock Select Algorithm
 
 The algorithm operates as shown in Figure 2. Let *m* be the number of
 candidates and *f* the number of falsetickers, initially zero. Move a
@@ -139,8 +123,4 @@ reference clocks. In such cases the intersection interval might be
 empty, due to insignificant differences in the reference clock offsets.
 To avoid this, the size of the correctness interval is padded to the
 value of ``mindist``, with default 1 ms. This value can be changed using
-the ``mindist`` option of the :ref:`tos
-<miscopt-tos>` command.
-
-.. |image0| image:: pic/flt3.png
-.. |image1| image:: pic/flt6.png
+the ``mindist`` option of the :ref:`tos <miscopt-tos>` command.

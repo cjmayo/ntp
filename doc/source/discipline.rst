@@ -15,17 +15,10 @@ modes, phase-lock loop (PLL), which is used at poll intervals below the
 Allan intercept, by default 2048 s, and frequency-lock loop (FLL), which
 is used above that.
 
-.. raw:: html
+.. figure:: pic/discipline.png
+  :align: center
 
-   <div align="center">
-
-|image0|
-
-Figure 1. Clock Discipline Algorithm
-
-.. raw:: html
-
-   </div>
+  Figure 1. Clock Discipline Algorithm
 
 .. _discipline-pll:
 
@@ -35,14 +28,14 @@ Clock Discipline Operations
 A block diagram of the clock discipline is shown in Figure 1. The
 timestamp of a reference clock or remote server is compared with the
 timestamp of the system clock, represented as a variable frequency
-oscillator (VFO), to produce a raw offset sample *V\ :sub:`d`*. Offset
+oscillator (VFO), to produce a raw offset sample *V*\ :sub:`d`. Offset
 samples are processed by the clock filter to produce a filtered update
-*V\ :sub:`s`*. The loop filter implements a type-2
+*V*\ :sub:`s`. The loop filter implements a type-2
 proportional-integrator controller (PIC). The PIC can minimize errors in
 both time and frequency using predictors *x* and *y*, respectively. The
 clock adjust process samples these predictors once each second for the
 daemon discipline or once each tick interrupt for the kernel discipline
-to produce the system clock update *V\ :sub:`c`*.
+to produce the system clock update *V*\ :sub:`c`.
 
 In PLL mode the frequency predictor is an integral of the offset over
 past updates, while the phase predictor is the offset amortized over
@@ -57,8 +50,7 @@ The discipline response in PLL mode is determined by the *time
 constant*, which results in a "stiffness" depending on the jitter of the
 available sources and the wander of the system clock oscillator. The
 scaled time constant is also used as the poll interval described on the
-:doc:`Poll Program
-<poll>` page. However, in NTP symmetric mode,
+:doc:`poll` page. However, in NTP symmetric mode,
 each peer manages its own poll interval and the two might not be the
 same. In such cases either peer uses the minimum of its own poll
 interval and that of the other peer, which is included in the NTP packet
@@ -78,7 +70,7 @@ intervals are expressed as exponents of 2. By construction, the time
 constant exponent is five times the poll interval exponent. Thus, the
 default poll exponent of 6 corresponds to a poll interval of 64 s and a
 time constant of 2048 s. A change in the poll interval changes the time
-constant by a corresponding amount.. The Nyquist criterion requires the
+constant by a corresponding amount. The Nyquist criterion requires the
 sample interval to be not more than half the time constant or 1024 s.
 The clock filter guarantees at least one sample in eight poll intervals,
 so the sample interval is not more than 512 s. This would be described
@@ -100,8 +92,7 @@ frequency file, if present, or by measuring the oscillator frequency, if
 not. It then quickly amortizes the residual offset at startup without
 affecting the oscillator frequency. In this way the offset error is less
 than 0.5 ms within 5 min, if the file is present, and within 10 min if
-not. See the :doc:`Clock State Machine
-<clock>` page for further details.
+not. See the :doc:`clock` page for further details.
 
 Since the PLL is linear, the response with different offset step
 amplitudes and poll intervals has the same characteristic shape, but
@@ -123,17 +114,14 @@ compromise Allan intercept of 2048 s, the optimum poll interval is about
 LANs with modern computers, the Allan intercept is somewhat lower at
 around 512 s, so a compromise poll exponent of 4 (16 s) is appropriate.
 An intricate, heuristic algorithm is used to manage the actual poll
-interval within a specified range. Details are on the
-:doc:`Poll Program
-<poll>` page.
+interval within a specified range. Details are on the :doc:`poll` page.
 
 In the NTPv4 specification and reference implementation a state machine
 is used to manage the system clock under exceptional conditions, as when
 the daemon is first started or when encountering severe network
 congestion. In extreme cases not likely to be encountered in normal
 operation, the system time can be stepped forward or backward more than
-128 ms. Further details are on the :doc:`Clock
-State Machine <clock>` page.
+128 ms. Further details are on the :doc:`clock` page.
 
 .. _discipline-house:
 
@@ -159,8 +147,7 @@ pathological situations, the startup transient is suppressed to within
 nominal levels in no more than five minutes after a warm start or ten
 minutes after a cold start. Following is a summary of these provisions.
 A detailed discussion of these provisions is on the
-:doc:`Clock State Machine
-<clock>` page.
+:doc:`clock` page.
 
 The reference implementation measures the clock oscillator frequency and
 updates a frequency file at intervals of one hour or more, depending on
@@ -172,8 +159,7 @@ file is available, the reference implementation first measures the
 oscillator frequency over a five-min interval. This generally results in
 a residual frequency error less than 1 PPM. The measurement interval can
 be changed using the ``stepout`` option of the
-:ref:`tinker
-<miscopt-tinker>` command.
+:ref:`tinker <miscopt-tinker>` command.
 
 In order to reduce the clock offset error at restart, the reference
 implementation mext disables oscillator frequency discipline and enables
@@ -182,8 +168,7 @@ quickly reduce the clock offset error without causing a frequency surge.
 This configuration is continued for an interval of five-min, after which
 the clock offset error is usually no more than a millisecond. The
 measurement interval can be changed using the ``stepout`` option of the
-:ref:`tinker
-<miscopt-tinker>` command.
+:ref:`tinker <miscopt-tinker>` command.
 
 Another concern at restart is the time necessary for the select and
 cluster algorithms to refine and validate the initial clock offset
@@ -191,8 +176,7 @@ estimate. Normally, this takes several updates before setting the system
 clock. As the default minimum poll interval in most configurations is
 about one minute, it can take several minutes before setting the system
 clock. The ``iburst`` option of the
-:ref:`server
-<confopt-burst>` command changes the behavior
+:ref:`server <confopt-burst>` command changes the behavior
 at restart and is recommended for client/server configurations. When
 this option is enabled, the client sends a volley of six requests at
 intervals of two seconds. This usually insures a reliable estimate is
@@ -208,7 +192,4 @@ implementation waits an interval of several minutes without regular
 sources before switching to backup sources. This is generally enough to
 avoid startup transients due to premature switching to backup sources.
 The interval can be changed using the ``orphanwait`` option of the
-:ref:`tos
-<miscopt-tos>` command.
-
-.. |image0| image:: pic/discipline.png
+:ref:`tos <miscopt-tos>` command.

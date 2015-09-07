@@ -17,21 +17,21 @@ Make a conversion module (libparse/clk\_\*.c)
       offset to UTC) You will have to convert the data from a string
       into a struct clocktime:
 
-      ::
+      .. code:: c
 
-                struct clocktime                /* clock time broken up from time code */
-                {
-              long day;
-              long month;
-              long year;
-              long hour;
-              long minute;
-              long second;
-              long usecond;
-              long utcoffset;       /* in seconds */
-              time_t utcoffset;     /* true utc time instead of date/time */
-              long flags;           /* current clock status */
-                };
+              struct clocktime                /* clock time broken up from time code */
+              {
+                    long day;
+                    long month;
+                    long year;
+                    long hour;
+                    long minute;
+                    long second;
+                    long usecond;
+                    long utcoffset;       /* in seconds */
+                    time_t utcoffset;     /* true utc time instead of date/time */
+                    long flags;           /* current clock status */
+              };
 
       Conversion is usually simple and straightforward. For the flags
       following values can be OR'ed together:
@@ -76,7 +76,7 @@ Make a conversion module (libparse/clk\_\*.c)
       Conversion is done in the cvt\_\* routine in parse/clk\_\*.c
       files. look in them for examples. The basic structure is:
 
-      ::
+      .. code:: c
 
                struct clockformat <yourclock>_format = {
                  lots of fields for you to fill out (see below)
@@ -100,7 +100,7 @@ Make a conversion module (libparse/clk\_\*.c)
       driver - it holds all information necessary for finding the clock
       message and doing the appropriate time stamping.
 
-      ::
+      .. code:: c
 
           struct clockformat
           {
@@ -140,14 +140,14 @@ Make a conversion module (libparse/clk\_\*.c)
       element (that allocates a new "IP" address - see comments) (see
       all the other clocks for example)
 
-      ::
+      .. code:: c
 
              struct clockinfo
                {
                 u_long  cl_flags;             /* operation flags (io modes) */
-               PARSE_F_PPSPPS       use loopfilter PPS code (CIOGETEV)
-               PARSE_F_PPSONSECOND  PPS pulses are on second
-               usually flags stay 0 as they are used only for special setups
+                   PARSE_F_PPSPPS       use loopfilter PPS code (CIOGETEV)
+                   PARSE_F_PPSONSECOND  PPS pulses are on second
+                   usually flags stay 0 as they are used only for special setups
 
               void  (*cl_poll)();           /* active poll routine */
                    The routine to call when the clock needs data sent to it in order to
@@ -169,9 +169,9 @@ Make a conversion module (libparse/clk\_\*.c)
                    NTP rootdelay estimate (usually 0)
 
                    u_long  cl_basedelay;         /* current offset - unsigned l_fp
-                                                        fractional part (fraction) by
-                                                        which the RS232 time code is
-                                                        delayed from the actual time. */
+                                                    fractional part (fraction) by
+                                                    which the RS232 time code is
+                                                    delayed from the actual time. */
 
               u_long  cl_ppsdelay;          /* current PPS offset - unsigned l_fp fractional
                    time (fraction) by which the PPS time stamp is delayed (usually 0)

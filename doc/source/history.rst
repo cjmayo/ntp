@@ -20,8 +20,9 @@ examination of purpose, design and implementation. The project is not
 complete, but far enough along to present a status report and review of
 significant changes.
 
-Please note THE CHANGES DO NOT AFFECT THE PROTOCOL SPECIFICATION AND DO
-NOT AFFECT INTEROPERABILITY WITH PREVIOUS VERSIONS.
+.. note::
+    THE CHANGES DO NOT AFFECT THE PROTOCOL SPECIFICATION AND DO
+    NOT AFFECT INTEROPERABILITY WITH PREVIOUS VERSIONS.
 
 1. Transparent Design
 ---------------------
@@ -227,7 +228,7 @@ The status, selection, source, event and log decodes have been adjusted
 for consistency. Some of the decodes were missing, some with errors and
 a few new ones added. Old versions of ntpq continue to work without
 change, but display a new code as space. Except for the new codes, this
-behavior is consistent with RFC 1305 and proposed for the NTPv4 protocol
+behavior is consistent with :rfc:`1305` and proposed for the NTPv4 protocol
 specification.
 
 The ntpq as command has been changed to fix some very old bugs. The

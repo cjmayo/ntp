@@ -74,12 +74,12 @@ work.
    <altmeier@atlsoft.de> <mailto:%20altmeier@atlsoft.de>`__ hopf
    Elektronik serial line and PCI-bus devices
 #. `Viraj Bais
-   <vbais@mailman1.intel.com> <mailto:%20vbais@mailman1.intel.co>`__ and
+   <vbais@mailman1.intel.com> <mailto:%20vbais@mailman1.intel.com>`__ and
    `Clayton Kirkwood
    <kirkwood@striderfm.intel.com> <mailto:%20kirkwood@striderfm.intel.com>`__
    port to WindowsNT 3.5
 #. `Michael Barone
-   <michael,barone@lmco.com> <mailto:%20michael.barone@lmco.com>`__
+   <michael.barone@lmco.com> <mailto:%20michael.barone@lmco.com>`__
    GPSVME fixes
 #. `Karl Berry
    <karl@owl.HQ.ileaf.com> <mailto:%20karl@owl.HQ.ileaf.com>`__ syslog
@@ -118,7 +118,7 @@ work.
    Linux port
 #. `Dennis Ferguson
    <dennis@mrbill.canet.ca> <mailto:%20dennis@mrbill.canet.ca>`__
-   foundation code for NTP Version 2 as specified in RFC-1119
+   foundation code for NTP Version 2 as specified in :rfc:`1119`
 #. `John Hay
    <jhay@icomtek.csir.co.za> <mailto:%20jhay@icomtek.csir.co.za>`__ IPv6
    support and testing
@@ -151,10 +151,7 @@ work.
    <GENERIC> (driver 14 reference clocks), STREAMS modules for PARSE,
    support scripts, syslog cleanup, dynamic interface handling
 #. `Johannes Maximilian Kuehn <kuehn@ntp.org> <mailto:kuehn@ntp.org>`__
-   Rewrote ``sntp`` to comply with NTPv4 specification,
-
-   .. option:: ntpq <saveconfig>
-
+   Rewrote ``sntp`` to comply with NTPv4 specification, ``ntpq saveconfig``
 #. `William L. Jones
    <jones@hermes.chpc.utexas.edu> <mailto:%20jones@hermes.chpc.utexas.edu>`__
    RS/6000 AIX modifications, HPUX modifications
@@ -168,7 +165,7 @@ work.
 #. `Louis A. Mamakos <louie@ni.umd.edu> <mailto:%20louie@ni.umd.edu>`__
    MD5-based authentication
 #. `Lars H. Mathiesen <thorinn@diku.dk> <mailto:%20thorinn@diku.dk>`__
-   adaptation of foundation code for Version 3 as specified in RFC-1305
+   adaptation of foundation code for Version 3 as specified in :rfc:`1305`
 #. `Danny Mayer <mayer@ntp.org> <mailto:%20mayer@ntp.org>`__\ Network
    I/O, Windows Port, Code Maintenance
 #. `David L. Mills <mills@udel.edu> <mailto:%20mills@udel.edu>`__

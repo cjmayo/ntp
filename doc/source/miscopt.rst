@@ -1,9 +1,6 @@
 Miscellaneous Commands and Options
 ==================================
 
-Commands and Options
---------------------
-
 .. _miscopt-broadcastdelay:
 
 .. confval:: broadcastdelay <delay>
@@ -132,7 +129,8 @@ Commands and Options
 
 .. _miscopt-interface:
 
-``interface [listen | ignore | drop] [all | ipv4 | ipv6 | wildcard | name | address[/prefixlen]]``
+.. confval:: interface [listen | ignore | drop] [all | ipv4 | ipv6 | wildcard | name | address[/prefixlen]]
+
     This command controls which network addresses ``ntpd`` opens, and
     whether input is dropped without processing. The first parameter
     determines the action for addresses which match the second
@@ -144,14 +142,10 @@ Commands and Options
     without examination. Multiple ``interface`` commands can be used.
     The last rule which matches a particular address determines the
     action for it. ``interface`` commands are disabled if any
-    :ref:`-I
-    <ntpd---interface>`,
-    :ref:`--interface
-    <ntpd---interface>`,
-    :ref:`-L
-    <ntpd---novirtualips>`, or
-    :ref:`--novirtualips
-    <ntpd---novirtualips>` command-line options
+    :ref:`-I <ntpd---interface>`,
+    :ref:`--interface <ntpd---interface>`,
+    :ref:`-L <ntpd---novirtualips>`, or
+    :ref:`--novirtualips <ntpd---novirtualips>` command-line options
     are used. If none of those options are used and no ``interface``
     actions are specified in the configuration file, all available
     network addresses are opened. The ``nic`` command is an alias for
@@ -181,8 +175,7 @@ Commands and Options
     It specifies the interval over which a leap second correction will
     be applied. Recommended values for this option are between 7200 (2
     hours) and 86400 (24 hours). **DO NOT USE THIS OPTION ON
-    PUBLIC-ACCESS SERVERS!** See http://bugs.ntp.org/2855 for more
-    information.
+    PUBLIC-ACCESS SERVERS!** See :ntp_bug:`2855` for more information.
 
 .. _miscopt-logconfig:
 
@@ -190,7 +183,7 @@ Commands and Options
 
     This command controls the amount and type of output written to the
     system ``syslog`` facility or the alternate ``logfile`` log file.
-    All *``configkeyword``* keywords can be prefixed with ``=``, ``+``
+    All ``configkeyword`` keywords can be prefixed with ``=``, ``+``
     and ``-``, where ``=`` sets the ``syslogmask``, ``+`` adds and ``-``
     removes messages. ``syslog messages`` can be controlled in four
     classes (``clock``, ``peer``, ``sys`` and ``sync``). Within these
@@ -222,15 +215,15 @@ Commands and Options
 
 .. _miscopt-mru:
 
-.. confval:: mru [maxdepth count | maxmem kilobytes | mindepth count | maxage seconds | initalloc count | initmem kilobytes | incalloc count | incmem kilobytes]
+.. confval:: mru [maxdepth <count> | maxmem <kilobytes> | mindepth <count> | maxage <seconds> | initalloc <count> | initmem <kilobytes> | incalloc <count> | incmem <kilobytes>]
 
     Controls size limits of the monitoring facility Most Recently Used
-    :ref:`(MRU) list
-    <ntpq-mrulist>` of client addresses, which
-    is also used by the :ref:`rate control
-    facility <accopt-discard>`.
+    :ref:`(MRU) list <ntpq-mrulist>` of client addresses, which
+    is also used by the :ref:`rate control facility <accopt-discard>`.
 
-    ``maxdepth count         maxmem kilobytes``
+    .. confval:: maxdepth <count>
+    .. confval:: maxmem <kilobytes>
+
         Equivalent upper limits on the size of the MRU list, in terms of
         entries or kilobytes. The actual limit will be up to
         ``incalloc`` entries or ``incmem`` kilobytes larger. As with all
@@ -253,11 +246,17 @@ Commands and Options
         removed and its storage reused. If the oldest entry was updated
         more recently, the MRU list is grown, subject to
         ``maxdepth``/``maxmem``. The default is 64 seconds.
-    ``initalloc count         initmem kilobytes``
+
+    .. confval:: initalloc <count>
+    .. confval:: initmem <kilobytes>
+
         Initial memory allocation at the time the monitoring facility is
         first enabled, in terms of entries or kilobytes. The default is
         4 kilobytes.
-    ``incalloc count         incmem kilobytes``
+
+    .. confval:: incalloc <count>
+    .. confval:: incmem <kilobytes>
+
         Size of additional memory allocations when growing the MRU list,
         in entries or kilobytes. The default is 4 kilobytes.
 
@@ -265,7 +264,7 @@ Commands and Options
 
 .. confval:: nonvolatile <threshold>
 
-    Specify the *``threshold``* in seconds to write the frequency file,
+    Specify the ``threshold`` in seconds to write the frequency file,
     with default of 1e-7 (0.1 PPM). The frequency file is inspected each
     hour. If the difference between the current frequency and the last
     value written exceeds the threshold, the file is written and the
@@ -276,7 +275,8 @@ Commands and Options
 
 .. _miscopt-phone:
 
-``phone dial ...``
+.. confval:: phone <dial> ...
+
     This command is used in conjunction with the ACTS modem driver (type
     18). The arguments consist of a maximum of 10 telephone numbers used
     to dial USNO, NIST or European time services. The Hayes command
@@ -285,13 +285,14 @@ Commands and Options
 
 .. _miscopt-reset:
 
-``reset [allpeers] [auth] [ctl] [io] [mem] [sys] [timer]``
+.. confval:: reset [allpeers] [auth] [ctl] [io] [mem] [sys] [timer]
+
     Reset one or more groups of counters maintained by ntpd and exposed
     by ``ntpq`` and ``ntpdc``.
 
 .. _miscopt-rlimit:
 
-.. confval:: rlimit [memlock Nmegabytes | stacksize N4kPages | filenum Nfiledescriptors]
+.. confval:: rlimit [memlock <Nmegabytes> | stacksize <N4kPages> | filenum <Nfiledescriptors>]
 
     This command alters certain process storage allocation limits, and
     is only available on some operating systems. Options are as follows:
@@ -319,14 +320,14 @@ Commands and Options
 .. confval:: saveconfigdir <directory_path>
 
     Specify the directory in which to write configuration snapshots
-    requested with ``ntpq``'s :ref:`saveconfig
-    <ntpq-saveconfig>` command. If
-    ``saveconfigdir`` does not appear in the configuration file,
+    requested with ``ntpq``'s :ref:`saveconfig <ntpq-saveconfig>` command.
+    If ``saveconfigdir`` does not appear in the configuration file,
     saveconfig requests are rejected by ntpd.
 
 .. _miscopt-setvar:
 
-``setvar variable [default]``
+.. confval:: setvar <variable> [default]
+
     This command adds an additional system variable. These variables can
     be used to distribute additional information such as the access
     policy. If the variable of the form ``name = value`` is followed by
@@ -373,10 +374,8 @@ Commands and Options
         Specifies the huff-n'-puff filter span, which determines the
         most recent interval the algorithm will search for a minimum
         delay. The lower limit is 900 s (15 min), but a more reasonable
-        value is 7200 (2 hours).See the
-        :doc:`Huff-n'-Puff Filter
-        <huffpuff>` page for further
-        information.
+        value is 7200 (2 hours). See the
+        :doc:`Huff-n'-Puff Filter <huffpuff>` page for further information.
 
     .. confval:: panic <panic>
 
@@ -390,8 +389,7 @@ Commands and Options
         this command is 0.128 s. If set to zero, step adjustments will
         never occur. Note: The kernel time discipline is disabled if the
         step threshold is set to zero or greater than 0.5 s. Further
-        details are on the :doc:`Clock State
-        Machine <clock>` page.
+        details are on the :doc:`Clock State Machine <clock>` page.
 
     .. confval:: stepout <stepout>
 
@@ -399,12 +397,12 @@ Commands and Options
         this command is 300 s. Since this option also affects the
         training and startup intervals, it should not be set less than
         the default. Further details are on the
-        :doc:`Clock State Machine
-        <clock>` page.
+        :doc:`Clock State Machine <clock>` page.
 
 .. _miscopt-tos:
 
-.. confval:: tos [beacon beacon | ceiling ceiling | cohort {0 | 1} | floor floor | maxclock maxclock | maxdist maxdist | minclock minclock | mindist mindist | minsane minsane | orphan stratum | orphanwait delay]
+.. confval::
+    tos [beacon <beacon> | ceiling <ceiling> | cohort {0 | 1} | floor <floor> | maxclock <maxclock> | maxdist <maxdist> | minclock <minclock> | mindist <mindist> | minsane <minsane> | orphan <stratum> | orphanwait <delay>]
 
     This command alters certain system variables used by the the clock
     selection and clustering algorithms. The default values of these
@@ -419,22 +417,21 @@ Commands and Options
 
         The manycast server sends packets at intervals of 64 s if less
         than ``maxclock`` servers are available. Otherwise, it sends
-        packets at the *``beacon``* interval in seconds. The default is
-        3600 s. See the :doc:`Automatic Server
-        Discovery <discover>` page for further
-        details.
+        packets at the ``beacon`` interval in seconds. The default is
+        3600 s. See the :doc:`Automatic Server Discovery <discover>` page
+        for further details.
 
     .. confval:: ceiling <ceiling>
 
         Specify the maximum stratum (exclusive) for acceptable server
         packets. The default is 16. See the
-        :doc:`Automatic Server Discovery
-        <discover>` page for further details.
-    ``cohort { 0 | 1 }``
+        :doc:`Automatic Server Discovery <discover>` page for further details.
+
+    .. confval:: cohort { 0 | 1 }
+
         Specify whether (1) or whether not (0) a server packet will be
         accepted for the same stratum as the client. The default is 0.
-        See the :doc:`Automatic Server
-        Discovery <discover>` page for further
+        See the :doc:`Automatic Server Discovery <discover>` page for further
         details.
 
     .. confval:: floor <floor>
@@ -503,7 +500,8 @@ Commands and Options
 
 .. _miscopt-trap:
 
-``trap host_address [port port_number] [interface interfSace_address]``
+.. confval:: trap host_address [port <port_number>] [interface <interface_address>]
+
     This command configures a trap receiver at the given host address
     and port number for sending messages with the specified local
     interface address. If the port number is unspecified, a value of
@@ -519,7 +517,8 @@ Commands and Options
 
 .. _miscopt-ttl:
 
-``ttl hop ...``
+.. confval:: ttl <hop> ...
+
     This command specifies a list of TTL values in increasing order. up
     to 8 values can be specified. In manycast mode these values are used
     in turn in an expanding-ring search. The default is eight multiples

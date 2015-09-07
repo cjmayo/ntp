@@ -5,14 +5,12 @@ Initial Startup
 ---------------
 
 This page discusses ``ntpd`` program monitoring and debugging techniques
-using the :doc:`ntpq - standard NTP query
-program <ntpq>`, either on the local server or
-from a remote machine. In special circumstances the
-:doc:`ntpdc - special NTP query program
-<ntpdc>`, can be useful, but its use is not
+using the :doc:`ntpq - standard NTP query program <ntpq>`,
+either on the local server or from a remote machine. In special circumstances
+the :doc:`ntpdc - special NTP query program <ntpdc>`, can be useful,
+but its use is not
 covered here. The ``ntpq`` program implements the management functions
-specified in the NTP specification `RFC-1305, Appendix
-A <http://www.eecis.udel.edu/%7emills/database/rfc/rfc1305/rfc1305c.ps>`__.
+specified in the NTP specification :rfc:`1305`, Appendix A.
 It is used to read and write the variables defined in the NTP Version 4
 specification now navigating the standards process. In addition, the
 program can be used to send remote configuration commands to the server.
@@ -37,13 +35,10 @@ Other problems are apparent in the system log, which ordinarily shows
 the startup banner, some cryptic initialization data and the computed
 precision value. Event messages at startup and during regular operation
 are sent to the optional ``protostats`` monitor file, as described on
-the :doc:`Event Messages and Status Words
-<decode>` page. These and other error messages
-are sent to the system log, as described on the
-:doc:`ntpd System Log Messages
-<msyslog>` page. In real emergencies the daemon
-will sent a terminal error message to the system log and then cease
-operation.
+the :doc:`Event Messages and Status Words <decode>` page.
+These and other error messages are sent to the system log, as described on the
+:doc:`ntpd System Log Messages <msyslog>` page. In real emergencies the daemon
+will sent a terminal error message to the system log and then cease operation.
 
 The next most common problem is incorrect DNS names. Check that each DNS
 name used in the configuration file exists and that the address responds
@@ -77,24 +72,17 @@ association along with selected status and statistics variables. The
 first character in each line is the tally code, which shows which
 associations are candidates to set the system clock and of these which
 one is the system peer. The encoding is shown in the ``select`` field of
-the :ref:`peer status word
-<decode-peer>`.
+the :ref:`peer status word <decode-peer>`.
 
-The :ref:`as
-<ntpq-as>` command displays a list of
+The :ref:`as <ntpq-as>` command displays a list of 
 associations and association identifiers. Note the ``condition`` column,
-which reflects the tally code. The :ref:`rv
-<ntpq-pe>` command displays the
-:ref:`system variables
-<ntpq-system>` billboard, including the
-:ref:`system status word
-<decode-sys>`. The
-:ref:`rv
-<ntpq-rv>`*assocID* command, where ``assocID``
-is the association ID, displays the :ref:`peer
-variables <ntpq-peer>` billboard, including the
-:ref:`peer status word
-<decode-peer>`. Note that, except for explicit
+which reflects the tally code. The :ref:`rv <ntpq-pe>` command displays the
+:ref:`system variables <ntpq-system>` billboard, including the
+:ref:`system status word <decode-sys>`.
+The :ref:`rv \<assocID\> <ntpq-rv>` command, where ``<assocID>`` 
+is the association ID,
+displays the :ref:`peer variables <ntpq-peer>` billboard, including the
+:ref:`peer status word <decode-peer>`. Note that, except for explicit
 calendar dates, times are in milliseconds and frequencies are in
 parts-per-million (PPM).
 

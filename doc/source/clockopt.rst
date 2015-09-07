@@ -7,8 +7,7 @@ Reference Clock Adddresses
 -------------------------------------------------------
 
 Unless noted otherwise, further information about these ccommands is on
-the :doc:`Reference Clock Support
-<refclock>` page.
+the :doc:`Reference Clock Support <refclock>` page.
 
 Reference clocks are identified by a syntactically correct but invalid
 IP address, in order to distinguish them from ordinary NTP peers. These
@@ -25,7 +24,8 @@ Commands and Options
 
 .. _clockopt-server:
 
-``server 127.127.t.u [prefer] [mode int] [minpoll int] [maxpoll int]``
+.. confval:: server 127.127.t.u [prefer] [mode <int>] [minpoll <int>] [maxpoll <int>]
+
     This command can be used to configure reference clocks in special
     ways. The options are interpreted as follows:
 
@@ -46,8 +46,7 @@ Commands and Options
         ``parse`` drivers.
 
     .. confval:: minpoll <int>
-
-     .. confval:: maxpoll <int>
+    .. confval:: maxpoll <int>
 
         These options specify the minimum and maximum polling interval
         for reference clock messages in log\ :sub:`2` seconds. For most
@@ -59,7 +58,8 @@ Commands and Options
 
 .. _clockopt-fudge:
 
-``fudge 127.127.t.u [time1 sec] [time2 sec]     [stratum int] [refid string] [flag1 0|1]     [flag2 0|1] [flag3 0|1] [flag4 0|1]``
+.. confval:: fudge 127.127.t.u [time1 <sec>] [time2 <sec>] [stratum <int>] [refid <string>] [flag1 0|1]     [flag2 0|1] [flag3 0|1] [flag4 0|1]
+
     This command can be used to configure reference clocks in special
     ways. It must immediately follow the ``server`` command which
     configures the driver. Note that the same capability is possible at
@@ -109,12 +109,13 @@ Commands and Options
         defines the reference identifier used by the driver. This string
         overrides the default identifier ordinarily assigned by the
         driver itself.
-    ``flag1 flag2 flag3 flag4``
+
+    .. confval:: flag1 flag2 flag3 flag4
+
         These four flags are used for customizing the clock driver. The
         interpretation of these values, and whether they are used at
         all, is a function of the particular driver. However, by
         convention ``flag4`` is used to enable recording monitoring data
         to the ``clockstats`` file configured with the ``filegen``
         command. Additional information on the ``filegen`` command is on
-        the :doc:`Monitoring Options
-        <monopt>` page.
+        the :doc:`Monitoring Options <monopt>` page.

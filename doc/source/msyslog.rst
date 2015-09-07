@@ -19,23 +19,24 @@ meaning should be clear from context.
 Protocol Module
 ---------------
 
-``LOG_ERR``
+LOG_ERR
+~~~~~~~
 
 ``buffer overflow ?``
     Fatal error. An input packet is too long for processing.
 
-``LOG_NOTICE``
+LOG_NOTICE
+~~~~~~~~~~
 
 ``no reply; clock not set``
     In ``ntpdate`` mode no servers have been found. The server(s) and/or
     network may be down. Standard debugging procedures apply.
 
-``LOG_INFO``
+LOG_INFO
+~~~~~~~~
 
 ``proto_config: illegal item ?, value ?``
-    Program error. Bugs can be reported
-    :doc:`here
-    <bugs>`.
+    Program error. Bugs can be reported :doc:`here <bugs>`.
 ``receive: autokey requires two-way communication``
     Configuration error on the ``broadcastclient`` command.
 ``receive: server server maaximum rate exceeded``
@@ -56,62 +57,23 @@ Protocol Module
 Clock Discipline Module
 -----------------------
 
-``LOG_ERR``
-
-.. raw:: html
-
-   <dl>
-
-.. raw:: html
-
-   <dt>
+LOG_ERR
+~~~~~~~
 
 ``time correction of ? seconds exceeds sanity limit (?); set clock manually to the correct UTC time``.
+    Fatal error. Better do what it says, then restart the daemon. Be advised
+    NTP and Unix know nothing about local time zones. The clock must be set
+    to Coordinated Universal Time (UTC). Believe it; by international
+    agreement abbreviations are in French and descriptions are in English.
 
-.. raw:: html
-
-   </dt>
-
-.. raw:: html
-
-   <dd>
-
-Fatal error. Better do what it says, then restart the daemon. Be advised
-NTP and Unix know nothing about local time zones. The clock must be set
-to Coordinated Universal Time (UTC). Believe it; by international
-agreement abbreviations are in French and descriptions are in English.
-
-.. raw:: html
-
-   </dd>
-
-.. raw:: html
-
-   <dt>
 
 | ``sigaction() fails to save SIGSYS trap: ?``
-|  ``sigaction() fails to restore SIGSYS trap: ?``
+| ``sigaction() fails to restore SIGSYS trap: ?``
 
-.. raw:: html
+    Program error. Bugs can be reported :doc:`here <bugs>`.
 
-   </dt>
-
-.. raw:: html
-
-   <dt>
-
-Program error. Bugs can be reported :doc:`here
-<bugs>`.
-
-.. raw:: html
-
-   </dt>
-
-.. raw:: html
-
-   </dl>
-
-``LOG_NOTICE``
+LOG_NOTICE
+~~~~~~~~~~
 
 ``frequency error ? exceeds tolerance 500 PPM``
     The hardware clock frequency error exceeds the rate the kernel can
@@ -129,7 +91,8 @@ Program error. Bugs can be reported :doc:`here
     The PPS signal has died, probably due to a dead radio, broken wire
     or loose connector.
 
-``LOG_INFO``
+LOG_INFO
+~~~~~~~~
 
 ``kernel time sync status ?``
     For information only. See the codes in the ``timex.h`` file.
@@ -137,49 +100,58 @@ Program error. Bugs can be reported :doc:`here
 Cryptographic Module
 --------------------
 
-``LOG_ERR``
+LOG_ERR
+~~~~~~~
 
-``cert_parse ?``
-``cert_sign ?``
-``crypto_cert ?``
-``crypto_encrypt ?``
-``crypto_gq ?``
-``crypto_iff ?``
-``crypto_key ?``
-``crypto_mv ?``
-``crypto_setup ?``
-``make_keys ?``
+| ``cert_parse ?``
+| ``cert_sign ?``
+| ``crypto_cert ?``
+| ``crypto_encrypt ?``
+| ``crypto_gq ?``
+| ``crypto_iff ?``
+| ``crypto_key ?``
+| ``crypto_mv ?``
+| ``crypto_setup ?``
+| ``make_keys ?``
+
     Usually fatal errors. These messages display error codes returned
     from the OpenSSL library. See the OpenSSL documentation for
     explanation.
-``crypto_setup: certificate ? is trusted, but not self signed``
-``crypto_setup: certificate ? not for this host``
-``crypto_setup: certificate file ? not found or corrupt``
-``crypto_setup: host key file ? not found or corrupt``
-``crypto_setup: host key is not RSA key type``
-``crypto_setup: random seed file ? not found``
-``crypto_setup: random seed file not specified``
+
+| ``crypto_setup: certificate ? is trusted, but not self signed``
+| ``crypto_setup: certificate ? not for this host``
+| ``crypto_setup: certificate file ? not found or corrupt``
+| ``crypto_setup: host key file ? not found or corrupt``
+| ``crypto_setup: host key is not RSA key type``
+| ``crypto_setup: random seed file ? not found``
+| ``crypto_setup: random seed file not specified``
+
     Fatal errors. These messages show problems during the initialization
     procedure.
 
-``LOG_INFO``
+LOG_INFO
+~~~~~~~~
 
-``cert_parse: expired ?``
-``cert_parse: invalid issuer ?``
-``cert_parse: invalid signature ?``
-``cert_parse: invalid subject ?``
+| ``cert_parse: expired ?``
+| ``cert_parse: invalid issuer ?``
+| ``cert_parse: invalid signature ?``
+| ``cert_parse: invalid subject ?``
+
     There is a problem with a certificate. Operation cannot proceed
     untill the problem is fixed. If the certificate is local, it can be
     regenerated using the ``ntp-keygen`` program. If it is held
     somewhere else, it must be fixed by the holder.
-``crypto_?: defective key``
-``crypto_?: invalid filestamp``
-``crypto_?: missing challenge``
-``crypto_?: scheme unavailable``
+
+| ``crypto_?: defective key``
+| ``crypto_?: invalid filestamp``
+| ``crypto_?: missing challenge``
+| ``crypto_?: scheme unavailable``
+
     There is a problem with the identity scheme. Operation cannot
     proceed untill the problem is fixed. Usually errors are due to
     misconfiguration or an orphan association. If the latter, ``ntpd``
     will usually time out and recover by itself.
+
 ``crypto_cert: wrong PEM type ?``
     The certificate does not have MIME type ``CERTIFICATE``. You are
     probably using the wrong type from OpenSSL or an external

@@ -5,12 +5,11 @@ Commands and Options
 --------------------
 
 Unless noted otherwise, further information about these commands is on
-the :doc:`Authentication Support
-<authentic>` page.
+the :doc:`Authentication Support <authentic>` page.
 
 .. _authopt-automax:
 
-.. confval:: automax [logsec]
+.. confval:: automax [<logsec>]
 
     Specifies the interval between regenerations of the session key list
     used with the Autokey protocol, as a power of 2 in seconds. Note
@@ -18,32 +17,31 @@ the :doc:`Authentication Support
     interval and the current poll interval. The default interval is 12
     (about 1.1 hr). For poll intervals above the specified interval, a
     session key list with a single entry will be regenerated for every
-    message sent. See the :doc:`Autokey Public
-    Key Authentication <autokey>` page for
-    further information.
+    message sent.
+    See the :doc:`Autokey Public Key Authentication <autokey>` page
+    for further information.
 
 .. _authopt-controlkey:
 
 .. confval:: controlkey <keyid>
 
-    Specifies the key ID for the :doc:`ntpq
-    <ntpq>` utility, which uses the standard
-    protocol defined in RFC-1305. The ``keyid`` argument is the key ID
-    for a :ref:`trusted key
-    <authopt-trustedkey>`, where the value can
+    Specifies the key ID for the :doc:`ntpq <ntpq>` utility,
+    which uses the standard protocol defined in :rfc:`1305`.
+    The ``keyid`` argument is the key ID
+    for a :ref:`trusted key <authopt-trustedkey>`, where the value can
     be in the range 1 to 65534, inclusive.
 
 .. _authopt-crypto:
 
-``crypto [digest digest] [host name] [ident name] [pw password] [randfile file]``
+.. confval:: crypto [digest <digest>] [host <name>] [ident <name>] [pw <password>] [randfile <file>]
+
     This command activates the Autokey public key cryptography and loads
     the required host keys and certificate. If one or more files are
     unspecified, the default names are used. Unless the complete path
     and name of the file are specified, the location of a file is
     relative to the keys directory specified in the ``keysdir``
     configuration command with default ``/usr/local/etc``. See the
-    :doc:`Autokey Public Key Authentication
-    <autokey>` page for further information.
+    :doc:`Autokey Public Key Authentication  <autokey>` page for further information.
     Following are the options.
 
     .. confval:: digest <digest>
@@ -64,16 +62,22 @@ the :doc:`Authentication Support
         certificate files. If this option is not specified, the default
         name is the string returned by the Unix ``gethostname()``
         routine.
-        Note: In the latest Autokey version, this option has no effect
-        other than to change the cryptographic media file names.
 
-    .. confval:: ident <group>
+        .. note::
+
+          In the latest Autokey version, this option has no effect
+          other than to change the cryptographic media file names.
+
+    .. confval:: ident <name>
 
         Specify the cryptographic media names for the identity scheme
         files. If this option is not specified, the default name is the
         string returned by the Unix ``gethostname()`` routine.
-        Note: In the latest Autokey version, this option has no effect
-        other than to change the cryptographic media file names.
+
+        .. note::
+
+          In the latest Autokey version, this option has no effect
+          other than to change the cryptographic media file names.
 
     .. confval:: pw <password>
 
@@ -86,8 +90,7 @@ the :doc:`Authentication Support
 
         Specifies the location of the random seed file used by the
         OpenSSL library. The defaults are described on the
-        :doc:`ntp-keygen page
-        <keygen>`.
+        :doc:`ntp-keygen page <keygen>`.
 
 .. _authopt-ident:
 
@@ -95,8 +98,8 @@ the :doc:`Authentication Support
 
     Specifies the group name for ephemeral associations mobilized by
     broadcast and symmetric passive modes. See the
-    :doc:`Autokey Public-Key Authentication
-    <autokey>` page for further information.
+    :doc:`Autokey Public-Key Authentication <autokey>` page
+    for further information.
 
 .. _authopt-keys:
 
@@ -106,8 +109,7 @@ the :doc:`Authentication Support
     the key IDs, key types and keys used by ``ntpd``, ``ntpq`` and
     ``ntpdc`` when operating with symmetric key cryptography. The format
     of the keyfile is described on the
-    :doc:`ntp-keygen page
-    <keygen>`. This is the same operation as
+    :doc:`ntp-keygen page <keygen>`. This is the same operation as
     the ``-k`` command line option. Note that the directory path for
     Autokey cryptographic media is specified by the ``keysdir`` command.
 
@@ -124,35 +126,33 @@ the :doc:`Authentication Support
 
 .. confval:: requestkey <keyid>
 
-    Specifies the key ID for the :doc:`ntpdc
-    <ntpdc>` utility program, which uses a
-    proprietary protocol specific to this implementation of ``ntpd``.
+    Specifies the key ID for the :doc:`ntpdc <ntpdc>` utility program,
+    which uses a proprietary protocol specific to this implementation
+    of ``ntpd``.
     The ``keyid`` argument is a key ID for a
-    :ref:`trusted key
-    <authopt-trustedkey>`, in the range 1 to
-    65534, inclusive.
+    :ref:`trusted key <authopt-trustedkey>`,
+    in the range 1 to 65534, inclusive.
 
 .. _authopt-revoke:
 
-.. confval:: revoke [logsec]
+.. confval:: revoke [<logsec>]
 
     Specifies the interval between re-randomization of certain
     cryptographic values used by the Autokey scheme, as a power of 2 in
     seconds, with default 17 (36 hr). See the
-    :doc:`Autokey Public-Key Authentication
-    <autokey>` page for further information.
+    :doc:`Autokey Public-Key Authentication <autokey>` page
+    for further information.
 
 .. _authopt-trustedkey:
 
-``trustedkey [keyid | (lowid ... highid)] [...]``
+.. confval:: trustedkey [<keyid> | (<lowid> ... <highid>)] [...]
+
     Specifies the key ID(s) which are trusted for the purposes of
     authenticating peers with symmetric key cryptography. Key IDs used
     to authenticate ``ntpq`` and ``ntpdc`` operations must be listed
     here and additionally be enabled with
-    :ref:`controlkey
-    <authopt-controlkey>` and/or
-    :ref:`requestkey
-    <authopt-requestkey>`. The authentication
+    :ref:`controlkey <authopt-controlkey>` and/or
+    :ref:`requestkey <authopt-requestkey>`. The authentication
     procedure for time transfer requires that both the local and remote
     NTP servers employ the same key ID and secret for this purpose,
     although different keys IDs may be used with different servers.

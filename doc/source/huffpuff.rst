@@ -19,24 +19,15 @@ difference between the apparent delay and minimum delay. The name of the
 filter reflects the negative (huff) and positive (puff) correction,
 which depends on the sign of the offset. The filter is activated by the
 ``tinker huffpuff`` command, as described in the
-:doc:`Miscellaneous Options
-<miscopt>` page.
+:doc:`Miscellaneous Options <miscopt>` page.
 
-.. raw:: html
+.. figure:: pic/flt4.png
+  :align: center
 
-   <div align="center">
-
-|image0|
-
-Figure 1. Huff-n'-Puff Wedge Scattergram
-
-.. raw:: html
-
-   </div>
+  Figure 1. Huff-n'-Puff Wedge Scattergram
 
 Figure 1 shows how the huff-n'-puff filter works. Recall from the
-:doc:`Clock Filter Algorithm
-<filter>` page that the wedge scattergram plots
+:doc:`Clock Filter Algorithm <filter>` page that the wedge scattergram plots
 sample points (*x*, *y*) corresponding to the measured delay and offset,
 and that the limb lines are at slope ±0.5. Note in the figure that the
 samples are clustered close to the upper limb line, representing heavy
@@ -46,7 +37,7 @@ for a point (*x*, *y*), the true offset is
 
     | θ = *y* - (*x* - \ *x*\ :sub:`0`) / 2 for *y* > *y*\ :sub:`0` at
       or near the upper limb line or
-    |  θ = *y* + (*x* - \ *x*\ :sub:`0`) / 2 for *y* < *y*\ :sub:`0` at
+    | θ = *y* + (*x* - \ *x*\ :sub:`0`) / 2 for *y* < *y*\ :sub:`0` at
       or near the lower limb line.
 
 In either case the associated delay is δ = *x*.
@@ -54,5 +45,3 @@ In either case the associated delay is δ = *x*.
 In the interior of the wedge scattergram far from the limb lines, the
 corrections are less effective and can lead to significant errors if the
 area between the limb lines is heavily populated.
-
-.. |image0| image:: pic/flt4.png

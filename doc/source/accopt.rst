@@ -5,19 +5,18 @@ Commands and Options
 --------------------
 
 Unless noted otherwise, further information about these commands is on
-the :doc:`Access Control Support
-<accopt>` page.
+the :doc:`Access Control Support <accopt>` page.
 
 .. _accopt-discard:
 
-``discard [ average avg ][ minimum min ] [ monitor prob ]``
+.. confval:: discard [ average <avg> ][ minimum <min> ] [ monitor <prob> ]
+
     Set the parameters of the rate control facility which protects the
     server from client abuse. If the ``limited`` flag is present in the
     ACL, packets that violate these limits are discarded. If, in
     addition, the ``kod`` flag is present, a kiss-o'-death packet is
-    returned. See the :doc:`Rate Management
-    <rate>` page for further information. The
-    options are:
+    returned. See the :doc:`Rate Management <rate>` page for further
+    information. The options are:
 
     .. confval:: average <avg>
 
@@ -29,7 +28,7 @@ the :doc:`Access Control Support
         Specify the minimum interpacket spacing (guard time) in seconds
         with default 2.
 
-    .. confval:: monitor
+    .. confval:: monitor <prob>
 
         Specify the probability of being recorded for packets that
         overflow the MRU list size limit set by ``mru maxmem`` or
@@ -38,7 +37,11 @@ the :doc:`Access Control Support
 
 .. _accopt-restrict:
 
-``restrict default [flag][...]     restrict source [flag][...]     restrict address [mask mask] [flag][...]``
+.. confval::
+    restrict default [flag][...]
+    restrict source [flag][...]
+    restrict <address> [mask <mask>] [flag][...]
+
     The ``address`` argument expressed in dotted-quad form is the
     address of a host or network. Alternatively, the ``address``
     argument can be a valid host DNS name. The ``mask`` argument
@@ -81,7 +84,7 @@ the :doc:`Access Control Support
         restriction which does not have the ``limited`` flag, no KoD
         responses will result.
 
-.. _accopt-limited:
+    .. _accopt-limited:
 
     .. confval:: limited
 

@@ -21,17 +21,10 @@ statistics provide the following information.
 Figure 1 shows how the various measured statistics are collected and
 compiled to calibrate NTP performance.
 
-.. raw:: html
+.. figure:: pic/stats.png
+  :align: center
 
-   <div align="center">
-
-|image0|
-
-Figure 1. Statistics Budget
-
-.. raw:: html
-
-   </div>
+  Figure 1. Statistics Budget
 
 The data represented in boxes labeled Server are contained in fields in
 packet received from the server. The data represented in boxes labeled
@@ -75,11 +68,9 @@ sample dispersion and peer dispersion continue to grow at the same rate,
 15 μs/s. Finally, the *peer jitter* φ is determined as the RMS
 differences between the offset samples in the window relative to the
 selected offset sample. The peer statistics are recorded by the
-``peerstats`` option of the :ref:`filegen
-<monopt-filegen>` command. Peer variables are
-displayed by the ``rv`` command of the
-:ref:`ntpq
-<ntpq-peer>` program.
+``peerstats`` option of the :ref:`filegen <monopt-filegen>` command.
+Peer variables are displayed by the ``rv`` command of the
+:ref:`ntpq <ntpq-peer>` program.
 
 The clock filter algorithm continues to process updates in this way
 until the source is no longer reachable. Reachability is determined by
@@ -100,11 +91,8 @@ peer and system variables are determined as described on the
 and Φ are updated from the system peer variables of the same name and
 the system stratum set one greater than the system peer stratum. The
 system statistics are recorded by the ``loopstats`` option of the
-:ref:`filegen
-<monopt-filegen>` command. System variables are
-displayed by the ``rv`` command of the
-:ref:`ntpq
-<ntpq-system>` program.
+:ref:`filegen <monopt-filegen>` command. System variables are
+displayed by the ``rv`` command of the :ref:`ntpq <ntpq-system>` program.
 
 Although it might seem counterintuitive, a cardinal rule in the
 selection process is, once a sample has been selected by the clock
@@ -154,8 +142,7 @@ dispersion in the packet plus the peer dispersion.
 A source is considered selectable only if its root distance is less than
 the *select threshold*, by default 1.5 s, but can be changed according
 to client preference using the ``maxdist`` option of the
-:ref:`tos
-<miscopt-tos>` command. When an upstream server
+:ref:`tos <miscopt-tos>` command. When an upstream server
 loses all sources, its root distance apparent to dependent clients
 continues to increase. The clients are not aware of this condition and
 continue to accept synchronization as long as the root distance is less
@@ -191,9 +178,8 @@ from which the system root delay and system root dispersion are
 inherited.
 
 The algorithms described on the
-:doc:`Mitigation Rules and the prefer Keyword
-<prefer>` page deliver several important
-statistics. The *system offset* and *system jitter* are weighted
+:doc:`Mitigation Rules and the prefer Keyword <prefer>` page deliver several
+important statistics. The *system offset* and *system jitter* are weighted
 averages computed by the clock combine algorithm. System offset is best
 interpreted as the maximum-likelihood estimate of the system clock
 offset, while system jitter, also called estimated error, is best
@@ -208,7 +194,5 @@ discussion, certain minor contributions to the maximum error statistic
 are ignored. If the precision time kernel support is available, both the
 estimated error and maximum error are reported to user programs via the
 ``ntp_adjtime()`` kernel system call. See the
-:doc:`Kernel Model for Precision Timekeeping
-<kern>` page for further information.
-
-.. |image0| image:: pic/stats.png
+:doc:`Kernel Model for Precision Timekeeping <kern>` page
+for further information.

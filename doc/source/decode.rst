@@ -38,16 +38,7 @@ Count (8-11) and Event (12-15). It is reported in the first line of the
 ``rv`` display produced by the ``ntpq`` program.
 
 +--------------------+--------------------+--------------------+--------------------+
-| .. raw:: html      | .. raw:: html      | .. raw:: html      | .. raw:: html      |
-|                    |                    |                    |                    |
-|    <div            |    <div            |    <div            |    <div            |
-|    align="center"> |    align="center"> |    align="center"> |    align="center"> |
-|                    |                    |                    |                    |
 | Leap               | Source             | Count              | Event              |
-|                    |                    |                    |                    |
-| .. raw:: html      | .. raw:: html      | .. raw:: html      | .. raw:: html      |
-|                    |                    |                    |                    |
-|    </div>          |    </div>          |    </div>          |    </div>          |
 +--------------------+--------------------+--------------------+--------------------+
 
 The Leap Field displays the system leap indicator bits coded as follows:
@@ -143,16 +134,7 @@ The peer status word consists of four fields: Status (0-4), Select
 of the ``rv associd`` display produced by the ``ntpq`` program.
 
 +--------------------+--------------------+--------------------+--------------------+
-| .. raw:: html      | .. raw:: html      | .. raw:: html      | .. raw:: html      |
-|                    |                    |                    |                    |
-|    <div            |    <div            |    <div            |    <div            |
-|    align="center"> |    align="center"> |    align="center"> |    align="center"> |
-|                    |                    |                    |                    |
 | Status             | Select             | Count              | Code               |
-|                    |                    |                    |                    |
-| .. raw:: html      | .. raw:: html      | .. raw:: html      | .. raw:: html      |
-|                    |                    |                    |                    |
-|    </div>          |    </div>          |    </div>          |    </div>          |
 +--------------------+--------------------+--------------------+--------------------+
 
 The Status Field displays the peer status code bits in hexadecimal; each
@@ -261,15 +243,7 @@ The clock status word consists of four fields: Unused (0-7), Count
 ``clockvar associd`` display produced by the ``ntpq`` program.
 
 +--------------------------+--------------------------+--------------------------+
-| .. raw:: html            | .. raw:: html            | .. raw:: html            |
-|                          |                          |                          |
-|    <div align="center">  |    <div align="center">  |    <div align="center">  |
-|                          |                          |                          |
 | Unused                   | Count                    | Code                     |
-|                          |                          |                          |
-| .. raw:: html            | .. raw:: html            | .. raw:: html            |
-|                          |                          |                          |
-|    </div>                |    </div>                |    </div>                |
 +--------------------------+--------------------------+--------------------------+
 
 The Count Field displays the number of events since the last ``lockvar``

@@ -2,7 +2,7 @@ Autokey Public-Key Authentication
 =================================
 
 This distribution includes support for the Autokey public key algorithms
-and protocol specified in RFC-5906 "Network Time Protocol Version 4:
+and protocol specified in :rfc:`5906` "Network Time Protocol Version 4:
 Autokey Specification". This support is available only if the OpenSSL
 library has been installed and the ``--enable-autokey`` option is
 specified when the distribution is built.
@@ -15,22 +15,22 @@ known only to the originator and a public key known to all participants.
 A recipient can verify the originator has the correct private key using
 the public key and any of several digital signature algorithms.
 
-The Autokey Version 2 protocol described on the `Autokey
-Protocol <http://www.eecis.udel.edu/%7emills/proto.html>`__ page
+The Autokey Version 2 protocol described on the :ntp_research:`Autokey
+Protocol <proto.html>` page
 verifies packet integrity using message digest algorithms, such as MD5
 or SHA, and verifies the source using digital signature schemes, such as
 RSA or DSA. As used in Autokey, message digests are exceptionally
 difficult to cryptanalyze, as the keys are used only once.
 
-Optional identity schemes described on the `Autokey Identity
-Schemes <http://www.eecis.udel.edu/~mills/ident.html>`__ page are based
+Optional identity schemes described on the :ntp_research:`Autokey Identity
+Schemes <ident.html>` page are based
 on cryptographic challenge/response exchanges. Optional identity schemes
 provide strong security against masquerade and most forms of clogging
 attacks. These schemes are exceptionally difficult to cryptanalyze, as
 the challenge/response exchange data are used only once. They are
 described along with an executive summary, current status, briefing
-slides and reading list on the `Autonomous
-Authentication <http://www.eecis.udel.edu/~mills/autokey.html>`__ page.
+slides and reading list on the :ntp_research:`Autonomous
+Authentication <autokey.html>` page.
 
 Autokey authenticates individual packets using cookies bound to the IP
 source and destination addresses. The cookies must have the same IP
@@ -41,9 +41,9 @@ servers and clients are operated outside firewall perimeters.
 
 Autokey is designed to authenticate servers to clients, not the other
 way around as in SSH. An Autokey server can support an authentication
-scheme such as the Trusted Certificate (TC) scheme described in RFC
-5906, while a client is free to choose between the various options. It
-is important to understand that these provisions are optional and that
+scheme such as the Trusted Certificate (TC) scheme described in
+:rfc:`5906`, while a client is free to choose between the various options.
+It is important to understand that these provisions are optional and that
 selection of which option is at the discretion of the client. If the
 client does not require authentication, it is free to ignore it, even if
 some other client of the same server elects to participate in either
@@ -51,8 +51,8 @@ symmetric key or public key cryptography.
 
 Autokey uses industry standard X.509 public certificates, which can be
 produced by commercial services, utility programs in the OpenSSL
-software library, and the :doc:`ntp-keygen
-<keygen>` utility program in the NTP software
+software library, and the :doc:`ntp-keygen <keygen>` utility program
+in the NTP software
 distribution. A certificate includes the subject name of the client, the
 issuer name of the server, the public key of the client and the time
 period over which the the public and private keys are valid. All Autokey
@@ -130,17 +130,10 @@ on-wire protocol.
 
 Example
 
-.. raw:: html
+.. figure:: pic/flt8.png
+  :align: center
 
-   <div align="center">
-
-|image0|
-
-Figure 1. Example Configuration
-
-.. raw:: html
-
-   </div>
+  Figure 1. Example Configuration
 
 Figure 1 shows an example configuration with three NTP subnets, Alice,
 Helen and Carol. Alice and Helen are parent groups for Carol with TA C
@@ -166,9 +159,9 @@ In some configurations where more than one subnet shares an Ethernet or
 when multiple subnets exist in a manycast or pool configuration, it is
 useful to isolate one subnet from another. In Autokey this can be done
 using group names. An Autokey host name is specified by the
-``-s``\ `` host@group`` option of the ``ntp-keygen`` program, where
-*``host``* is the host name and *``group``* is the group name. If
-*``host``* is omitted, the name defaults to the string returned by the
+``-s <host>@<group>`` option of the ``ntp-keygen`` program, where
+``<host>`` is the host name and ``<group>`` is the group name. If
+``<host>`` is omitted, the name defaults to the string returned by the
 Unix ``gethostname()`` routine, ordinarily the DNS name of the host.
 Thus, for host ``beauregard.udel.edu`` the option ``-s @red`` specifies
 the Autokey host name ``beauegard.udel.edu@red``.
@@ -211,17 +204,10 @@ possibly via intermediate hosts, and ending at a TH of that group. The
 TH verifies authenticity with the TA of the parent subnet using an
 identity exchange.
 
-.. raw:: html
+.. figure:: pic/flt9.png
+  :align: center
 
-   <div align="center">
-
-|image1|
-
-Figure 2. Identify Scheme
-
-.. raw:: html
-
-   </div>
+  Figure 2. Identify Scheme
 
 The identity exchange is run between a TA acting as a server and a TH
 acting as a client. As shown in Figure 2, the identity exchange involves
@@ -239,8 +225,8 @@ Schnorr (Identify Friend or Foe - IFF) scheme, the secret group key is
 not divulged to the clients, so they cannot conspire to prove identity
 to other hosts.
 
-As described on the `Autokey Identity
-Schemes <http://www.eecis.udel.edu/~mills/ident.html>`__ page, there are
+As described on the :ntp_research:`Autokey Identity Schemes <ident.html>` page,
+there are
 five identity schemes, three of which - IFF, GQ and MV - require
 identity files specific to each scheme. There are two types of files for
 each scheme, an encrypted server keys file and a nonencrypted client
@@ -258,34 +244,20 @@ option of the ``crypto`` command or the ``ident`` option of the
 
 When more than one TH Is involved in the secure group, it is convenient
 for the TAs and THs to use the same encrypted key files. To do this, one
-of the parent TAs includes the ``-i group`` option on the ``ntp-keygen``
-command line, where *``group``* is the name of the child secure group.
+of the parent TAs includes the ``-i <group>`` option on the ``ntp-keygen``
+command line, where ``<group>`` is the name of the child secure group.
 The ``ntp-keygen`` program can export server keys files using the ``-q``
 option and a chosen remote password. The files are installed on the TAs
 and then renamed using the name given as the first line in the file, but
 without the filestamp. The secure group name must match the ``ident``
 option for all TAs.
 
-.. raw:: html
+.. caution::
 
-   <dl>
-
-.. raw:: html
-
-   <dd>
-
-In the latest Autokey version, the host name and group name are
-independent of each other and the ``host`` option of the ``crypto``
-command is deprecated. When compatibility with older versions is
-required, specify the same name for both the ``-s`` and ``-i`` options.
-
-.. raw:: html
-
-   </dd>
-
-.. raw:: html
-
-   </dl>
+  In the latest Autokey version, the host name and group name are
+  independent of each other and the ``host`` option of the ``crypto``
+  command is deprecated. When compatibility with older versions is
+  required, specify the same name for both the ``-s`` and ``-i`` options.
 
 In special circumstances the Autokey message digest algorithm can be
 changed using the ``digest`` option of the ``crypto`` command. The
@@ -314,9 +286,10 @@ necessary in typical scenarios. However, the Trusted Certificate (TC)
 scheme is recommended for national NTP time services, such as those
 operated by NIST and USNO. Configuration for TC is very simple.
 
-Referring to Figure 1, for each TH, A, B, R and X, as root:
+Referring to Figure 1, for each TH, A, B, R and X, as root: ::
 
-``# cd /usr/local/etc   # ntp-keygen -T``
+  # cd /usr/local/etc
+  # ntp-keygen -T
 
 and for the other hosts the same commands without the ``-T`` option.
 This generates an RSA private/public host key file and a self-signed
@@ -324,11 +297,15 @@ certificate file for the RSA digital signature algorithm with the MD5
 message digest algorithm. For the THs a trusted certificate is
 generated; for the others a nontreusted certificate is generated.
 Include in the ``ntp.conf`` configuration file for all hosts other than
-the primary servers, A, B and R, something like
+the primary servers, A, B and R, something like:
 
-``# server host autokey   # crypto   # driftfile /etc/ntp.drift``
+.. code-block:: cfg
 
-where ``host`` is the selected server name as shown in the figure.
+  server <host> autokey
+  crypto  
+  driftfile /etc/ntp.drift
+
+where ``<host>`` is the selected server name as shown in the figure.
 Servers A, B and R are configured for local reference clocks or trusted
 remoter servers as required.
 
@@ -342,8 +319,8 @@ file. The host name can be changed using the ``-s`` option of the
 ``crypto`` configuration command.
 
 Group names can be added to this configuration by including the
-``-s host@group`` option with the ``ntp-keygen`` program. For the
-purpose of illustration, the ``host`` string is empty, signifying the
+``-s <host>@<group>`` option with the ``ntp-keygen`` program. For the
+purpose of illustration, the ``<host>`` string is empty, signifying the
 default host name. For example, @\ ``yellow`` can be used for the Alice
 group, @\ ``orange`` for the Helen group and @\ ``blue`` for the Carol
 group. In addition, for TH X the ``ident yellow`` option should be added
@@ -365,18 +342,18 @@ client parameters file for the IFF identity scheme using the ``-I``
 option of the ``ntp-keygen`` program. Note the TAs are not necessarily
 trusted hosts, so may not need the ``-T`` option.
 
-The nonencrypted client parameters can be exported using the command
+The nonencrypted client parameters can be exported using the command::
 
-``ntp-keygen -e >file``,
+  ntp-keygen -e >file
 
 where the ``-e`` option redirects the client parameters to ``file`` via
 the standard output stream for a mail application or stored locally for
 later distribution to one or more THs. In a similar fashion the
-encrypted keys file can be exported using the command
+encrypted keys file can be exported using the command::
 
-``ntp-keygen -q passwd2 >file``,
+  ntp-keygen -q <passwd2> >file
 
-where ``passwd2`` is the read password for another TA. We won't need
+where ``<passwd2>`` is the read password for another TA. We won't need
 this file here.
 
 While the file names used for the exported files are arbitrary, it is
@@ -388,9 +365,9 @@ To complete the configuration, the TH includes the client parameters
 file name in the ``ident`` option of the ``server`` command for the TA
 association
 
-``server 1.2.3.4 ident group,``
+``server 1.2.3.4 ident <group>,``
 
-where ``group`` is the file name given above.
+where ``<group>`` is the file name given above.
 
 .. _autokey-ident:
 
@@ -433,439 +410,16 @@ IDENT
 The compatible cryptotypes for clients and servers are listed in the
 following table.
 
-.. raw:: html
-
-   <table width="100%" border="1" cellpadding="4">
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td rowspan="2" align="center">
-
-Client
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td colspan="5" align="center">
-
-Server
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td align="center">
-
-NONE
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-AUTH
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-PC
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-TC
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-IDENT
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td align="center">
-
-NONE
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-yes
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-yes\*
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-yes\*
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-yes\*
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-yes\*
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td align="center">
-
-AUTH
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-no
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-yes
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-no
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-no
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-no
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td align="center">
-
-PC
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-no
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-no
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-yes
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-no
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-no
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td align="center">
-
-TC
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-no
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-no
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-no
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-yes
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-yes
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td align="center">
-
-IDENT
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-no
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-no
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-no
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-no
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td align="center">
-
-yes
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   </table>
+=========== ======= ======= ======= ======= =======
+..               **Server**
+----------- ---------------------------------------
+**Client**  NONE    AUTH    PC      TC      IDENT
+NONE        yes     yes*    yes*    yes*    yes*
+AUTH        no      yes     no      no      no
+PC          no      no      yes     no      no
+TC          no      no      no      yes     yes
+IDENT       no      no      no      no      yes
+=========== ======= ======= ======= ======= =======
 
 \* These combinations are not valid if the restriction list includes the
 ``notrust`` option.
@@ -883,8 +437,7 @@ digest schemes or identity schemes and must be corrected by installing
 the correct media and/or correcting the configuration file. One of the
 most common errors is expired certificates, which must be regenerated
 and signed at least once per year using the
-:doc:`ntp-keygen - generate public and private
-keys <keygen>` program.
+:doc:`ntp-keygen <keygen>` program.
 
 The following error codes are reported via the NTP control and
 monitoring protocol trap mechanism and to the ``cryptostats`` monitoring
@@ -932,12 +485,8 @@ file if configured.
 Files
 ----------------------------------
 
-See the :doc:`ntp-keygen
-<keygen>` page. Note that provisions to load
+See the :doc:`ntp-keygen <keygen>` page. Note that provisions to load
 leap second values from the NIST files have been removed. These
 provisions are now available whether or not the OpenSSL library is
 available. However, the functions that can download these values from
 servers remains available.
-
-.. |image0| image:: pic/flt8.png
-.. |image1| image:: pic/flt9.png
