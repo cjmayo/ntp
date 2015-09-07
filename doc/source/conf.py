@@ -26,9 +26,26 @@ extlinks = {
   'ntp_home': ('http://www.ntp.org/%s', 'www.ntp.org'),
   'ntp_research': ('http://www.eecis.udel.edu/~mills/%s', None),
 }
+
+from sphinx import addnodes
+
+def parse_confval(env, sig, signode):
+	first, rest = sig.split(' ', 1)
+	if rest.startswith('|'):
+		signode += addnodes.desc_name(sig, sig)
+		return sig
+	signode += addnodes.desc_name(first, first)
+	lastarg = None
+	for arg in rest.split(' '):
+		if lastarg and arg.strip(']') == lastarg:
+			arg = '<' + lastarg + '>' + (']' if arg.endswith(']') else '')
+		signode += addnodes.desc_addname(arg, ' ' + arg)
+		lastarg = arg.strip("[ ")
+	return first
+
 def setup(app):
   app.add_object_type('confval', 'confval',
-    'pair: %s; configuration value')
+    'pair: %s; configuration value', parse_confval)
   # Define LaTeX mathematical symbol replacements
   # To lookup see:
   # http://www.w3.org/Math/characters/html/symbol.html
