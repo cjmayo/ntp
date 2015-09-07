@@ -5,10 +5,10 @@ Synopsis
 --------
 
 | Address: 127.127.11.\ *u*
-|  Reference ID: ``GPS``
-|  Driver ID: ``GPS_ARBITER``
-|  Serial Port: ``/dev/gpsu``; 9600 baud, 8-bits, no parity
-|  Features: ``tty_clk``
+| Reference ID: ``GPS``
+| Driver ID: ``GPS_ARBITER``
+| Serial Port: ``/dev/gpsu``; 9600 baud, 8-bits, no parity
+| Features: ``tty_clk``
 
 Description
 -----------
@@ -120,5 +120,4 @@ Fudge Factors
 Additional Information
 ----------------------
 
-:doc:`Reference Clock Drivers
-<../refclock>`
+:doc:`Reference Clock Drivers <../refclock>`

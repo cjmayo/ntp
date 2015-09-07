@@ -41,10 +41,8 @@ this interface you must include a **STATUS** or **SHMEM** line in the
 
             STATUS < file_name >
 
-                
             or
 
-                
             SHMEM < file_name >
 
 Thus a line like
@@ -116,13 +114,13 @@ viz @@Ea or whatever.
 
 There are two special cases.
 
-| (1) The almanac takes a total of 34 submessages all starting with
-  @@Cb.
-|  35 slots are allocated in shared memory. Each @@Cb message is
-  initially placed in the first of these locations, and then later it is
-  moved to the appropriate location for that submessage. The submessages
-  can be distinguished by the first two characters following the @@Cb
-  header, and new data is received only when the almanac changes.
+(1) The almanac takes a total of 34 submessages all starting with
+@@Cb.
+35 slots are allocated in shared memory. Each @@Cb message is
+initially placed in the first of these locations, and then later it is
+moved to the appropriate location for that submessage. The submessages
+can be distinguished by the first two characters following the @@Cb
+header, and new data is received only when the almanac changes.
 
 (2) The @@Ea message contains the calculated location of the antenna,
 and is received once per second. However, when in timekeeping mode, the
@@ -258,12 +256,4 @@ tar file ftp://ftp.udel.edu/pub/ntp/software/OncorePlot.tar.gz.
 
 Try the new interface, enjoy.
 
-.. raw:: html
-
-   <address>
-
 Reg.Clemens (reg@dwf.com), Poul-Henning Kamp (phk@FreeBSD.org)
-
-.. raw:: html
-
-   </address>

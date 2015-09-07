@@ -5,9 +5,9 @@ Synopsis
 --------
 
 | Address: 127.127.6.\ *u*
-|  Reference ID: ``IRIG``
-|  Driver ID: ``IRIG_AUDIO``
-|  Audio Device: ``/dev/audio`` and ``/dev/audioctl``
+| Reference ID: ``IRIG``
+| Driver ID: ``IRIG_AUDIO``
+| Audio Device: ``/dev/audio`` and ``/dev/audioctl``
 
 Description
 -----------

@@ -5,11 +5,11 @@ Synopsis
 --------
 
 | Address: 127.127.7.\ *u*
-|  Reference ID: ``CHU``
-|  Driver ID: ``CHU``
-|  Modem Port: ``/dev/chuu``; 300 baud, 8-bits, no parity
-|  Autotune Port: ``/dev/icom``; 1200/9600 baud, 8-bits, no parity
-|  Audio Device: ``/dev/audio`` and ``/dev/audioctl``
+| Reference ID: ``CHU``
+| Driver ID: ``CHU``
+| Modem Port: ``/dev/chuu``; 300 baud, 8-bits, no parity
+| Autotune Port: ``/dev/icom``; 1200/9600 baud, 8-bits, no parity
+| Audio Device: ``/dev/audio`` and ``/dev/audioctl``
 
 Description
 -----------
@@ -85,8 +85,8 @@ independent timestamp upon arrival with a potential total of 60
 timestamps for each minute.
 
 The CHU timecode format is described on the `CHU
-website <http://inms-ienm.nrc-cnrc.gc.ca/time_services/chu_e.html>`__. A
-timecode is assembled when all bursts have been received in each minute.
+website <http://www.nrc-cnrc.gc.ca/eng/services/time/broadcast_codes.html>`__.
+A timecode is assembled when all bursts have been received in each minute.
 The timecode is considered valid and the clock set when at least one
 valid format B burst has been decoded and the majority decoder declares
 success. Once the driver has synchronized for the first time, it will

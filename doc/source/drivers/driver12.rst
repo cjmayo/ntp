@@ -5,10 +5,10 @@ Synopsis
 --------
 
 | Address: 127.127.12.\ *u*
-|  Reference ID: ``IRIG``
-|  Driver ID: ``IRIG_TPRO``
-|  TPRO Device: ``/dev/tprou``
-|  Requires: KSI/Odetics device driver, ``/usr/include/sys/tpro.h``
+| Reference ID: ``IRIG``
+| Driver ID: ``IRIG_TPRO``
+| TPRO Device: ``/dev/tprou``
+| Requires: KSI/Odetics device driver, ``/usr/include/sys/tpro.h``
   header file
 
 Description

@@ -1,5 +1,5 @@
-Drivers
-========
+Reference Clock Drivers
+=======================
 
 .. toctree::
   :maxdepth: 1

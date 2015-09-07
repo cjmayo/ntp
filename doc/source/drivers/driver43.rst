@@ -1,14 +1,14 @@
 RIPE NCC interface for Trimble Palisade
 =======================================
 
-|Trimble Acutime 2000|
-
 Synopsis
 --------
 
 | Address: 127.127.43.\ *u*
-|  Reference ID: ``RIPENCC``
-|  Driver ID: ``RIPENCC``
+| Reference ID: ``RIPENCC``
+| Driver ID: ``RIPENCC``
+
+|Trimble Acutime 2000|
 
 Description
 -----------
@@ -19,14 +19,14 @@ RIPE NCC clock card in the RIPE NCC Test Traffic Measurements project.
 Why this driver?
 ----------------
 
-| The reason why we created a seperated driver for an antenna for which
-  already a (vendor supplied) driver exist is a design decision. To be
-  more specific, the standard Trimble interface uses a 12 pin connector.
-  The cable sold by Trimble to connect to this wire is a very thick
-  cable. Certainly not something you wish to run for several 100 meters
-  through your building. And if you wanted to run it for 100 meters, you
-  always would have to really run the cable, and didn't have the option
-  to use existing wiring.
+The reason why we created a seperated driver for an antenna for which
+already a (vendor supplied) driver exist is a design decision. To be
+more specific, the standard Trimble interface uses a 12 pin connector.
+The cable sold by Trimble to connect to this wire is a very thick
+cable. Certainly not something you wish to run for several 100 meters
+through your building. And if you wanted to run it for 100 meters, you
+always would have to really run the cable, and didn't have the option
+to use existing wiring.
 
 This is where we wanted more flexibility. We wanted to be able to use
 existing wiring in buildings. That leaded us to CAT-5(UTP) which only
@@ -39,10 +39,10 @@ purposes this is more than fine.
 More information about the project can be found on the `Test Traffic
 Measurements <http://www.ripe.net/test-traffic>`__ website.
 
-|RIPE NCC clock card|
-
 RIPE NCC clock card
 -------------------
+
+|RIPE NCC clock card|
 
 The card is very a simple PCI card. The only feature on the bus it uses
 is the power supply. It uses this power supply to power the Trimble GPS
@@ -99,8 +99,7 @@ This is in the form of:
 Additional Information
 ----------------------
 
-:doc:`Reference Clock Drivers
-<../refclock>`
+:doc:`Reference Clock Drivers <../refclock>`
 
 .. |Trimble Acutime 2000| image:: ../pic/driver43_2.jpg
 .. |RIPE NCC clock card| image:: ../pic/driver43_1.png

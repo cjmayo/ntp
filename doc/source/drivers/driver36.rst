@@ -5,10 +5,10 @@ Synopsis
 --------
 
 | Address: 127.127.36.\ *u*
-|  Reference ID: ``WVf`` or ``WHf``
-|  Driver ID: ``WWV_AUDIO``
-|  Autotune Port: ``/dev/icom``; 1200/9600 baud, 8-bits, no parity
-|  Audio Device: ``/dev/audio`` and ``/dev/audioctl``
+| Reference ID: ``WVf`` or ``WHf``
+| Driver ID: ``WWV_AUDIO``
+| Autotune Port: ``/dev/icom``; 1200/9600 baud, 8-bits, no parity
+| Audio Device: ``/dev/audio`` and ``/dev/audioctl``
 
 Description
 -----------
@@ -60,13 +60,11 @@ the reference clock interface routines.
 This driver incorporates several features in common with other audio
 drivers such as described in the :doc:`Radio
 CHU Audio Demodulator/Decoder <driver7>` and
-the :doc:`IRIG Audio Decoder
-<driver6>` pages. They include automatic gain
+the :doc:`IRIG Audio Decoder <driver6>` pages. They include automatic gain
 control (AGC), selectable audio codec port and signal monitoring
 capabilities. For a discussion of these common features, as well as a
 guide to hookup, debugging and monitoring, see the
-:doc:`Reference Clock Audio Drivers
-<../audio>` page.
+:doc:`Reference Clock Audio Drivers <../audio>` page.
 
 Technical Overview
 ------------------
@@ -91,7 +89,7 @@ which uses the TI 320C25 DSP chip. The analysis, design and performance
 of the program for this unit is described in: Mills, D.L. A precision
 radio clock for WWV transmissions. Electrical Engineering Report 97-8-1,
 University of Delaware, August 1997, 25 pp. Available from
-`www.eecis.udel.edu/~mills/reports.htm <http://www.eecis.udel.edu/%7emills/reports.html>`__.
+:ntp_research:`papers.html`.
 For use in this driver, the original program was rebuilt in the C
 language and adapted to the NTP driver interface. The algorithms have
 been modified to improve performance, especially under weak signal
@@ -259,15 +257,7 @@ bottom of the sunspot cycle ending in October, 2006. Variations up to
 ±0.4 ms can be expected due to changing ionospheric layer height and ray
 geometry over the day and night.
 
-.. raw:: html
-
-   <div align="center">
-
 |image0|
-
-.. raw:: html
-
-   </div>
 
 The figure was constructed using a 2.4-GHz P4 running FreeBSD 6.1. For
 these measurements the computer clock was disciplined within a few
@@ -383,15 +373,7 @@ rotating probes continue until a valid station is found.
 The behavior of the autotune function over a typical day is shown in the
 figure below.
 
-.. raw:: html
-
-   <div align="center">
-
 |image1|
-
-.. raw:: html
-
-   </div>
 
 As expected, the lower frequencies prevail when the ray path is in
 moonlight (0100-1300 UTC) and the higher frequencies when the path is in
@@ -434,9 +416,7 @@ recording the hits (1) and misses (0) of the last 32 probes (hits and
 misses enter from the right), ``metric`` is described above, and
 ``minamp/minsnr`` is the minute pulse ampliture/SNR. An example is:
 
-::
-
-    wwv5 000d 111 5753 3967/20.1 3523/10.2 WV20 bdeff 100 8348/30.0 WH20 0000 1 22/-12.4
+``wwv5 000d 111 5753 3967/20.1 3523/10.2 WV20 bdeff 100 8348/30.0 WH20 0000 1 22/-12.4``
 
 There are several other messages that can occur; these are documented in
 the source listing.

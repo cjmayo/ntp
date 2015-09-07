@@ -5,13 +5,13 @@ Synopsis
 --------
 
 | Address: 127.127.30.\ *u*
-|  Reference ID: ``GPS``
-|  Driver ID: ONCORE
-|  Serial Port: ``/dev/oncore.serial.``\ *u*;  9600 baud, 8-bits, no
+| Reference ID: ``GPS``
+| Driver ID: ONCORE
+| Serial Port: ``/dev/oncore.serial.``\ *u*;  9600 baud, 8-bits, no
   parity.
-|  PPS Port: ``/dev/oncore.pps.``\ *u*;  ``PPS_CAPTUREASSERT``
+| PPS Port: ``/dev/oncore.pps.``\ *u*;  ``PPS_CAPTUREASSERT``
   required,  ``PPS_OFFSETASSERT`` supported.
-|  Configuration File: ``ntp.oncore``, or ``ntp.oncore.``\ *u*, or
+| Configuration File: ``ntp.oncore``, or ``ntp.oncore.``\ *u*, or
   ``ntp.oncore``\ *u*, in ``/etc/ntp`` or ``/etc``.
 
 Description
@@ -22,37 +22,20 @@ receivers <http://www.mot.com/AECS/PNSB/products>`__ (Basic, PVT6, VP,
 UT, UT+, GT, GT+, SL, M12, M12+T), as long as they support the *Motorola
 Binary Protocol*.
 
-| The interesting versions of the Oncore are the VP, the UT+, the
-  "Remote" which is a prepackaged UT+, and the M12 Timing. The VP is no
-  longer available new, and the UT, GT, and SL are at end-of-life. The
-  Motorola evaluation kit can be recommended. It interfaces to a PC
-  straightaway, using the serial (DCD) or parallel port for PPS input
-  and packs the receiver in a nice and sturdy box. Less expensive
-  interface kits are available from `TAPR <http://www.tapr.org>`__ and
-  `Synergy <http://www.synergy-gps.com>`__.
-|  
-
-.. raw:: html
-
-   <center>
+The interesting versions of the Oncore are the VP, the UT+, the
+"Remote" which is a prepackaged UT+, and the M12 Timing. The VP is no
+longer available new, and the UT, GT, and SL are at end-of-life. The
+Motorola evaluation kit can be recommended. It interfaces to a PC
+straightaway, using the serial (DCD) or parallel port for PPS input
+and packs the receiver in a nice and sturdy box. Less expensive
+interface kits are available from `TAPR <http://www.tapr.org>`__ and
+`Synergy <http://www.synergy-gps.com>`__.
 
 +--------------------------+--------------------------+--------------------------+
 | |image0|                 | |image1|                 | |image2|                 |
 +--------------------------+--------------------------+--------------------------+
-| .. raw:: html            | .. raw:: html            | .. raw:: html            |
-|                          |                          |                          |
-|    <center>              |    <center>              |    <center>              |
-|                          |                          |                          |
 | UT+ oncore               | Evaluation kit           | Oncore Remote            |
-|                          |                          |                          |
-| .. raw:: html            | .. raw:: html            | .. raw:: html            |
-|                          |                          |                          |
-|    </center>             |    </center>             |    </center>             |
 +--------------------------+--------------------------+--------------------------+
-
-.. raw:: html
-
-   </center>
 
 The driver requires a standard ``PPS`` interface for the
 pulse-per-second output from the receiver. The serial data stream alone
@@ -79,8 +62,7 @@ running correctly.
 In addition, on platforms supporting Shared Memory, all of the messages
 received from the Oncore receiver are made available in shared memory
 for use by other programs. See the
-:doc:`Oncore-SHMEM
-<oncore-shmem>` manual page for information on
+:doc:`Oncore-SHMEM <oncore-shmem>` manual page for information on
 how to use this option. For either debugging or using the SHMEM option,
 an Oncore Reference Manual for the specific receiver in use will be
 required.

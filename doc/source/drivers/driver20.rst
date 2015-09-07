@@ -5,13 +5,13 @@ Synopsis
 --------
 
 | Address: 127.127.20.\ *u*
-|  Reference ID: ``GPS``
-|  Driver ID: ``GPS_NMEA``
-|  Serial Port: ``/dev/gpsu``; 4800 - 115200 bps, 8-bits, no parity
-|  Serial Port: ``/dev/gpsppsu``; for just the PPS signal (this is tried
+| Reference ID: ``GPS``
+| Driver ID: ``GPS_NMEA``
+| Serial Port: ``/dev/gpsu``; 4800 - 115200 bps, 8-bits, no parity
+| Serial Port: ``/dev/gpsppsu``; for just the PPS signal (this is tried
   first for PPS, before ``/dev/gpsu``)
-|  Serial Port: ``/dev/gpsu``; symlink to server:port (for nmead)
-|  Features: ``tty_clk``
+| Serial Port: ``/dev/gpsu``; symlink to server:port (for nmead)
+| Features: ``tty_clk``
 
 Description
 -----------
@@ -34,34 +34,33 @@ to the broadcast signal. However, in most cases the actual accuracy is
 limited by the precision of the timecode and the latencies of the serial
 interface and operating system.
 
-If the Operating System supports PPSAPI (`RFC
-2783 <http://www.ietf.org/rfc/rfc2783.txt>`__), fudge flag1 1 enables
+If the Operating System supports PPSAPI (:rfc:`2783`), fudge flag1 1 enables
 its use.
 
 | The various GPS sentences that this driver recognises look like this:
 |  (others quietly ignored)
 
-+--------------------------------------+--------------------------------------+
-| Sentence                             | Vendor                               |
-+======================================+======================================+
-| $GPRMC,UTC,POS\_STAT,LAT,LAT\_REF,LO |                                      |
-| N,LON\_REF,SPD,HDG,DATE,MAG\_VAR,MAG |                                      |
-| \_REF\*CS<cr><lf>                    |                                      |
-+--------------------------------------+--------------------------------------+
-| $GPGLL,LAT,LAT\_REF,LON,LON\_REF,UTC |                                      |
-| ,POS\_STAT\*CS<cr><lf>               |                                      |
-+--------------------------------------+--------------------------------------+
-| $GPGGA,UTC,LAT,LAT\_REF,LON,LON\_REF |                                      |
-| ,FIX\_MODE,SAT\_USED,HDOP,ALT,ALT\_U |                                      |
-| NIT,GEO,G\_UNIT,D\_AGE,D\_REF\*CS<cr |                                      |
-| ><lf>                                |                                      |
-+--------------------------------------+--------------------------------------+
-| $GPZDA,UTC,DD,MM,YYYY,TH,TM,\*CS<cr> |                                      |
-| <lf>                                 |                                      |
-+--------------------------------------+--------------------------------------+
-| $GPZDG,GPSTIME,DD,MM,YYYY,AA.BB,V\*C | Accord                               |
-| S<cr><lf>                            |                                      |
-+--------------------------------------+--------------------------------------+
++--------------------------------------------------------------------+--------+
+| Sentence                                                           | Vendor |
++====================================================================+========+
+| $GPRMC,UTC,POS\_STAT,LAT,LAT\_REF,LO                               |        |
+| N,LON\_REF,SPD,HDG,DATE,MAG\_VAR,MAG                               |        |
+| \_REF\*CS<cr><lf>                                                  |        |
++--------------------------------------------------------------------+--------+
+| $GPGLL,LAT,LAT\_REF,LON,LON\_REF,UTC                               |        |
+| ,POS\_STAT\*CS<cr><lf>                                             |        |
++--------------------------------------------------------------------+--------+
+| $GPGGA,UTC,LAT,LAT\_REF,LON,LON\_REF                               |        |
+| ,FIX\_MODE,SAT\_USED,HDOP,ALT,ALT\_U                               |        |
+| NIT,GEO,G\_UNIT,D\_AGE,D\_REF\*CS<cr                               |        |
+| ><lf>                                                              |        |
++--------------------------------------------------------------------+--------+
+| $GPZDA,UTC,DD,MM,YYYY,TH,TM,\*CS<cr>                               |        |
+| <lf>                                                               |        |
++--------------------------------------------------------------------+--------+
+| $GPZDG,GPSTIME,DD,MM,YYYY,AA.BB,V\*C                               | Accord |
+| S<cr><lf>                                                          |        |
++--------------------------------------------------------------------+--------+
 
 Table: Accepted NMEA sentences
 
@@ -119,9 +118,11 @@ Table: Accepted NMEA sentences
 | AA.BB       | Denotes the signal strength (should be < 05.00)                                              |
 +-------------+----------------------------------------------------------------------------------------------+
 | V           | GPS sync status                                                                              |
-|             |     '0' => INVALID time,                                                                     |
-|             |     '1' => accuracy of +/- 20ms,                                                             |
-|             |     '2' => accuracy of +/- 100ns                                                             |
+|             |     '0' => INVALID time,                                                                     |
+|             |                                                                                              |
+|             |     '1' => accuracy of +/- 20ms,                                                             |
+|             |                                                                                              |
+|             |     '2' => accuracy of +/- 100ns                                                             |
 +-------------+----------------------------------------------------------------------------------------------+
 | CS          | Checksum                                                                                     |
 +-------------+----------------------------------------------------------------------------------------------+
@@ -338,5 +339,4 @@ Additional Information
 
 ``flag1``, ``flag2``, and ``flag3`` are ignored under Windows.
 
-:doc:`Reference Clock Drivers
-<../refclock>`
+:doc:`Reference Clock Drivers <../refclock>`

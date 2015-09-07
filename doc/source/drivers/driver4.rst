@@ -5,12 +5,11 @@ Synopsis
 --------
 
 | Address: 127.127.4.\ *u*
-|  Reference ID: ``WWVB``
-|  Driver ID: ``WWVB_SPEC``
-|  Serial Port: ``/dev/wwvbu``; 9600 baud, 8-bits, no parity
-|  Features: Optional PPS signal processing, ``tty_clk``
-|  Requires: Optional PPS signal processing requires the PPSAPI signal
-  interface.
+| Reference ID: ``WWVB``
+| Driver ID: ``WWVB_SPEC``
+| Serial Port: ``/dev/wwvbu``; 9600 baud, 8-bits, no parity
+| Features: Optional PPS signal processing, ``tty_clk``
+| Requires: Optional PPS signal processing requires the PPSAPI signal interface.
 
 Description
 -----------
@@ -36,25 +35,25 @@ available with all clocks, and format 2, which is available with all
 clocks except the original (unmodified) Model 8170.
 
 | Format 0 (22 ASCII printing characters):
-|  <cr><lf>i ddd hh:mm:ss TZ=zz<cr><lf>
+| <cr><lf>i ddd hh:mm:ss TZ=zz<cr><lf>
 
 | on-time = first <cr>
-|  i = synchronization flag (' ' = in synch, '?' = out synch)
-|  hh:mm:ss = hours, minutes, seconds
+| i = synchronization flag (' ' = in synch, '?' = out synch)
+| hh:mm:ss = hours, minutes, seconds
 
 The alarm condition is indicated by other than ' ' at ``i``, which
 occurs during initial synchronization and when received signal is lost
 for about ten hours.
 
 | Format 2 (24 ASCII printing characters):
-|  lt;cr>lf>iqyy ddd hh:mm:ss.fff ld
+| lt;cr>lf>iqyy ddd hh:mm:ss.fff ld
 
 | on-time = <cr>
-|  i = synchronization flag (' ' = in synch, '?' = out synch)
-|  q = quality indicator (' ' = locked, 'A'...'D' = unlocked)
-|  yy = year (as broadcast)
-|  ddd = day of year
-|  hh:mm:ss.fff = hours, minutes, seconds, milliseconds
+| i = synchronization flag (' ' = in synch, '?' = out synch)
+| q = quality indicator (' ' = locked, 'A'...'D' = unlocked)
+| yy = year (as broadcast)
+| ddd = day of year
+| hh:mm:ss.fff = hours, minutes, seconds, milliseconds
 
 The alarm condition is indicated by other than ' ' at ``i``, which
 occurs during initial synchronization and when received signal is lost

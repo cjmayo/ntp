@@ -5,9 +5,9 @@ Synopsis
 --------
 
 | Address: 127.127.26.\ *u*
-|  Reference ID: ``GPS``
-|  Driver ID: ``GPS_HP``
-|  Serial Port: ``/dev/hpgpsu``; 9600 baud, 8-bits, no parity, 19200
+| Reference ID: ``GPS``
+| Driver ID: ``GPS_HP``
+| Serial Port: ``/dev/hpgpsu``; 9600 baud, 8-bits, no parity, 19200
   baud 7-bits, odd parity for the HP Z3801A
 
 Description

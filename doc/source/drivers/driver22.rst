@@ -5,10 +5,10 @@ Synopsis
 --------
 
 | Address: 127.127.22.\ *u*
-|  Reference ID: ``PPS``
-|  Driver ID: ``PPS``
-|  Serial or Parallel Port: ``/dev/ppsu``
-|  Requires: PPSAPI signal interface for PPS signal processing.
+| Reference ID: ``PPS``
+| Driver ID: ``PPS``
+| Serial or Parallel Port: ``/dev/ppsu``
+| Requires: PPSAPI signal interface for PPS signal processing.
 
 Note: This driver supersedes an older one of the same name. The older
 driver operated with several somewhat archaic signal interface devices,
@@ -39,10 +39,9 @@ source is required, ordinarily a radio clock operated as a primary
 reference (stratum 1) source; however, another NTP time server can be
 used as well. For this purpose, the auxiliary source should be specified
 as the prefer peer, as described in the
-:doc:`Mitigation Rules and the prefer Keyword
-<../prefer>` page.
+:doc:`Mitigation Rules and the prefer Keyword <../prefer>` page.
 
-The driver requires the PPSAPI interface\ :sup:`1`, which is a proposed
+The driver requires the PPSAPI interface [#]_, which is a proposed
 IETF standard. The interface consists of the ``timepps.h`` header file
 and associated kernel support. Support for this interface is included in
 current versions of Solaris, FreeBSD and Linux and proprietary versions
@@ -131,12 +130,12 @@ Fudge Factors
 Additional Information
 ----------------------
 
-:doc:`Reference Clock Drivers
-<../refclock>`
+:doc:`Reference Clock Drivers <../refclock>`
 
-Reference
+.. rubric:: Reference
 
-#. Mogul, J., D. Mills, J. Brittenson, J. Stone and U. Windl.
+.. [#]
+   Mogul, J., D. Mills, J. Brittenson, J. Stone and U. Windl.
    Pulse-per-second API for Unix-like operating systems, version 1.
-   Request for Comments RFC-2783, Internet Engineering Task Force, March
+   Request for Comments :rfc:`2783`, Internet Engineering Task Force, March
    2000, 31 pp.

@@ -5,9 +5,9 @@ Synopsis
 --------
 
 | Address: 127.127.35.\ *u*
-|  Reference ID: ``PCF``
-|  Driver ID: ``PCF``
-|  Parallel Port: ``/dev/pcfclocks/u`` or ``/dev/pcfclocku``
+| Reference ID: ``PCF``
+| Driver ID: ``PCF``
+| Parallel Port: ``/dev/pcfclocks/u`` or ``/dev/pcfclocku``
 
 Description
 -----------

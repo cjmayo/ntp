@@ -5,11 +5,11 @@ Synopsis
 --------
 
 | Address: 127.127.18.\ *u*
-|  Reference ID: ``NIST | USNO | PTB | WWVB``
-|  Driver ID: ``ACTS_MODEM``
-|  Serial Port: ``/dev/actsu``; 9600 baud, 8-bits, no parity
-|  Features: ``tty_clk``
-|  Requires: ``/usr/include/sys/termios.h`` header file with modem
+| Reference ID: ``NIST | USNO | PTB | WWVB``
+| Driver ID: ``ACTS_MODEM``
+| Serial Port: ``/dev/actsu``; 9600 baud, 8-bits, no parity
+| Features: ``tty_clk``
+| Requires: ``/usr/include/sys/termios.h`` header file with modem
   control and a dial-out (cua) device.
 
 Description
@@ -87,9 +87,15 @@ only the ``ATDT`` may be necessary.
 
 Phone: (303) 494-4774 (Boulder, CO); (808) 335-4721 (Hawaii)
 
-`Data Format <http://www.boulder.nist.gov/timefreq/service/acts.htm>`__
+`Data Format <http://www.boulder.nist.gov/timefreq/service/acts.htm>`__ ::
 
-``National Institute of Standards and Technology   Telephone Time Service, Generator 3B   Enter question mark "?" for HELP   MJD YR MO DA H M S ST S UT1 msADV <OTM>   47999 90-04-18 21:39:15 50 0 +.1 045.0 UTC(NIST) *   47999 90-04-18 21:39:16 50 0 +.1 045.0 UTC(NIST) #   ...``
+   National Institute of Standards and Technology
+   Telephone Time Service, Generator 3B
+   Enter question mark "?" for HELP
+   MJD YR MO DA H M S ST S UT1 msADV <OTM>
+   47999 90-04-18 21:39:15 50 0 +.1 045.0 UTC(NIST) *
+   47999 90-04-18 21:39:16 50 0 +.1 045.0 UTC(NIST) #
+   ...
 
 ``MJD``, ``YR``, ``ST``, ``UT1`` and ``UTC(NIST)`` are not used by this
 driver. The ``<OTM>`` on-time character "``*``\ " changes to
@@ -102,15 +108,14 @@ Phone: (202) 762-1594 (Washington, DC); (719) 567-6742 (Boulder, CO)
 `Data Format <http://tycho.usno.navy.mil/modem_time.html>`__ (two lines,
 repeating at one-second intervals)
 
-``jjjjj nnn hhmmss UTC``
+``jjjjj nnn hhmmss UTC`` ::
 
-| \* on-time character for previous timecode message
-|  jjjjj modified Julian day number (not used)
-|  nnn day of year
-|  hhmmss second of day
+  \* on-time character for previous timecode message
+  jjjjj modified Julian day number (not used)
+  nnn day of year
+  hhmmss second of day
 
-:doc:`European Phone Numbers and Formats
-<tf582\_4>`
+:doc:`European Phone Numbers and Formats <tf582\_4>`
 
 `Spectracom GPS and WWVB Receivers <http://www.spectracomcorp.com>`__
 
@@ -152,5 +157,4 @@ Fudge Factors
 Additional Information
 ----------------------
 
-:doc:`Reference Clock Drivers
-<../refclock>` 
+:doc:`Reference Clock Drivers <../refclock>` 

@@ -5,10 +5,10 @@ Synopsis
 --------
 
 | Address: 127.127.32.\ *u*
-|  Reference ID: ``CHRONOLOG``
-|  Driver ID: ``CHRONOLOG``
-|  Serial Port: ``/dev/chronologu``; 2400 bps, 8-bits, no parity
-|  Features: ``(none)``
+| Reference ID: ``CHRONOLOG``
+| Driver ID: ``CHRONOLOG``
+| Serial Port: ``/dev/chronologu``; 2400 bps, 8-bits, no parity
+| Features: ``(none)``
 
 Description
 -----------

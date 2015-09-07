@@ -5,13 +5,10 @@ Synopsis
 --------
 
 | Address: 127.127.46.\ *u*
-|  Reference ID: ``GPSD``
-|  Driver ID: ``GPSD_JSON``
-|  Serial Port: ``/dev/gpsu`` as symlink to the true device (not used
+| Reference ID: ``GPSD``
+| Driver ID: ``GPSD_JSON``
+| Serial Port: ``/dev/gpsu`` as symlink to the true device (not used
   directly; see below)
-|  Features:
-
-| 
 
 Description
 -----------
@@ -20,7 +17,7 @@ This driver is a client driver to the *GPSD* daemon, which over the time
 became increasingly popular for UN\*Xish platforms. *GPSD* can manage
 several devices in parallel, aggregate information, and acts as a data
 hub for client applications. *GPSD* can also auto-detect and handle PPS
-hardware signals on serial ports. Have a look at `the *GPSD* project
+hardware signals on serial ports. Have a look at `the GPSD project
 page <http://www.catb.org/gpsd/>`__.
 
 **It is important to understand that this driver works best using a GPS
@@ -58,8 +55,6 @@ The acronym STI is used here as a synonym for *serial time information*
 from the data channel of the receiver, no matter what objects were used
 to obtain it.
 
-| 
-
 Naming a Device
 ---------------
 
@@ -83,25 +78,23 @@ discipline to the character special file, which is not possible when
 running with root privileges already dropped. This is not likely to
 change in the future.
 
-| 
-
 The 'mode' word
 ---------------
 
 A few operation modes can be selected with the mode word.
 
 +--------------------------+--------------------------+--------------------------+
-| The Mode Word            |                          |                          |
-+==========================+==========================+==========================+
-| Bits                     | Value                    | Description              |
+| The Mode Word                                                                  |
 +--------------------------+--------------------------+--------------------------+
+| Bits                     | Value                    | Description              |
++==========================+==========================+==========================+
 | 0..1                     | 0                        | STI only operation. This |
 |                          |                          | mode is affected by the  |
 |                          |                          | timing stability of      |
 |                          |                          | whatever protocol is     |
 |                          |                          | used between the GPS     |
 |                          |                          | device and GPSD.         |
-|                          |                          |  Running on STI only is  |
+|                          |                          | Running on STI only is   |
 |                          |                          | not recommended in       |
 |                          |                          | general. Possible use    |
 |                          |                          | cases include:           |
@@ -121,7 +114,7 @@ A few operation modes can be selected with the mode word.
 |                          |                          |    want to establish a   |
 |                          |                          |    useful fudge value    |
 |                          |                          |    for ``time2``.        |
-+--------------------------+--------------------------+--------------------------+
++                          +--------------------------+--------------------------+
 |                          | 1                        | Strict operation. This   |
 |                          |                          | mode needs a valid PPS   |
 |                          |                          | and a valid STI to       |
@@ -132,7 +125,7 @@ A few operation modes can be selected with the mode word.
 |                          |                          | feed clock samples if no |
 |                          |                          | valid PPS+STI pair is    |
 |                          |                          | available.               |
-|                          |                          |  This type of operation  |
+|                          |                          | This type of operation   |
 |                          |                          | results in an ordinary   |
 |                          |                          | clock with a very low    |
 |                          |                          | jitter as long as the    |
@@ -146,7 +139,7 @@ A few operation modes can be selected with the mode word.
 |                          |                          | unstable serial timing   |
 |                          |                          | that cannot be           |
 |                          |                          | fudge-compensated.       |
-+--------------------------+--------------------------+--------------------------+
++                          +--------------------------+--------------------------+
 |                          | 2                        | Automatic mode. Tries to |
 |                          |                          | operate in strict mode   |
 |                          |                          | unless it fails to       |
@@ -160,7 +153,7 @@ A few operation modes can be selected with the mode word.
 |                          |                          | **Important Notice: This |
 |                          |                          | is an expiremental       |
 |                          |                          | feature!**               |
-|                          |                          |  Switching between       |
+|                          |                          | Switching between        |
 |                          |                          | strict and STI-only mode |
 |                          |                          | will cause changes in    |
 |                          |                          | offset and jitter. Use   |
@@ -173,15 +166,12 @@ A few operation modes can be selected with the mode word.
 |                          |                          | STI alone over not       |
 |                          |                          | getting synchronised at  |
 |                          |                          | all.                     |
-+--------------------------+--------------------------+--------------------------+
++                          +--------------------------+--------------------------+
 |                          | 3                        | *(reserved for future    |
 |                          |                          | extension, do not use)*  |
 +--------------------------+--------------------------+--------------------------+
-|                          | 2..31                    | *(reserved for future    |
-|                          |                          | extension, do not use)*  |
+| 2..31                    | *(reserved for future extension, do not use)*       |
 +--------------------------+--------------------------+--------------------------+
-
-| 
 
 Syslog flood throttle
 ---------------------
@@ -196,16 +186,13 @@ any time; the throttle is engaged by default. Running with the syslog
 flood throttle disabled for lengthy time is not recommended unless the
 log files are closely monitored.
 
-| 
-
 PPS secondary clock unit
 ------------------------
 
 Units with numbers ≥128 act as secondary clock unit for the primary
 clock unit (u mod 128). A secondary unit processes only the PPS data
 from *GPSD* and needs the corresponding master unit to
-work\ :sup:`:ref:`1
-<driver46-fn1>``. Use the 'noselect' keyword on
+work [#]_. Use the 'noselect' keyword on
 the primary unit if you are not interested in its data.
 
 The secondary unit employs the usual precautions before feeding clock
@@ -220,8 +207,7 @@ If fudge flag ``flag1`` is set for the secondary unit, the unit asserts
 the PPS flag on the clock as long as PPS data is available. This makes
 the unit eligible as PPS peer and should only be used if the GPS
 receiver can be trusted for the quality of its PPS
-signal\ :sup:`:doc:`2
-<fn2>``. The PPS flag gets cleared if no PPS
+signal [#]_. The PPS flag gets cleared if no PPS
 records can be aquired for some time. The unit also flushes the sample
 buffer at this point to avoid the use of stale PPS data.
 
@@ -229,7 +215,6 @@ buffer at this point to avoid the use of stale PPS data.
 as fudge ``time1``. Only the fudge values ``time1`` and ``flag1`` have
 an impact on secondary units.
 
-| 
 
 Clockstats
 ----------
@@ -308,7 +293,7 @@ Fudge Factors
     Specifies the driver reference identifier, an ASCII string from one
     to four characters, with default ``GPSD``.
 ``flag1 0 | 1``
-    *[**Secondary** Unit]* When set, flags the secondary clock unit as a
+    *[Secondary Unit]* When set, flags the secondary clock unit as a
     potential PPS peer as long as good PPS data is available.
 ``flag2 0 | 1``
     *[Primary Unit]* When set, disables the processing of incoming PPS
@@ -324,23 +309,29 @@ Fudge Factors
     *[Primary Unit]* If set, write a clock stats line on every poll
     cycle.
 
-:sup:`SPHINX-LABELfn1SPHINX-LABEL1)` Data transmission an decoding is
-done only once by the primary unit. The decoded data is then processed
-independently in both clock units. This avoids double transmission over
-two sockets and decoding the same data twice, but the primary unit is
-always needed as a downside of this approach.
+---------
 
-:sup:`SPHINX-LABELfn2SPHINX-LABEL2)` The clock driver suppresses the
-processing PPS records when the TPV/TIME data indicates the receiver has
-no fix. It can also deal with situations where the PPS signal is not
-delivered to *GPSD*. But once it is available, it is also processed and
-used to create samples. If a receiver cannot be trusted for the
-precision of its PPS signal, it should not be used to create a possible
-PPS peer: These get extra clout and can effectively become the sole
-source of input for the control loop. You do not want to use sloppy data
-for that.
+.. [#]
+
+  Data transmission an decoding is
+  done only once by the primary unit. The decoded data is then processed
+  independently in both clock units. This avoids double transmission over
+  two sockets and decoding the same data twice, but the primary unit is
+  always needed as a downside of this approach.
+
+.. [#]
+
+  The clock driver suppresses the
+  processing PPS records when the TPV/TIME data indicates the receiver has
+  no fix. It can also deal with situations where the PPS signal is not
+  delivered to *GPSD*. But once it is available, it is also processed and
+  used to create samples. If a receiver cannot be trusted for the
+  precision of its PPS signal, it should not be used to create a possible
+  PPS peer: These get extra clout and can effectively become the sole
+  source of input for the control loop. You do not want to use sloppy data
+  for that.
 
 Additional Information
+----------------------
 
-:doc:`Reference Clock Drivers
-<../refclock>`
+:doc:`Reference Clock Drivers <../refclock>`

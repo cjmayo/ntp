@@ -5,10 +5,10 @@ Synopsis
 --------
 
 | Address: 127.127.27.\ *u*
-|  Reference ID: ``MSFa`` / ``MSF`` / ``DCF`` / ``WWVB``
-|  Driver ID: ``MSF_ARCRON``
-|  Serial Port: ``/dev/arcu``; 300 baud, 8-bits, 2-stop, no parity
-|  Features: ``tty_clk``
+| Reference ID: ``MSFa`` / ``MSF`` / ``DCF`` / ``WWVB``
+| Driver ID: ``MSF_ARCRON``
+| Serial Port: ``/dev/arcu``; 300 baud, 8-bits, 2-stop, no parity
+| Features: ``tty_clk``
 
 Description
 -----------
@@ -238,19 +238,28 @@ can arrive on time. The commands and their responses are:
            always 1
        bit 3
            (MSF) always 0
-            (WWVB) Leap year indicator bit
-            0 = non-leap year
-            1 = leap year
+
+           (WWVB) Leap year indicator bit
+
+           0 = non-leap year
+
+           1 = leap year
+
        bit 2
            = (MSF) 1 if UTC is in effect (reverse of bit 1)
-            (WWVB) Leap second warning bit
+
+           (WWVB) Leap second warning bit
+
        bit 1
            = (MSF)1 if BST is in effect (reverse of bit 2)
-            = (WWVB) 0 if ST is in effect, 1 if DST is in effect, 1 if
+
+           = (WWVB) 0 if ST is in effect, 1 if DST is in effect, 1 if
            transition from ST with bit 0 is set to 0
+
        bit 0
            = (MSF)1 if BST/UTC change pending
-            = (WWVB) 0 if ST is in effect, 1 if DST is in effect, 0 if
+
+           = (WWVB) 0 if ST is in effect, 1 if DST is in effect, 0 if
            transition from DST with bit 1 is set to 0
 
     #. clock status
@@ -431,6 +440,6 @@ Fudge Factors
 Additional Information
 ----------------------
 
-| :doc:`Reference Clock Drivers
-  <../refclock>`
-|  `ARC Rugby MSF Receiver <http://www2.exnet.com/NTP/ARC/ARC.html>`__
+:doc:`Reference Clock Drivers <../refclock>`
+
+`ARC Rugby MSF Receiver <http://www2.exnet.com/NTP/ARC/ARC.html>`__

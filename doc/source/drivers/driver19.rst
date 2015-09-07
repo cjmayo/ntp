@@ -5,11 +5,11 @@ Synopsis
 --------
 
 | Address: 127.127.19.\ *u*
-|  Reference ID: ``WWV``
-|  Driver ID: ``WWV_HEATH``
-|  Serial Port: ``/dev/heathu``; 1200 baud, 8-bits, no parity
-|  Features: ``tty_clk``
-|  Requires: ``/usr/include/sys/termios.h`` header file with modem
+| Reference ID: ``WWV``
+| Driver ID: ``WWV_HEATH``
+| Serial Port: ``/dev/heathu``; 1200 baud, 8-bits, no parity
+| Features: ``tty_clk``
+| Requires: ``/usr/include/sys/termios.h`` header file with modem
   control
 
 Description
@@ -83,5 +83,4 @@ Fudge Factors
 
 Additional Information
 
-:doc:`Reference Clock Drivers
-<../refclock>` 
+:doc:`Reference Clock Drivers <../refclock>` 

@@ -1,13 +1,15 @@
 JJY Receivers
 =============
 
+:doc:`JAPANESE<driver40-ja>`
+
 Synopsis
 --------
 
 | Address: 127.127.40.\ *u*
-|  Reference ID: ``JJY``
-|  Driver ID: ``JJY``
-|  Serial Port: ``/dev/jjyu``; See corresponding receiver
+| Reference ID: ``JJY``
+| Driver ID: ``JJY``
+| Serial Port: ``/dev/jjyu``; See corresponding receiver
 
 Description
 -----------
@@ -15,23 +17,29 @@ Description
 This driver supports the following the JJY receivers and the GPS clock
 sold in Japan, and the time service through a telephone line.
 
-+-----------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
++---------------------------------------------------------------+--------------------------------------------------------------+
 | :ref:`Tristate Ltd.   TS-JJY01, TS-JJY02 <driver40-mode-1>`   | :ref:`SEIKO TIME SYSTEMS INC.   TDC-300 <driver40-mode-6>`   |
-|  :ref:`C-DEX Co.,Ltd.   JST2000 <driver40-mode-2>`            |  :ref:`Telephone JJY <driver40-mode-100>`                    |
-|  :ref:`Echo Keisokuki Co.,Ltd.   LT-2000 <driver40-mode-3>`   |                                                                                                                |
-|  :ref:`CITIZEN T.I.C. CO.,LTD.   JJY-200 <driver40-mode-4>`   |                                                                                                                |
-|  :ref:`Tristate Ltd.   TS-GPSclock-01 <driver40-mode-5>`      |                                                                                                                |
-+-----------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
++---------------------------------------------------------------+--------------------------------------------------------------+
+| :ref:`C-DEX Co.,Ltd.   JST2000 <driver40-mode-2>`             | :ref:`Telephone JJY <driver40-mode-100>`                     |
++---------------------------------------------------------------+--------------------------------------------------------------+
+| :ref:`Echo Keisokuki Co.,Ltd.   LT-2000 <driver40-mode-3>`    |                                                              |
++---------------------------------------------------------------+--------------------------------------------------------------+
+| :ref:`CITIZEN T.I.C. CO.,LTD.   JJY-200 <driver40-mode-4>`    |                                                              |
++---------------------------------------------------------------+--------------------------------------------------------------+
+| :ref:`Tristate Ltd.   TS-GPSclock-01 <driver40-mode-5>`       |                                                              |
++---------------------------------------------------------------+--------------------------------------------------------------+
 
--  SPHINX-LABELmode-1SPHINX-LABELTristate Ltd.   TS-JJY01, TS-JJY02  
+.. _driver40-mode-1:
+
+-  Tristate Ltd.   TS-JJY01, TS-JJY02  
    http://www.tristate.ne.jp/ (Japanese only)
-
-   | 
 
    NTP configuration ( ntp.conf )
 
        server   127.127.40.X   mode 1
+
        fudge   127.127.40.X   time1 0.NNN   flag1 0\|1
+
            Time1 may specify a constant to be added to the time offset
            for the time from the receiver, a fixed-point decimal number
            in seconds. You may specify the time offset from several tens
@@ -51,10 +59,7 @@ sold in Japan, and the time service through a telephone line.
    Interface
        RS-232C, 9600 BPS, 8-bits, no parity, 1 stop bit
 
-       | 
-
    Time code format
-       | 
 
        +--------------------+---------+---------------------------------------------+
        | Command            |  -->    | Reply                                       |
@@ -74,201 +79,58 @@ sold in Japan, and the time service through a telephone line.
        before and after the date request to check uncertainty of the
        date whether it's before or after midnight.
 
-       | 
+.. _driver40-mode-2:
 
--  SPHINX-LABELmode-2SPHINX-LABELC-DEX Co.,Ltd.   JST2000  
+-  C-DEX Co.,Ltd.   JST2000  
    http://www.c-dex.co.jp/ (Japanese only)
 
-   | 
-
-   .. raw:: html
-
-      <dl>
-
-   .. raw:: html
-
-      <dt>
-
    NTP configuration ( ntp.conf )
 
-   .. raw:: html
+      server   127.127.40.X   mode 2
 
-      </dt>
+      fudge   127.127.40.X   time1 0.NNN
 
-   .. raw:: html
+.. _driver40-mode-3:
 
-      <dd>
-
-   | 
-
-   .. raw:: html
-
-      <dl>
-
-   .. raw:: html
-
-      <dt>
-
-   server   127.127.40.X   mode 2
-
-   .. raw:: html
-
-      </dt>
-
-   .. raw:: html
-
-      <dd>
-
-   | 
-
-   .. raw:: html
-
-      </dd>
-
-   .. raw:: html
-
-      <dt>
-
-   fudge   127.127.40.X   time1 0.NNN
-
-   .. raw:: html
-
-      </dt>
-
--  SPHINX-LABELmode-3SPHINX-LABELEcho Keisokuki Co.,Ltd.   LT-2000  
+-  Echo Keisokuki Co.,Ltd.   LT-2000  
    http://www.clock.co.jp/ (Japanese only)
 
-   | 
-
-   .. raw:: html
-
-      <dl>
-
-   .. raw:: html
-
-      <dt>
-
    NTP configuration ( ntp.conf )
 
-   .. raw:: html
+      server   127.127.40.X   mode 3
 
-      </dt>
+      fudge   127.127.40.X   time1 0.NNN
 
-   .. raw:: html
+.. _driver40-mode-4:
 
-      <dd>
-
-   | 
-
-   .. raw:: html
-
-      <dl>
-
-   .. raw:: html
-
-      <dt>
-
-   server   127.127.40.X   mode 3
-
-   .. raw:: html
-
-      </dt>
-
-   .. raw:: html
-
-      <dd>
-
-   | 
-
-   .. raw:: html
-
-      </dd>
-
-   .. raw:: html
-
-      <dt>
-
-   fudge   127.127.40.X   time1 0.NNN
-
-   .. raw:: html
-
-      </dt>
-
--  SPHINX-LABELmode-4SPHINX-LABELCITIZEN T.I.C. CO.,LTD.   JJY-200  
+-  CITIZEN T.I.C. CO.,LTD.   JJY-200
    http://www.tic-citizen.co.jp/ (Japanese only)
 
-   | 
-
-   .. raw:: html
-
-      <dl>
-
-   .. raw:: html
-
-      <dt>
-
    NTP configuration ( ntp.conf )
 
-   .. raw:: html
+      server   127.127.40.X   mode 4
 
-      </dt>
+      fudge   127.127.40.X   time1 0.NNN
 
-   .. raw:: html
+.. _driver40-mode-5:
 
-      <dd>
-
-   | 
-
-   .. raw:: html
-
-      <dl>
-
-   .. raw:: html
-
-      <dt>
-
-   server   127.127.40.X   mode 4
-
-   .. raw:: html
-
-      </dt>
-
-   .. raw:: html
-
-      <dd>
-
-   | 
-
-   .. raw:: html
-
-      </dd>
-
-   .. raw:: html
-
-      <dt>
-
-   fudge   127.127.40.X   time1 0.NNN
-
-   .. raw:: html
-
-      </dt>
-
--  SPHINX-LABELmode-5SPHINX-LABELTristate Ltd.   TS-GPSclock-01  
+-  Tristate Ltd.   TS-GPSclock-01
    http://www.tristate.ne.jp/ (Japanese only)
 
-   | This driver supports the Tristate TS-GPSclock-01 in
-     command/response mode, though it is a GPS clock, not JJY radio
-     clock. Using the menus and the onboard switches, the TS-GPSclock-01
-     should be set to command/response mode and JST time zone.
-   |  Besides this driver ( Type 40 ),
-     :doc:`the generic NMEA GPS driver ( Type
-     20 ) <driver20>` supports the
-     TS-GPSclock-01 in NMEA mode.
+   This driver supports the Tristate TS-GPSclock-01 in
+   command/response mode, though it is a GPS clock, not JJY radio
+   clock. Using the menus and the onboard switches, the TS-GPSclock-01
+   should be set to command/response mode and JST time zone.
+
+   Besides this driver ( Type 40 ), :doc:`the generic NMEA GPS driver
+   ( Type 20 ) <driver20>` supports the TS-GPSclock-01 in NMEA mode.
 
    NTP configuration ( ntp.conf )
 
        server   127.127.40.X   mode 5
+
        fudge   127.127.40.X   time1 0.NNN   flag1 0\|1
+
            Time1 may specify a constant to be added to the time offset
            for the time from the receiver, a fixed-point decimal number
            in seconds.
@@ -284,12 +146,10 @@ sold in Japan, and the time service through a telephone line.
            +---------------+------------------------------+
 
    Interface
+
        USB ( /dev/ttyACM*0* )
 
-       | 
-
    Time code format
-       | 
 
        +--------------------+---------+---------------------------------------------------------+
        | Command            |  -->    | Reply                                                   |
@@ -307,77 +167,42 @@ sold in Japan, and the time service through a telephone line.
        before and after the date request to check uncertainty of the
        date whether it's before or after midnight.
 
-       | 
+.. _driver40-mode-6:
 
--  SPHINX-LABELmode-6SPHINX-LABELSEIKO TIME SYSTEMS INC.   TDC-300  
+-  SEIKO TIME SYSTEMS INC.   TDC-300  
    http://www.seiko-sts.co.jp/ (English and Japanese)
-
-   | 
 
    The TDC-300 must be set to the type 3 data format using the front
    panel menu display and the switches.
 
-   .. raw:: html
-
-      <dl>
-
-   .. raw:: html
-
-      <dt>
-
    NTP configuration ( ntp.conf )
 
-   .. raw:: html
+      server   127.127.40.X   mode 6
 
-      </dt>
+      fudge   127.127.40.X   time1 0.NNN
 
-   .. raw:: html
+   Interface
 
-      <dd>
+       RS-232C, 2400 BPS, 8-bits, no parity, 1 stop bit
 
-   | 
+   Time code format
 
-   .. raw:: html
+       +-----------------------------------+---------+-----------------------------+
+       | Command                           |  -->    | Reply                       |
+       +-----------------------------------+---------+-----------------------------+
+       |                                   |         | ``{STX}YYMMDDWHHMMSS{ETX}`` |
+       +-----------------------------------+---------+-----------------------------+
+       | ( 5 to 10 mSec. before second )   |         | ``{STX}{xE5}{ETX}``         |
+       +-----------------------------------+---------+-----------------------------+
 
-      <dl>
+.. _driver40-mode-100:
 
-   .. raw:: html
-
-      <dt>
-
-   server   127.127.40.X   mode 6
-
-   .. raw:: html
-
-      </dt>
-
-   .. raw:: html
-
-      <dd>
-
-   | 
-
-   .. raw:: html
-
-      </dd>
-
-   .. raw:: html
-
-      <dt>
-
-   fudge   127.127.40.X   time1 0.NNN
-
-   .. raw:: html
-
-      </dt>
-
--  SPHINX-LABELmode-100SPHINX-LABELTelephone JJY  
+-  Telephone JJY  
    http://jjy.nict.go.jp/ (English and Japanese)
 
-   | The telephone JJY is the time service through a public telephone
-     line.
-   |  The service is provided by the National Institute of Information
-     and Communications Technology in Japan.
+   The telephone JJY is the time service through a public telephone line.
+   The service is provided by the National Institute of Information
+   and Communications Technology in Japan.
 
    ATTENTION; This mode, the telephone JJY, can not be used with the
    refclock\_acts ( type 18 ) at the same time. Because the "phone"
@@ -389,63 +214,55 @@ sold in Japan, and the time service through a telephone line.
    NTP configuration ( ntp.conf )
 
        server   127.127.40.X   mode (100, 101 to 180)   minpoll N
-           | The mode 100 is specified, this driver does not issue the
-             loopback command in order to measure the delay, and the
-             delay of the telephone line and the system processing is
-             not adjusted.
-           |  The mode 101 to 180 is specified, this driver issues the
-             loopback command and measures the delay of the telephone
-             line and the system processing through the Telphone JJY
-             loopback circuit.
-           |  The round trip time through the Telphone JJY loopback
-             circuit is measured 5 times, and each delay time is greater
-             than 700 milli-seconds, that delay time is ignored during
-             average delay time calculation. Also, if the valid delay
-             time ( <= 700 mS. ) is measured more than 3 times, the
-             maximum delay time among the valid delay times is ignored,
-             and if the valid delay time is measured more than 4 times,
-             the minimum delay time among them is ignored, like
-             marking/grading sports judgment.
-           |  The adjustment time is calculated by the formula,
-           |  multiply ( the measured round trip time ) by ( ( the mode
-             number ) - 100 ) %,
-           |  and the adjustment delay time is added to the syncronizing
-             time.
-           |  If you choose the automatic delay ajustment, in other
-             words, the mode 101 to 180 is specifed, the recommended
-             mode number is 145 to 165.
 
-           | The default polling interval 6 ( 64 seconds ) is too short
-             for this mode. The "minpoll" should be set to greater than
-             or equal to 8 ( 256 seconds, about 4 minutes ).
-           |  The interval time is given the value in second power of 2.
-             The minpoll value 12 is 4096 seconds interval ( about 1
-             hour ), 14 is 16384 seconds interval ( about 4.5 hours ),
-             16 is 65536 seconds ( about 18 hours ), respectively.
+           The mode 100 is specified, this driver does not issue the
+           loopback command in order to measure the delay, and the
+           delay of the telephone line and the system processing is
+           not adjusted.
+           The mode 101 to 180 is specified, this driver issues the
+           loopback command and measures the delay of the telephone
+           line and the system processing through the Telphone JJY
+           loopback circuit.
+           The round trip time through the Telphone JJY loopback
+           circuit is measured 5 times, and each delay time is greater
+           than 700 milli-seconds, that delay time is ignored during
+           average delay time calculation. Also, if the valid delay
+           time ( <= 700 mS. ) is measured more than 3 times, the
+           maximum delay time among the valid delay times is ignored,
+           and if the valid delay time is measured more than 4 times,
+           the minimum delay time among them is ignored, like
+           marking/grading sports judgment.
+           The adjustment time is calculated by the formula,
+           multiply ( the measured round trip time ) by ( ( the mode
+           number ) - 100 ) %,
+           and the adjustment delay time is added to the syncronizing
+           time.
+           If you choose the automatic delay ajustment, in other
+           words, the mode 101 to 180 is specifed, the recommended
+           mode number is 145 to 165.
 
-           | 
+           The default polling interval 6 ( 64 seconds ) is too short
+           for this mode. The "minpoll" should be set to greater than
+           or equal to 8 ( 256 seconds, about 4 minutes ).
+           The interval time is given the value in second power of 2.
+           The minpoll value 12 is 4096 seconds interval ( about 1
+           hour ), 14 is 16384 seconds interval ( about 4.5 hours ),
+           16 is 65536 seconds ( about 18 hours ), respectively.
 
-       fudge   127.127.40.X   flag1 0\|1   flag2 0\|1   flag3 0\|1  
+       fudge   127.127.40.X   flag1 0\|1   flag2 0\|1   flag3 0\|1
        flag4 0\|1
-           | Time1 may specify a constant to be added to the time offset
-             for the time from the receiver, a fixed-point decimal
-             number in seconds.
-           |  When the mode 100 is specified, the time1 may be specified
-             in order to adjust the time offset.
-           |  When the mode 101 to 180 is specified, the time1 should
-             not be specified because this driver adds some percentage
-             of the measured loopback delay, depending on the value of
-             the mode number.
 
-           .. raw:: html
-
-              <div style="text-align:left;">
+           Time1 may specify a constant to be added to the time offset
+           for the time from the receiver, a fixed-point decimal
+           number in seconds.
+           When the mode 100 is specified, the time1 may be specified
+           in order to adjust the time offset.
+           When the mode 101 to 180 is specified, the time1 should
+           not be specified because this driver adds some percentage
+           of the measured loopback delay, depending on the value of
+           the mode number.
 
            Flag1 is the modem dialing type.
-
-           .. raw:: html
-
-              </div>
 
            +---------------+---------+----------------+
            | 0 (Default)   | Tone    | ATDWTnn...nn   |
@@ -453,17 +270,7 @@ sold in Japan, and the time service through a telephone line.
            | 1             | Pulse   | ATDWPnn...nn   |
            +---------------+---------+----------------+
 
-           | 
-
-           .. raw:: html
-
-              <div style="text-align:left;">
-
            Flag2 is the modem error correction type.
-
-           .. raw:: html
-
-              </div>
 
            +---------------+-------------------------+----------+
            | 0 (Default)   | Normal                  | AT\\N0   |
@@ -471,17 +278,7 @@ sold in Japan, and the time service through a telephone line.
            | 1             | Auto V42, MNP, Normal   | AT\\N3   |
            +---------------+-------------------------+----------+
 
-           | 
-
-           .. raw:: html
-
-              <div style="text-align:left;">
-
            Flag3 is the modem speaker switch.
-
-           .. raw:: html
-
-              </div>
 
            +---------------+-------+----------+
            | 0 (Default)   | Off   | ATM0Ln   |
@@ -489,17 +286,7 @@ sold in Japan, and the time service through a telephone line.
            | 1             | On    | ATM2Ln   |
            +---------------+-------+----------+
 
-           | 
-
-           .. raw:: html
-
-              <div style="text-align:left;">
-
            Flag4 is the modem speaker volume.
-
-           .. raw:: html
-
-              </div>
 
            +---------------+----------+----------+
            | 0 (Default)   | Low      | ATMnL1   |
@@ -507,34 +294,35 @@ sold in Japan, and the time service through a telephone line.
            | 1             | Middle   | ATMnL2   |
            +---------------+----------+----------+
 
-           | 
-
        phone 042NNNNNNN
-           | The phone number is available at http://jjy.nict.go.jp/
-           |  The number of digits of the phone number is checked. If
-             the international access number and the country number are
-             added in order to call from outside of Japan, the number of
-             digits is over the limit.
-           |  The first 2 or 3 digits are checked. The emergency service
-             number and the special service number in Japan are not
-             allowed.
-           |  Calling from extension line, the number for an outside
-             line should be prefix "0," ( Zero, Comma ). The prefix is
-             also checked, and no other outside access number is
-             allowed.
+
+           The phone number is available at http://jjy.nict.go.jp/
+
+           The number of digits of the phone number is checked. If
+           the international access number and the country number are
+           added in order to call from outside of Japan, the number of
+           digits is over the limit.
+
+           The first 2 or 3 digits are checked. The emergency service
+           number and the special service number in Japan are not
+           allowed.
+
+           Calling from extension line, the number for an outside
+           line should be prefix "0," ( Zero, Comma ). The prefix is
+           also checked, and no other outside access number is
+           allowed.
 
    Interface
+
        RS-232C or USB, 2400 BPS, 8-bits, no parity, 1 stop bit
 
-       | Modem control commands:
-       | 
-         ``ATE0Q0V1, ATMnLn, AT&K4, AT+MS=V22B, AT%C0, AT\Nn, ATH1, ATDWxnn...nn``
-       |  ``+++, ATH0``
+       Modem control commands:
 
-       | 
+       ``ATE0Q0V1, ATMnLn, AT&K4, AT+MS=V22B, AT%C0, AT\Nn, ATH1, ATDWxnn...nn``
+
+       ``+++, ATH0``
 
    Time code format
-       | 
 
        +---------------------+---------+---------------------+---------+--------------------------------------------------------+
        | Prompt              |  -->    | Command             |  -->    | Reply                                                  |
@@ -543,9 +331,9 @@ sold in Japan, and the time service through a telephone line.
        +---------------------+---------+---------------------+---------+--------------------------------------------------------+
        | ``>``               |  -->    | ``LOOP{CR}``        |  -->    | ( Switch to the loopback circuit )                     |
        +---------------------+---------+---------------------+---------+--------------------------------------------------------+
-       | `` ``               |         | ``( One char. )``   |  -->    | ``( One char. )``                                      |
+       |                     |         | ``( One char. )``   |  -->    | ``( One char. )``                                      |
        +---------------------+---------+---------------------+---------+--------------------------------------------------------+
-       | `` ``               |         | ``COM{CR}``         |  -->    | ( Exit from the loopback circuit )                     |
+       |                     |         | ``COM{CR}``         |  -->    | ( Exit from the loopback circuit )                     |
        +---------------------+---------+---------------------+---------+--------------------------------------------------------+
        | ``>``               |  -->    | ``TIME{CR}``        |  -->    | ``HHMMSS{CR}HHMMSS{CR}HHMMSS{CR}`` 3 times on second   |
        +---------------------+---------+---------------------+---------+--------------------------------------------------------+
@@ -558,13 +346,12 @@ sold in Japan, and the time service through a telephone line.
        | ``>``               |  -->    | ``BYE{CR}``         |  -->    | Sayounara messages                                     |
        +---------------------+---------+---------------------+---------+--------------------------------------------------------+
 
-       | The date and time are requested separately. The time is
-         requested before and after the date request to check
-         uncertainty of the date whether it's before or after midnight.
-       |  The leap second is not handled, and only written in the
-         clockstats file as an information.
+       The date and time are requested separately. The time is
+       requested before and after the date request to check
+       uncertainty of the date whether it's before or after midnight.
 
-       | 
+       The leap second is not handled, and only written in the
+       clockstats file as an information.
 
 The JJY is the radio station which transmits the JST (Japan Standard
 Time) in long wave radio. The station JJY is operated by the National
@@ -594,17 +381,12 @@ Monitor Data
 The driver writes sent and received data to/from the JJY receivers, GPS
 clock, and the modem into the ``clockstats`` file.
 
-``         statsdir /var/log/ntpd/         filegen clockstats file clockstats type day enable         ``
+``statsdir /var/log/ntpd/``
 
-.. raw:: html
+``filegen clockstats file clockstats type day enable``
 
-   <div style="text-align:left;">
 
 Mark of the clockstats record
-
-.. raw:: html
-
-   </div>
 
 +------------+-----------------------------------------------------------------+
 | ``JJY``    | Infomation message ( This refclock starts or stops. )           |

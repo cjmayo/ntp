@@ -5,10 +5,10 @@ Synopsis
 --------
 
 | Address: 127.127.33.\ *u*
-|  Reference ID: ``DUMBCLOCK``
-|  Driver ID: ``DUMBCLOCK``
-|  Serial Port: ``/dev/dumbclocku``; 9600 bps, 8-bits, no parity
-|  Features: ``(none)``
+| Reference ID: ``DUMBCLOCK``
+| Driver ID: ``DUMBCLOCK``
+| Serial Port: ``/dev/dumbclocku``; 9600 bps, 8-bits, no parity
+| Features: ``(none)``
 
 Description
 -----------

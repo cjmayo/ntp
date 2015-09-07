@@ -5,8 +5,8 @@ Synopsis
 --------
 
 | Address: 127.127.28.\ *u*
-|  Reference ID: ``SHM``
-|  Driver ID: ``SHM``
+| Reference ID: ``SHM``
+| Driver ID: ``SHM``
 
 Description
 -----------
@@ -90,7 +90,7 @@ segment, some sanity checks take place:
 GPSD
 ----
 
-`*GPSD* <http://gpsd.berlios.de/>`__ knows how to talk to many GPS
+`GPSD <http://www.catb.org/gpsd/>`__ knows how to talk to many GPS
 devices. It can work with *NTPD* through the SHM driver.
 
 The *GPSD* man page suggests setting minpoll and maxpoll to 4. That was

@@ -4,28 +4,12 @@ NeoClock4X - DCF77 / TDF serial line receiver
 Synopsis
 --------
 
-+--------------------------------------+--------------------------------------+
-| +----------------+------------------ | ` <http://www.linum.com>`__          |
-| ---+                                 | |NeoClock4X - DCF77 receiver|        |
-| | Address        | 127.127.44.u      |                                      |
-|    |                                 |                                      |
-| +----------------+------------------ |                                      |
-| ---+                                 |                                      |
-| | Reference ID   | neol              |                                      |
-|    |                                 |                                      |
-| +----------------+------------------ |                                      |
-| ---+                                 |                                      |
-| | Driver ID      | NEOCLK4X          |                                      |
-|    |                                 |                                      |
-| +----------------+------------------ |                                      |
-| ---+                                 |                                      |
-| | Serial Port    | /dev/neoclock4x-u |                                      |
-|    |                                 |                                      |
-| +----------------+------------------ |                                      |
-| ---+                                 |                                      |
-|                                      |                                      |
-                                                                             
-+--------------------------------------+--------------------------------------+
+| Address: 127.127.44.\ *u*
+| Reference ID: ``neol``
+| Driver ID: ``NEOCLK4X``
+| Serial Port: /dev/neoclock4x-\ *u*
+
+|NeoClock4X - DCF77 receiver|
 
 Description
 -----------
@@ -40,8 +24,8 @@ http://www.linux-funkuhr.de.  
 Fudge Factors
 -------------
 
-:doc:`../clockopt`\ **time1
-time**
+:doc:`time1 time <../clockopt>`
+
     Specifies the time offset calibration factor with the default value
     off 0.16958333 seconds. This offset is used  to correct serial line
     and operating system delays incurred in capturing time stamps. If
@@ -53,20 +37,21 @@ time**
     Note that the time here is given in seconds.
     Default setting is 0.16958333 seconds.
 
-:doc:`../clockopt`\ **time2
-time**
+:doc:`time2 time <../clockopt>`
+
     Not used by this driver.
 
-:doc:`../clockopt`\ **flag1
-0 \| 1**
+:doc:`flag1 0 | 1 <../clockopt>`
+
     When set to 1 the driver will feed ntp with timestampe even if the
     radio signal is lost. In this case an internal backup clock
     generates the timestamps. This is ok as long as the receiver is
     synced once since the receiver is able to keep time for a long
     period.
     Default setting is 0 = don't synchronize to CMOS clock.
-:doc:`../clockopt`\ **flag2
-0 \| 1**
+
+:doc:`flag2 0 | 1 <../clockopt>`
+
     You can allow the NeoClock4X driver to use the quartz clock even if
     it is never synchronized to a radio clock. This is usally not a good
     idea if you want preceise timestamps since the CMOS clock is maybe
@@ -74,11 +59,13 @@ time**
     on if you now what you're doing.
     Default setting is 0 = don't synchronize to unsynchronized CMOS
     clock.
-:doc:`../clockopt`\ **flag3
-0 \| 1**
+
+:doc:`flag3 0 | 1 <../clockopt>`
+
     Not used by this driver.
-:doc:`../clockopt`\ **flag4
-0 \| 1**
+
+:doc:`flag4 0 | 1 <../clockopt>`
+
     It is recommended to allow extensive logging while you setup the
     NeoClock4X receiver. If you activate flag4 every received data is
     logged. You should turn off flag4 as soon as the clock works as
@@ -90,3 +77,5 @@ Please send any comments or question to
 `neoclock4x@linum.com <mailto:neoclock4@linum.com>`__.
 
 .. |NeoClock4X - DCF77 receiver| image:: ../pic/neoclock4x.png
+    :alt: NeoClock4X - DCF77 receiver
+    :target: http://www.linum.com

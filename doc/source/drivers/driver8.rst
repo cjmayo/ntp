@@ -5,10 +5,10 @@ Synopsis
 --------
 
 | Address: 127.127.8.\ *u*
-|  Reference ID: PARSE
-|  Driver ID: GENERIC
-|  Serial Port: /dev/refclock-*u*; TTY mode according to clock type
-|  PPS device: /dev/refclockpps-*u*; alternate PPS device (if not
+| Reference ID: PARSE
+| Driver ID: GENERIC
+| Serial Port: /dev/refclock-*u*; TTY mode according to clock type
+| PPS device: /dev/refclockpps-*u*; alternate PPS device (if not
   available via the serial port)
 
 Description
@@ -69,10 +69,11 @@ refclock\_ppstime
 Supported Devices
 -----------------
 
-| Currently, twenty-four clock types are supported by the PARSE driver
-  and up to four (devices /dev/refclock-0 - /dev/refclock-3) of these
-  clocks may be operational at any one time.
-|  A note on the implementations:
+Currently, twenty-four clock types are supported by the PARSE driver
+and up to four (devices /dev/refclock-0 - /dev/refclock-3) of these
+clocks may be operational at any one time.
+
+A note on the implementations:
 
 -  These implementations were mainly done without actual access to the
    hardware, thus not all implementations provide full support. The
@@ -115,99 +116,66 @@ and are linked to the vendors' web pages.
 
 -  **server 127.127.8.0-3 mode 0**
 
-   | **`Meinberg <http://www.meinberg.de>`__ `PZF5xx receiver
-     family <http://www.meinberg.de/english/products/timesource.htm#dcf---freq_sync>`__
-     (FM demodulation/TCXO / 50μs)**
+   `Meinberg <http://www.meinberg.de>`__ `PZF5xx receiver
+   family <http://www.meinberg.de/english/products/timesource.htm#dcf---freq_sync>`__
+   (FM demodulation/TCXO / 50μs)
 
 -  **server 127.127.8.0-3 mode 1**
 
-   | **`Meinberg <http://www.meinberg.de>`__ `PZF5xx receiver
-     family <http://www.meinberg.de/english/products/timesource.htm#dcf---freq_sync>`__
-     (FM demodulation/OCXO / 50μs)**
-   |  ` <http://www.meinberg.de/english/products/pzf-eurocard.htm>`__
+   `Meinberg <http://www.meinberg.de>`__ `PZF5xx receiver
+   family <http://www.meinberg.de/english/products/timesource.htm#dcf---freq_sync>`__
+   (FM demodulation/OCXO / 50μs)
 
    |Image PZF511|
 
-   | 
-
-   .. raw:: html
-
-      </p>
-
--  
-
-   .. raw:: html
-
-      <div id="mode2">
-
-   .. raw:: html
-
-      </div>
-
 .. _driver8-mode2:
 
-   **server 127.127.8.0-3 mode 2**
+-  **server 127.127.8.0-3 mode 2**
 
-   | **`Meinberg <http://www.meinberg.de>`__ `DCF C51 receiver and
-     similar <http://www.meinberg.de/english/products/c51.htm>`__ (AM
-     demodulation / 4ms)**
-   |  ` <http://www.meinberg.de/english/products/c51.htm>`__
+   `Meinberg <http://www.meinberg.de>`__ `DCF C51 receiver and
+   similar <http://www.meinberg.de/english/products/c51.htm>`__ (AM
+   demodulation / 4ms)
 
    |Image C51|
-
-   | 
-
-   .. raw:: html
-
-      </p>
 
    This mode expects the Meinberg standard time string format with
    9600/7E2.
 
-   | **Note:** mode 2 must also be used for `Meinberg PCI
-     cards <http://www.meinberg.de/english/products/formfactor.htm#slot_card>`__
-     under Linux, e.g. `the GPS PCI
-     card <http://www.meinberg.de/english/products/gps-pcicard.htm>`__
-     or `the DCF77 PCI
-     card <http://www.meinberg.de/english/products/dcf-pcicard.htm>`__.
-     Please note the `Meinberg Linux
-     driver <http://www.meinberg.de/english/sw/#linux>`__ must be
-     installed. That driver emulates a refclock device in order to allow
-     ntpd to access those cards. For details, please refer to the README
-     file that comes with the Meinberg driver package.
+   **Note:** mode 2 must also be used for `Meinberg PCI
+   cards <http://www.meinberg.de/english/products/formfactor.htm#slot_card>`__
+   under Linux, e.g. `the GPS PCI
+   card <http://www.meinberg.de/english/products/gps-pcicard.htm>`__
+   or `the DCF77 PCI
+   card <http://www.meinberg.de/english/products/dcf-pcicard.htm>`__.
+   Please note the `Meinberg Linux
+   driver <http://www.meinberg.de/english/sw/#linux>`__ must be
+   installed. That driver emulates a refclock device in order to allow
+   ntpd to access those cards. For details, please refer to the README
+   file that comes with the Meinberg driver package.
 
 -  **server 127.127.8.0-3 mode 3**
 
-   | **`ELV <http://www.elv.de>`__ DCF7000 (sloppy AM demodulation /
-     50ms)**
+   `ELV <http://www.elv.de>`__ DCF7000 (sloppy AM demodulation / 50ms)
 
 -  **server 127.127.8.0-3 mode 4**
 
-   | **Walter Schmid DCF receiver Kit (AM demodulation / 1ms)**
+   Walter Schmid DCF receiver Kit (AM demodulation / 1ms)
 
 -  **server 127.127.8.0-3 mode 5**
 
-   | **RAW DCF77 100/200ms pulses (Conrad DCF77 receiver module / 5ms)**
+   RAW DCF77 100/200ms pulses (Conrad DCF77 receiver module / 5ms)
 
 -  **server 127.127.8.0-3 mode 6**
 
-   | **RAW DCF77 100/200ms pulses (TimeBrick DCF77 receiver module /
-     5ms)**
+   RAW DCF77 100/200ms pulses (TimeBrick DCF77 receiver module / 5ms)
 
 -  **server 127.127.8.0-3 mode 7**
 
-   | **`Meinberg <http://www.meinberg.de>`__ `GPS16x/GPS17x
-     receivers <http://www.meinberg.de/english/products/timesource.htm#gps---freq_sync>`__
-     (GPS / <<1μs)**
-   |  ` <http://www.meinberg.de/english/products/gps-eurocard.htm>`__
+   `Meinberg <http://www.meinberg.de>`__ `GPS16x/GPS17x
+   receivers <http://www.meinberg.de/english/products/timesource.htm#gps---freq_sync>`__
+   (GPS / <<1μs)
 
    |Image GPS167|
-
-   | 
-
-   .. raw:: html
-
-      </p>
 
    This mode expects either the University of Erlangen time string
    format or the Meinberg standard time string format at 19200/8N1.
@@ -218,8 +186,7 @@ and are linked to the vendors' web pages.
 
    In this mode some additional GPS receiver status information is also
    read. However, this requires a point-to-point connection.
-   :ref:`Mode 18
-   <driver8-mode18>` should be used if the
+   :ref:`Mode 18 <driver8-mode18>` should be used if the
    device is accessed by a multidrop connection.
 
    | **Note:** mode 7 must not be used with Meinberg PCI cards; use
@@ -228,145 +195,105 @@ and are linked to the vendors' web pages.
 
 -  **server 127.127.8.0-3 mode 8**
 
-   | **`IGEL <http://www.igel.de>`__
-     `clock <http://www.igel.de/eigelmn.html>`__**
-   |  ` <http://www.igel.de/eigelmn.html>`__
+   `IGEL <http://www.igel.de>`__
+   `clock <http://www.igel.de/eigelmn.html>`__
 
    |Image IGEL clock|
 
-   | 
-
-   .. raw:: html
-
-      </p>
-
 -  **server 127.127.8.0-3 mode 9**
 
-   | **`Trimble <http://www.trimble.com>`__ `SVeeSix GPS
-     receiver <http://www.trimble.com/cgi/omprod.cgi/pd_om011.html>`__
-     TAIP protocol (GPS / <<1μs)**
+   `Trimble <http://www.trimble.com>`__
+   `SVeeSix GPS receiver <http://www.trimble.com/cgi/omprod.cgi/pd_om011.html>`__
+   TAIP protocol (GPS / <<1μs)
 
 -  **server 127.127.8.0-3 mode 10**
 
-   | **`Trimble <http://www.trimble.com>`__ `SVeeSix GPS
-     receiver <http://www.trimble.com/cgi/omprod.cgi/pd_om011.html>`__
-     TSIP protocol (GPS / <<1μs) (no kernel support yet)**
-   |  ` <http://www.trimble.com/cgi/omprod.cgi/pd_om011.html>`__
+   `Trimble <http://www.trimble.com>`__ `SVeeSix GPS
+   receiver <http://www.trimble.com/cgi/omprod.cgi/pd_om011.html>`__
+   TSIP protocol (GPS / <<1μs) (no kernel support yet)
 
    |Image SVeeSix-CM3|
 
-   | 
-   |  ` <http://www.trimble.com/cgi/omprod.cgi/pd_om006.html>`__
-
    |Image Lassen-SK8|
-
-   | 
-
-   .. raw:: html
-
-      </p>
 
 -  **server 127.127.8.0-3 mode 11**
 
-   | **Radiocode Clocks Ltd RCC 8000 Intelligent Off-Air Master Clock
-     support**
+   Radiocode Clocks Ltd RCC 8000 Intelligent Off-Air Master Clock support
 
 -  **server 127.127.8.0-3 mode 12**
 
-   | **`HOPF <http://www.hopf-time.com>`__ `Funkuhr
-     6021 <http://www.hopf-time.com/kart6021.html>`__**
-   |  ` <http://www.hopf-time.com/engl/kart6021.html>`__
+   `HOPF <http://www.hopf-time.com>`__
+   `Funkuhr 6021 <http://www.hopf-time.com/kart6021.html>`__
 
    |Image DCF77 Interface Board|
 
-   | 
-
-   .. raw:: html
-
-      </p>
-
 -  **server 127.127.8.0-3 mode 13**
 
-   | **Diem's Computime Radio Clock**
+   Diem's Computime Radio Clock
 
 -  **server 127.127.8.0-3 mode 14**
 
-   | **RAWDCF receiver (DTR=high/RTS=low)**
+   RAWDCF receiver (DTR=high/RTS=low)
 
 -  **server 127.127.8.0-3 mode 15**
 
-   | **WHARTON 400A Series Clocks with a 404.2 Serial Interface**
+   WHARTON 400A Series Clocks with a 404.2 Serial Interface
 
 -  **server 127.127.8.0-3 mode 16**
 
-   | **RAWDCF receiver (DTR=low/RTS=high)**
+   RAWDCF receiver (DTR=low/RTS=high)
 
 -  **server 127.127.8.0-3 mode 17**
 
-   | **VARITEXT Receiver (MSF)**
-
--  
-
-   .. raw:: html
-
-      <div id="mode18">
-
-   .. raw:: html
-
-      </div>
+   VARITEXT Receiver (MSF)
 
 .. _driver8-mode18:
 
    **server 127.127.8.0-3 mode 18**
 
-   | **`Meinberg <http://www.meinberg.de>`__ `GPS16x/GPS17x
-     receivers <http://www.meinberg.de/english/products/timesource.htm#gps---freq_sync>`__
-     (GPS / <<1μs)**
+   `Meinberg <http://www.meinberg.de>`__ `GPS16x/GPS17x
+   receivers <http://www.meinberg.de/english/products/timesource.htm#gps---freq_sync>`__
+   (GPS / <<1μs)
 
    This mode works without additional data communication (version, GPS
    status etc.) and thus should be used with multidrop, heterogeneous
    multiclient operation.
 
-   | **Note:** mode 18 must not be used with Meinberg PCI cards, use
-     mode 2 instead.
+   **Note:** mode 18 must not be used with Meinberg PCI cards, use
+   mode 2 instead.
 
 -  **server 127.127.8.0-3 mode 19**
 
-   | **Gude Analog- und Digitalsystem GmbH 'Expert mouseCLOCK USB
-     v2.0'**
+   Gude Analog- und Digitalsystem GmbH 'Expert mouseCLOCK USB v2.0'
 
 -  **server 127.127.8.0-3 mode 20**
 
-   | **RAWDCF receiver similar to mode 14, but operating @ 75 baud
-     (DTR=high/RTS=low)**
+   RAWDCF receiver similar to mode 14, but operating @ 75 baud (DTR=high/RTS=low)
 
-   | Driving the DCF clocks at 75 baud may help to get them to work with
-     a bunch of common USB serial converters, that do 75 but cannot do
-     50 baud at all, e.g. those based on Prolific PL2303.
+   Driving the DCF clocks at 75 baud may help to get them to work with
+   a bunch of common USB serial converters, that do 75 but cannot do
+   50 baud at all, e.g. those based on Prolific PL2303.
 
 -  **server 127.127.8.0-3 mode 21**
 
-   | **RAWDCF receiver similar to mode 16, but operating @ 75 baud
-     (DTR=low/RTS=high)**
+   RAWDCF receiver similar to mode 16, but operating @ 75 baud (DTR=low/RTS=high)
 
-   | See comment from mode 20 clock.
+   See comment from mode 20 clock.
 
 -  **server 127.127.8.0-3 mode 22**
 
-   | **MEINBERG, mode 2 but with POWERUP trust**
+   MEINBERG, mode 2 but with POWERUP trust
 
 -  **server 127.127.8.0-3 mode 23**
 
-   | **MEINBERG, mode 7 but with POWERUP trust**
+   MEINBERG, mode 7 but with POWERUP trust
 
 -  **server 127.127.8.0-3 mode 24**
 
-   | **`Schweitzer Engineering
-     Laboratories <http://www.selinc.com/>`__**
+   `Schweitzer Engineering Laboratories <http://www.selinc.com/>`__
 
 Actual data formats and setup requirements of the various clocks can be
-found in :doc:`NTP PARSE clock data formats
-<../parsedata>`.
+found in :doc:`NTP PARSE clock data formats <../parsedata>`.
 
 Operation
 ---------
@@ -419,14 +346,15 @@ via the serial port.
 Monitor Data
 ------------
 
-| Clock state statistics are written hourly to the syslog service.
-  Online information can be found by examining the clock variables via
-  the ntpq cv command.
-|  Some devices have quite extensive additional information
-  (GPS16x/GPS17x, Trimble). The driver reads out much of the internal
-  GPS data and makes it accessible via clock variables. To find out
-  about additional variable names, query for the clock\_var\_list
-  variable on a specific clock association as shown below.
+Clock state statistics are written hourly to the syslog service.
+Online information can be found by examining the clock variables via
+the ntpq cv command.
+
+Some devices have quite extensive additional information
+(GPS16x/GPS17x, Trimble). The driver reads out much of the internal
+GPS data and makes it accessible via clock variables. To find out
+about additional variable names, query for the clock\_var\_list
+variable on a specific clock association as shown below.
 
 First let ntpq display the table of associations:
 
@@ -497,15 +425,7 @@ flag4 { 0 \| 1 }
     Delete next leap second instead of adding it. (You'll need to wait a
     bit for that to happen 8-)
 
-| Note about auxiliary Sun STREAMS modules (SunOS and Solaris):
-
-.. raw:: html
-
-   <dl>
-
-.. raw:: html
-
-   <dt>
+Note about auxiliary Sun STREAMS modules (SunOS and Solaris):
 
 The timecode of these receivers can be sampled via a STREAMS module in
 the kernel. (The STREAMS module has been designed for use with Sun
@@ -514,31 +434,29 @@ directly into the kernel or loaded via the loadable driver mechanism.)
 This STREAMS module can be adapted to convert different time code
 formats. Nowadays the PPSAPI mechanism is usually used.
 
-.. raw:: html
-
-   </dt>
-
-.. raw:: html
-
-   </dl>
-
 Making your own PARSE clocks
 ----------------------------
 
 The parse clock mechanism deviates from the way other NTP reference
 clocks work. For a short description of how to build parse reference
-clocks, see :doc:`making PARSE clocks
-<../parsenew>`.
+clocks, see :doc:`making PARSE clocks <../parsenew>`.
 
 Additional Information
+----------------------
 
-:doc:`Reference Clock Drivers
-<../refclock>`
+:doc:`Reference Clock Drivers <../refclock>`
 
 .. |Image PZF511| image:: ../pic/pzf511.jpg
+   :target: http://www.meinberg.de/english/products/pzf-eurocard.htm
 .. |Image C51| image:: ../pic/c51.jpg
+   :target: http://www.meinberg.de/english/products/c51.htm
 .. |Image GPS167| image:: ../pic/gps167.jpg
+   :target: http://www.meinberg.de/english/products/gps-eurocard.htm
 .. |Image IGEL clock| image:: ../pic/igclock.png
+   :target: http://www.igel.de/eigelmn.html
 .. |Image SVeeSix-CM3| image:: ../pic/pd_om011.png
+   :target: http://www.trimble.com/cgi/omprod.cgi/pd_om011.html
 .. |Image Lassen-SK8| image:: ../pic/pd_om006.png
+   :target: http://www.trimble.com/cgi/omprod.cgi/pd_om006.html
 .. |Image DCF77 Interface Board| image:: ../pic/fg6021.png
+   :target: http://www.hopf-time.com/engl/kart6021.html

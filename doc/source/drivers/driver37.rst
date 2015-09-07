@@ -5,9 +5,9 @@ Synopsis
 --------
 
 | Address: 127.127.37.\ *u*
-|  Reference ID: ``GPS``
-|  Driver ID: ``GPS``
-|  Parallel Port: ``/dev/fgclocku``
+| Reference ID: ``GPS``
+| Driver ID: ``GPS``
+| Parallel Port: ``/dev/fgclocku``
 
 Description
 -----------
@@ -19,7 +19,7 @@ Unfortunately sometime FG GPS start continues reporting of the same
 date. The only way to fix this problem is GPS power cycling and ntpd
 restart after GPS power-up.
 
-After Jan,10 2000 my FG GPS unit start send a wrong answer after 10:00am
+After Jan 10, 2000 my FG GPS unit start send a wrong answer after 10:00am
 till 11:00am. It repeat hour value in result string twice. I wroite a
 small code to avoid such problem. Unfortunately I have no second FG GPS
 unit to evaluate this problem. Please let me know if your GPS has no
@@ -54,12 +54,4 @@ Fudge Factors
 ``flag4 0 | 1``
     Not used by this driver.
 
-.. raw:: html
-
-   <address>
-
 Dmitry Smirnov (das@amt.ru)
-
-.. raw:: html
-
-   </address>

@@ -5,10 +5,10 @@ Synopsis
 --------
 
 | Address: 127.127.10.\ *u*
-|  Reference ID: ``GPS``
-|  Driver ID: ``GPS_AS2201``
-|  Serial Port: ``/dev/gpsu``; 9600 baud, 8-bits, no parity
-|  Features: ``tty_clk``
+| Reference ID: ``GPS``
+| Driver ID: ``GPS_AS2201``
+| Serial Port: ``/dev/gpsu``; 9600 baud, 8-bits, no parity
+| Features: ``tty_clk``
 
 Description
 -----------
@@ -34,9 +34,7 @@ and attributes are embedded in the driver source code; however, the
 collection process can be enabled or disabled using the flag4 flag. If
 set, collection is enabled; if not, which is the default, it is
 disabled. A comprehensive suite of data reduction and summary scripts is
-in the ./scripts/stats directory
-
-of the ntp3 distribution.
+in the ./scripts/stats directory of the ntp3 distribution.
 
 Monitor Data
 ------------
@@ -70,5 +68,4 @@ Fudge Factors
 Additional Information
 ----------------------
 
-:doc:`Reference Clock Drivers
-<../refclock>`
+:doc:`Reference Clock Drivers <../refclock>`

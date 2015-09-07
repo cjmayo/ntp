@@ -5,10 +5,10 @@ Synopsis
 --------
 
 | Address: 127.127.9.\ *u*
-|  Reference ID: ``GPS``
-|  Driver ID: ``GPS_MX4200``
-|  Serial Port: ``/dev/gpsu``; 4800 baud, 8-bits, no parity
-|  Features: ``ppsclock`` (required)
+| Reference ID: ``GPS``
+| Driver ID: ``GPS_MX4200``
+| Serial Port: ``/dev/gpsu``; 4800 baud, 8-bits, no parity
+| Features: ``ppsclock`` (required)
 
 Description
 -----------
@@ -18,22 +18,14 @@ precision timing applications. This driver supports all compatible
 receivers such as the 6-channel MX4200, MX4200D, and the 12-channel
 MX9212, MX9012R, MX9112.
 
-` <http://www.leica-gps.com/>`__
-
 |Leica MX9400N Navigator|
+
+Leica MX9400N Navigator.
 
 `Leica Geosystems <http://www.leica-gps.com/>`__ acquired the Magnavox
 commercial GPS technology business in February of 1994. They now market
 and support former Magnavox GPS products such as the MX4200 and its
 successors.
-
-.. raw:: html
-
-   </p>
-
-| 
-
-Leica MX9400N Navigator.
 
 Operating Modes
 ---------------
@@ -58,8 +50,7 @@ Monitor Data
 
 The driver writes each timecode as received to the ``clockstats`` file.
 Documentation for the NMEA-0183 proprietary sentences produced by the
-MX4200 can be found in :doc:`MX4200 Receiver
-Data Format <mx4200data>`.
+MX4200 can be found in :doc:`MX4200 Receiver Data Format <mx4200data>`.
 
 Fudge Factors
 -------------
@@ -87,7 +78,7 @@ Fudge Factors
 Additional Information
 ----------------------
 
-:doc:`Reference Clock Drivers
-<../refclock>` 
+:doc:`Reference Clock Drivers <../refclock>` 
 
 .. |Leica MX9400N Navigator| image:: ../pic/9400n.jpg
+      :target: http://www.leica-gps.com

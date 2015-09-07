@@ -5,10 +5,10 @@ Synopsis
 --------
 
 | Address: 127.127.5.\ *u*
-|  Reference ID: ``GPS, OMEGA, GOES, WWV``
-|  Driver ID: ``TRUETIME``
-|  Serial Port: ``/dev/trueu``; 9600 baud, 8-bits, no parity
-|  Features: ``tty_clk``
+| Reference ID: ``GPS, OMEGA, GOES, WWV``
+| Driver ID: ``TRUETIME``
+| Serial Port: ``/dev/trueu``; 9600 baud, 8-bits, no parity
+| Features: ``tty_clk``
 
 Description
 -----------
@@ -24,28 +24,35 @@ that use the same timecode formats.
 Most of this code is originally from refclock\_wwvb.c with thanks. It
 has been so mangled that wwvb is not a recognizable ancestor.
 
-| Timcode format: ``ADDD:HH:MM:SSQCL``
-|  A - control A (this is stripped before we see it) Q - Quality
+Timecode format: ``ADDD:HH:MM:SSQCL``
+  A - control A (this is stripped before we see it) Q - Quality
   indication (see below) C - Carriage return L - Line feed
 
-| 
-|  Quality codes indicate possible error of:
+Quality codes indicate possible error of:
 
 468-DC GOES Receiver
+
 GPS-TM/TMD Receiver
     ? +/- 500 milliseconds # +/- 50 milliseconds
-     \* +/- 5 milliseconds . +/- 1 millisecond
-     space less than 1 millisecond
+
+    \* +/- 5 milliseconds . +/- 1 millisecond
+    space less than 1 millisecond
+
 OM-DC OMEGA Receiver:
     > +/- 5 seconds
-     ? +/- 500 milliseconds # +/- 50 milliseconds
-     \* +/- 5 milliseconds . +/- 1 millisecond
-     A-H less than 1 millisecond. Character indicates which station is
+
+    ? +/- 500 milliseconds # +/- 50 milliseconds
+
+    \* +/- 5 milliseconds . +/- 1 millisecond
+
+    A-H less than 1 millisecond. Character indicates which station is
     being received as follows
-     A = Norway, B = Liberia, C = Hawaii, D = North Dakota, E = La
+    A = Norway, B = Liberia, C = Hawaii, D = North Dakota, E = La
     Reunion, F = Argentina, G = Australia, H = Japan
-     The carriage return start bit begins on 0 seconds and extends to 1
+
+    The carriage return start bit begins on 0 seconds and extends to 1
     bit time.
+
 TL-3 WWV Receiver:
     ? receiver is unlocked
     space +/- 5 milliseconds

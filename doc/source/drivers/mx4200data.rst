@@ -1,9 +1,6 @@
 MX4200 Receiver Data Format
 ===========================
 
-Table of Contents
------------------
-
 .. _mx4200data-control:
 
 Control Port Sentences
@@ -19,11 +16,9 @@ Association <http://www.nmea.org/>`__.
 Reserved characters are used to indicate the beginning and the end of
 records in the data stream, and to delimit data fields within a
 sentence. Only printable ASCII characters (Hex 20 through 7F) may be
-used in a sentence. :ref:`Table 2
-<mx4200data-table\_2>` lists the reserved
-characters and defines their usage. :ref:`Table
-1 <mx4200data-table\_1>` illustrates the
-general Magnavox proprietary NMEA sentence format.
+used in a sentence. :ref:`Table 2 <mx4200data-table\_2>` lists the reserved
+characters and defines their usage. :ref:`Table 1 <mx4200data-table\_1>`
+illustrates the general Magnavox proprietary NMEA sentence format.
 
 .. _mx4200data-table_1:
 
@@ -79,8 +74,8 @@ receiver uses a free-format parsing algorithm, so you need not send the
 exact number of characters shown in the examples. You will need to use
 the commas to determine how many bytes of data need to be retrieved.
 
-The notation ``CK`` shown in :ref:`Table 1
-<mx4200data-table\_1>` symbolically indicates
+The notation ``CK`` shown in :ref:`Table 1 <mx4200data-table\_1>`
+symbolically indicates
 the optional checksum in the examples. The checksum is computed by
 exclusive-ORing all of the bytes between the ``$`` and the ``*``
 characters. The ``$``, ``*`` and the checksum are not included in the
@@ -158,9 +153,11 @@ Initializes the time, position and antenna height of the MX4200.
 | 10           | Not Used     |              |              |              |              |
 +--------------+--------------+--------------+--------------+--------------+--------------+
 
-| Example:
-|  ``$PMVXG,000,,,,,,,,,,*48``
-|  ``$PMVXG,000,,,,,5128.4651,N,00020.0715,W,58.04,*4F``
+Example:
+
+``$PMVXG,000,,,,,,,,,,*48``
+
+``$PMVXG,000,,,,,5128.4651,N,00020.0715,W,58.04,*4F``
 
 .. _mx4200data-input\_001:
 
@@ -177,8 +174,8 @@ DOP limits, and satellite elevation limits.
 | Field        | Description  | Units        | Format       | Default      | Range        |
 +==============+==============+==============+==============+==============+==============+
 | \*1          | Constrain    |              | Int          | 1            | 0=3D Only    |
-|              | Altitude     |              |              |              |  1=Auto      |
-|              |              |              |              |              |  2=2D Only   |
+|              | Altitude     |              |              |              | 1=Auto       |
+|              |              |              |              |              | 2=2D Only    |
 +--------------+--------------+--------------+--------------+--------------+--------------+
 | 2            | Not Used     |              |              |              |              |
 +--------------+--------------+--------------+--------------+--------------+--------------+
@@ -196,15 +193,15 @@ DOP limits, and satellite elevation limits.
 |              | Limit        |              |              |              |              |
 +--------------+--------------+--------------+--------------+--------------+--------------+
 | 8            | Time Output  |              | Char         | U            | U=UTC        |
-|              | Mode         |              |              |              |  L=Local     |
-|              |              |              |              |              | Time         |
+|              | Mode         |              |              |              | L=Local Time |
 +--------------+--------------+--------------+--------------+--------------+--------------+
 | 9            | Local Time   | HHMM         | Int          | 0            | +/- 0-2359   |
 |              | Offset       |              |              |              |              |
 +--------------+--------------+--------------+--------------+--------------+--------------+
 
-| Example:
-|  ``$PMVXG,001,3,,0.1,0.1,10,10,5,U,0*06``
+Example:
+
+``$PMVXG,001,3,,0.1,0.1,10,10,5,U,0*06``
 
 .. _mx4200data-input\_007:
 
@@ -226,11 +223,11 @@ that the receiver is to output.
 |              | Label        |              |              |              |              |
 +--------------+--------------+--------------+--------------+--------------+--------------+
 | 2            | Clear        |              | Int          |              | 0=No         |
-|              | Current      |              |              |              |  1=Yes       |
+|              | Current      |              |              |              | 1=Yes        |
 |              | Output List  |              |              |              |              |
 +--------------+--------------+--------------+--------------+--------------+--------------+
 | 3            | Add/Delete   |              | Int          |              | 1=Append     |
-|              | Sentence     |              |              |              |  2=Delete    |
+|              | Sentence     |              |              |              | 2=Delete     |
 |              | from List    |              |              |              |              |
 +--------------+--------------+--------------+--------------+--------------+--------------+
 | 4            | Not Used     |              |              |              |              |
@@ -249,8 +246,9 @@ that the receiver is to output.
 | 8            | Not Used     |              |              |              |              |
 +--------------+--------------+--------------+--------------+--------------+--------------+
 
-| Example:
-|  ``$PMVXG,007,022,0,1,,1,,,*4F``
+Example:
+
+``$PMVXG,007,022,0,1,,1,,,*4F``
 
 .. _mx4200data-input\_023:
 
@@ -270,18 +268,18 @@ back panel contains a 1PPS outlet, the receiver is a time recovery unit.
 | Field        | Description  | Units        | Format       | Default      | Range        |
 +==============+==============+==============+==============+==============+==============+
 | \*1          | Time         |              | Char         | D            | D=Dynamic    |
-|              | Recovery     |              |              |              |  S=Static    |
-|              | Mode         |              |              |              |  K=Known     |
+|              | Recovery     |              |              |              | S=Static     |
+|              | Mode         |              |              |              | K=Known      |
 |              |              |              |              |              | Position     |
-|              |              |              |              |              |  N=No Time   |
+|              |              |              |              |              | N=No Time    |
 |              |              |              |              |              | Recovery     |
 +--------------+--------------+--------------+--------------+--------------+--------------+
 | 2            | Time         |              | Char         | G            | U=UTC        |
-|              | Synchronizat |              |              |              |  G=GPS       |
+|              | Synchronizat |              |              |              | G=GPS        |
 |              | ion          |              |              |              |              |
 +--------------+--------------+--------------+--------------+--------------+--------------+
 | 3            | Time Mark    |              | Char         | A            | A=Always     |
-|              | Mode         |              |              |              |  V=Valid     |
+|              | Mode         |              |              |              | V=Valid      |
 |              |              |              |              |              | Pulses Only  |
 +--------------+--------------+--------------+--------------+--------------+--------------+
 | 4            | Maximum Time | Nsec         | Int          | 100          | 50-1000      |
@@ -291,19 +289,20 @@ back panel contains a 1PPS outlet, the receiver is a time recovery unit.
 |              | Bias         |              |              |              |              |
 +--------------+--------------+--------------+--------------+--------------+--------------+
 | 6            | ASCII Time   |              | Int          | 0            | 0=No Output  |
-|              | Message      |              |              |              |  1=830 to    |
+|              | Message      |              |              |              | 1=830 to     |
 |              | Control      |              |              |              | Control Port |
-|              |              |              |              |              |  2=830 to    |
+|              |              |              |              |              | 2=830 to     |
 |              |              |              |              |              | Equipment    |
 |              |              |              |              |              | Port         |
 +--------------+--------------+--------------+--------------+--------------+--------------+
 | 7            | Known Pos    |              | Int          | 0            | 1-32         |
-|              | PRN          |              |              |              |  0=Track All |
+|              | PRN          |              |              |              | 0=Track All  |
 |              |              |              |              |              | Sats         |
 +--------------+--------------+--------------+--------------+--------------+--------------+
 
-| Example:
-|  ``$PMVXG,023,S,U,A,500,0,1,*16``
+Example:
+
+``$PMVXG,023,S,U,A,500,0,1,*16``
 
 .. _mx4200data-input\_gpq:
 
@@ -337,8 +336,9 @@ sentence :ref:`$PMVXG,007
 |              |              |              |              |              | Type         |
 +--------------+--------------+--------------+--------------+--------------+--------------+
 
-| Example:
-|  ``$CDGPQ,030*5E``
+Example:
+
+``$CDGPQ,030*5E``
 
 .. _mx4200data-output:
 
@@ -369,15 +369,15 @@ tracked.
 |                |                |                |                | ALT=Constellat |
 |                |                |                |                | ion            |
 |                |                |                |                | Selection      |
-|                |                |                |                |  IAC=Initial   |
+|                |                |                |                | IAC=Initial    |
 |                |                |                |                | Acquisition    |
-|                |                |                |                |  IDL=Idle, No  |
+|                |                |                |                | IDL=Idle, No   |
 |                |                |                |                | Satellites     |
 |                |                |                |                |                |
 |                |                |                |                | NAV=Navigating |
-|                |                |                |                |  STS=Search    |
+|                |                |                |                | STS=Search     |
 |                |                |                |                | The Sky        |
-|                |                |                |                |  TRK=Tracking  |
+|                |                |                |                | TRK=Tracking   |
 +----------------+----------------+----------------+----------------+----------------+
 | 2              | Number of      |                | Int            | 0-12           |
 |                | Satellites     |                |                |                |
@@ -400,8 +400,9 @@ tracked.
 |                |                |                |                | Complete       |
 +----------------+----------------+----------------+----------------+----------------+
 
-| Example:
-|  ``$PMVXG,000,TRK,3,3,0122,1*19``
+Example:
+
+``$PMVXG,000,TRK,3,3,0122,1*19``
 
 .. _mx4200data-output\_021:
 
@@ -443,38 +444,38 @@ applications.*
 | 9              | Velocity North | M/Sec          | Float          |                |
 +----------------+----------------+----------------+----------------+----------------+
 | 10             | Navigation     |                | Int            | *Navigating*   |
-|                | Mode           |                |                |  1=Position    |
+|                | Mode           |                |                | 1=Position     |
 |                |                |                |                | From a Remote  |
 |                |                |                |                | Device         |
-|                |                |                |                |  2=2D          |
-|                |                |                |                |  3=3D          |
-|                |                |                |                |  4=2D          |
+|                |                |                |                | 2=2D           |
+|                |                |                |                | 3=3D           |
+|                |                |                |                | 4=2D           |
 |                |                |                |                | differential   |
-|                |                |                |                |  5=3D          |
+|                |                |                |                | 5=3D           |
 |                |                |                |                | differential   |
-|                |                |                |                |  *Not          |
+|                |                |                |                | *Not           |
 |                |                |                |                | Navigating*    |
-|                |                |                |                |  51=Too Few    |
+|                |                |                |                | 51=Too Few     |
 |                |                |                |                | Satellites     |
-|                |                |                |                |  52=DOPs too   |
+|                |                |                |                | 52=DOPs too    |
 |                |                |                |                | large          |
-|                |                |                |                |  53=Position   |
+|                |                |                |                | 53=Position    |
 |                |                |                |                | STD too large  |
-|                |                |                |                |  54=Velocity   |
+|                |                |                |                | 54=Velocity    |
 |                |                |                |                | STD too large  |
-|                |                |                |                |  55=Too many   |
+|                |                |                |                | 55=Too many    |
 |                |                |                |                | iterations for |
 |                |                |                |                | velocity       |
-|                |                |                |                |  56=Too many   |
+|                |                |                |                | 56=Too many    |
 |                |                |                |                | iterations for |
 |                |                |                |                | position       |
-|                |                |                |                |  57=3 Sat      |
+|                |                |                |                | 57=3 Sat       |
 |                |                |                |                | Startup failed |
 +----------------+----------------+----------------+----------------+----------------+
 
-| Example:
-| 
-  ``$PMVXG,021,142244.00,5128.4744,N,00020.0593,W,00054.4,0047.4,0000.1,-000.2,03*66``
+Example:
+
+``$PMVXG,021,142244.00,5128.4744,N,00020.0593,W,00054.4,0047.4,0000.1,-000.2,03*66``
 
 .. _mx4200data-output\_022:
 
@@ -542,8 +543,9 @@ listed. The satellites are listed in receiver channel order. Fields
 |                | #12            |                |                |                |
 +----------------+----------------+----------------+----------------+----------------+
 
-| Example:
-|  ``$PMVXG,022,142243.00,00.7,00.8,01.9,27,26,10,09,13,23*77``
+Example:
+
+``$PMVXG,022,142243.00,00.7,00.8,01.9,27,26,10,09,13,23*77``
 
 .. _mx4200data-output\_030:
 
@@ -567,8 +569,9 @@ version numbers.
 |                | Version Number |                |                |                |
 +----------------+----------------+----------------+----------------+----------------+
 
-| Example:
-|  ``$PMVXG,030,DA35,015``
+Example:
+
+``$PMVXG,030,DA35,015``
 
 .. _mx4200data-output\_101:
 
@@ -588,19 +591,19 @@ This sentence is returned (on the Control Port) for every **$PMVXG** and
 +----------------+----------------+----------------+----------------+----------------+
 | 2              | Accept/Reject  |                | Int            | 0=Sentence     |
 |                | Status         |                |                | Accepted       |
-|                |                |                |                |  1=Bad         |
+|                |                |                |                | 1=Bad          |
 |                |                |                |                | Checksum       |
-|                |                |                |                |  2=Illegal     |
+|                |                |                |                | 2=Illegal      |
 |                |                |                |                | Value          |
 |                |                |                |                |                |
 |                |                |                |                | 3=Unrecognized |
 |                |                |                |                | ID             |
-|                |                |                |                |  4=Wrong # of  |
+|                |                |                |                | 4=Wrong # of   |
 |                |                |                |                | fields         |
-|                |                |                |                |  5=Required    |
+|                |                |                |                | 5=Required     |
 |                |                |                |                | Data Field     |
 |                |                |                |                | Missing        |
-|                |                |                |                |  6=Requested   |
+|                |                |                |                | 6=Requested    |
 |                |                |                |                | Sentence       |
 |                |                |                |                | Unavailable    |
 +----------------+----------------+----------------+----------------+----------------+
@@ -613,8 +616,9 @@ This sentence is returned (on the Control Port) for every **$PMVXG** and
 |                | GPQ)           |                |                |                |
 +----------------+----------------+----------------+----------------+----------------+
 
-| Example:
-|  ``$PMVXG,101,GPQ,0,,030*0D``
+Example:
+
+``$PMVXG,101,GPQ,0,,030*0D``
 
 .. _mx4200data-output\_523:
 
@@ -631,20 +635,20 @@ of the receiver.
 | Field          | Description    | Units          | Format         | Range          |
 +================+================+================+================+================+
 | 1              | Time Recovery  |                | Char           | D=Dynamic      |
-|                | Mode           |                |                |  S=Static      |
-|                |                |                |                |  K=Known       |
+|                | Mode           |                |                | S=Static       |
+|                |                |                |                | K=Known        |
 |                |                |                |                | Position       |
-|                |                |                |                |  N=No Time     |
+|                |                |                |                | N=No Time      |
 |                |                |                |                | Recovery       |
 +----------------+----------------+----------------+----------------+----------------+
 | 2              | Time           |                | Char           | U=UTC Time     |
-|                | Synchronizatio |                |                |  G=GPS Time    |
+|                | Synchronizatio |                |                | G=GPS Time     |
 |                | n              |                |                |                |
 +----------------+----------------+----------------+----------------+----------------+
 | 3              | Time Mark Mode |                | Char           | A=Always       |
 |                |                |                |                | Output Time    |
 |                |                |                |                | Pulse          |
-|                |                |                |                |  V=Only when   |
+|                |                |                |                | V=Only when    |
 |                |                |                |                | Valid          |
 +----------------+----------------+----------------+----------------+----------------+
 | 4              | Maximum Time   | Nsec           | Int            |                |
@@ -657,16 +661,17 @@ of the receiver.
 | 5              | User Time Bias | Nsec           | Int            |                |
 +----------------+----------------+----------------+----------------+----------------+
 | 6              | Time Message   |                | Int            | 0=No Message   |
-|                | Control        |                |                |  1=830 to      |
+|                | Control        |                |                | 1=830 to       |
 |                |                |                |                | Control Port   |
-|                |                |                |                |  2=830 to      |
+|                |                |                |                | 2=830 to       |
 |                |                |                |                | Equipment Port |
 +----------------+----------------+----------------+----------------+----------------+
 | 7              | Not Used       |                |                |                |
 +----------------+----------------+----------------+----------------+----------------+
 
-| Example:
-|  ``$PMVXG,523,S,U,A,0500,000000,1,0*23``
+Example:
+
+``$PMVXG,523,S,U,A,0500,000000,1,0*23``
 
 .. _mx4200data-output\_830:
 
@@ -687,7 +692,7 @@ second flag (Field #11) is not output by older receivers.
 | Field          | Description    | Units          | Format         | Range          |
 +================+================+================+================+================+
 | 1              | Time Mark      |                | Char           | T=Valid        |
-|                | Valid          |                |                |  F=Not Valid   |
+|                | Valid          |                |                | F=Not Valid    |
 +----------------+----------------+----------------+----------------+----------------+
 | 2              | Year           |                | Int            | 1993-          |
 +----------------+----------------+----------------+----------------+----------------+
@@ -699,12 +704,12 @@ second flag (Field #11) is not output by older receivers.
 |                |                |                |                | :59            |
 +----------------+----------------+----------------+----------------+----------------+
 | 6              | Time           |                | Char           | U=UTC          |
-|                | Synchronizatio |                |                |  G=GPS         |
+|                | Synchronizatio |                |                | G=GPS          |
 |                | n              |                |                |                |
 +----------------+----------------+----------------+----------------+----------------+
 | 7              | Operating Mode |                | Char           | D=Dynamic      |
-|                |                |                |                |  S=Static      |
-|                |                |                |                |  K=Known       |
+|                |                |                |                | S=Static       |
+|                |                |                |                | K=Known        |
 |                |                |                |                | Position       |
 +----------------+----------------+----------------+----------------+----------------+
 | 8              | Oscillator     | PPB            | Int            |                |
@@ -743,5 +748,6 @@ second flag (Field #11) is not output by older receivers.
 |                | of UTC time.   |                |                |                |
 +----------------+----------------+----------------+----------------+----------------+
 
-| Example:
-|  ``$PMVXG,830,T,1998,10,12,15:30:46,U,S,000298,00003,000000,01*02``
+Example:
+
+``$PMVXG,830,T,1998,10,12,15:30:46,U,S,000298,00003,000000,01*02``

@@ -5,15 +5,14 @@ Synopsis
 --------
 
 | Address: 127.127.1.\ *u*
-|  Reference ID: ``LOCL``
-|  Driver ID: ``LOCAL``
+| Reference ID: ``LOCL``
+| Driver ID: ``LOCAL``
 
 Description
 -----------
 
 Note: **We recommend against using this driver.** A much more flexible
-replacement is described on the :doc:`Orphan
-Mode <../orphan>` page.
+replacement is described on the :doc:`Orphan Mode <../orphan>` page.
 
 This driver was intended for use in an isolated network where no
 external source of synchronization such as a radio clock or modem is
@@ -67,5 +66,4 @@ Fudge Factors
 Additional Information
 ----------------------
 
-:doc:`Reference Clock Drivers
-<../refclock>`
+:doc:`Reference Clock Drivers <../refclock>`

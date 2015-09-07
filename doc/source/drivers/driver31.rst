@@ -5,9 +5,9 @@ Synopsis
 --------
 
 | Address: 127.127.31.\ *u*
-|  Reference ID: ``GPS``
-|  Driver ID: JUPITER
-|  Serial Port: ``/dev/gps``\ *u*;  9600 baud, 8-bits, no parity.
+| Reference ID: ``GPS``
+| Driver ID: JUPITER
+| Serial Port: ``/dev/gps``\ *u*;  9600 baud, 8-bits, no parity.
 
 Description
 -----------

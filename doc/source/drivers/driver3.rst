@@ -5,10 +5,10 @@ Synopsis
 --------
 
 | Address: 127.127.3.\ *u*
-|  Reference ID: ``WWV``
-|  Driver ID: ``WWV_PST``
-|  Serial Port: ``/dev/wwvu``; 9600 baud, 8-bits, no parity
-|  Features: ``tty_clk``
+| Reference ID: ``WWV``
+| Driver ID: ``WWV_PST``
+| Serial Port: ``/dev/wwvu``; 9600 baud, 8-bits, no parity
+| Features: ``tty_clk``
 
 Description
 -----------
@@ -95,5 +95,4 @@ Fudge Factors
 Additional Information
 ----------------------
 
-:doc:`Reference Clock Drivers
-<../refclock>`
+:doc:`Reference Clock Drivers <../refclock>`
