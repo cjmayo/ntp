@@ -15,18 +15,20 @@ modes, phase-lock loop (PLL), which is used at poll intervals below the
 Allan intercept, by default 2048 s, and frequency-lock loop (FLL), which
 is used above that.
 
+.. _discipline-fig:
+
 .. figure:: pic/discipline.png
   :align: center
 
-  Figure 1. Clock Discipline Algorithm
+  Clock Discipline Algorithm
 
 .. _discipline-pll:
 
 Clock Discipline Operations
 ------------------------------------------------------
 
-A block diagram of the clock discipline is shown in Figure 1. The
-timestamp of a reference clock or remote server is compared with the
+A block diagram of the clock discipline is shown in :numref:`discipline-fig`.
+The timestamp of a reference clock or remote server is compared with the
 timestamp of the system clock, represented as a variable frequency
 oscillator (VFO), to produce a raw offset sample *V*\ :sub:`d`. Offset
 samples are processed by the clock filter to produce a filtered update

@@ -84,12 +84,15 @@ paper :ntp_research:`The NTP Timescale and Leap Seconds <leap.html>`.
 Implementation details are described on the :doc:`Leap Second
 Processing <leap>` page.
 
+.. _data-formats-fig:
+
 .. figure:: pic/time1.png
   :align: center
 
-  Figure 1. NTP Data Formats
+  NTP Data Formats
 
-Figure 1 shows two NTP time formats, a 64-bit *timestamp* format and a
+:numref:`data-formats-fig` shows two NTP time formats,
+a 64-bit *timestamp* format and a
 128-bit *datestamp* format. The datestamp format is used internally,
 while the timestamp format is used in packet headers exchanged between
 clients and servers. The timestamp format spans 136 years, called an
@@ -109,12 +112,15 @@ convert these NTP formats to native Unix or Windows formats.
 Architecture and Algorithms
 -------------------------------------------------------
 
+.. _daemons-fig:
+
 .. figure:: pic/fig_3_1.png
   :align: center
 
-  Figure 2. NTP Daemon Processes and Algorithms
+  NTP Daemon Processes and Algorithms
 
-The overall organization of the NTP architecture is shown in Figure 2.
+The overall organization of the NTP architecture is shown in
+:numref:`daemons-fig`.
 It is useful in this context to consider the implementation as both a
 client of upstream (lower stratum) servers and as a server for
 downstream (higher stratum) clients. It includes a pair of peer/poll

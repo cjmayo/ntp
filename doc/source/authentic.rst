@@ -112,12 +112,15 @@ key type can be any message digest algorithm supported by the library.
 If the OpenSSL library is not installed, the only permitted key type is
 MD5.
 
+.. _authentic-symmetric-key-fig:
+
 .. figure:: pic/sx5.png
   :align: center
 
-  Figure 1. Typical Symmetric Key File
+  Typical Symmetric Key File
 
-Figure 1 shows a typical keys file used by the reference implementation
+:numref:`authentic-symmetric-key-fig` shows a typical keys file used by
+the reference implementation
 when the OpenSSL library is installed. In this figure, for key IDs in he
 range 1-10, the key is interpreted as a printable ASCII string. For key
 IDs in the range 11-20, the key is a 40-character hex digit string. The

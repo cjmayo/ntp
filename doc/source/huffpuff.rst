@@ -21,12 +21,14 @@ which depends on the sign of the offset. The filter is activated by the
 ``tinker huffpuff`` command, as described in the
 :doc:`Miscellaneous Options <miscopt>` page.
 
+.. _huffpuff-fig:
+
 .. figure:: pic/flt4.png
   :align: center
 
-  Figure 1. Huff-n'-Puff Wedge Scattergram
+  Huff-n'-Puff Wedge Scattergram
 
-Figure 1 shows how the huff-n'-puff filter works. Recall from the
+:numref:`huffpuff-fig` shows how the huff-n'-puff filter works. Recall from the
 :doc:`Clock Filter Algorithm <filter>` page that the wedge scattergram plots
 sample points (*x*, *y*) corresponding to the measured delay and offset,
 and that the limb lines are at slope ±0.5. Note in the figure that the

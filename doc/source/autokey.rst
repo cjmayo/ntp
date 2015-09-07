@@ -130,12 +130,15 @@ on-wire protocol.
 
 Example
 
+.. _autokey-example-fig:
+
 .. figure:: pic/flt8.png
   :align: center
 
-  Figure 1. Example Configuration
+  Example Configuration
 
-Figure 1 shows an example configuration with three NTP subnets, Alice,
+:numref:`autokey-example-fig` shows an example configuration with
+three NTP subnets, Alice,
 Helen and Carol. Alice and Helen are parent groups for Carol with TA C
 belonging to Alice and TA S belonging to Helen. Hosts A and B are THs of
 Alice, host R is the TH of Helen and host X is the TH of Carol. Assume
@@ -173,7 +176,8 @@ or more manycast or pool servers will not respond to ASSOC packets from
 subnets with difference group names. Groups sharing an Ethernet will be
 filtered in the same way.
 
-However, as shown in Figure 1, there are configurations where a TH of
+However, as shown in :numref:`autokey-example-fig`,
+there are configurations where a TH of
 one group needs to listen to a TA of a different group. This is
 accomplished using the ``ident group`` option of the ``crypto`` command
 and/or the ``ident group`` option of the ``server`` command. The former
@@ -204,13 +208,16 @@ possibly via intermediate hosts, and ending at a TH of that group. The
 TH verifies authenticity with the TA of the parent subnet using an
 identity exchange.
 
+.. _identity-scheme-fig:
+
 .. figure:: pic/flt9.png
   :align: center
 
-  Figure 2. Identify Scheme
+  Identify Scheme
 
 The identity exchange is run between a TA acting as a server and a TH
-acting as a client. As shown in Figure 2, the identity exchange involves
+acting as a client. As shown in :numref:`identity-scheme-fig`, the identity
+exchange involves
 a challenge-response protocol where a client generates a nonce and sends
 it to the server. The server performs a mathematical operation involving
 a second nonce and the secret group key, and sends the result along with
@@ -233,7 +240,8 @@ each scheme, an encrypted server keys file and a nonencrypted client
 keys file, also called the parameters file, which usually contains a
 subset of the keys file.
 
-Figure 2 shows how keys and parameters are distributed to servers and
+:numref:`identity-scheme-fig` shows how keys and parameters are
+distributed to servers and
 clients. A TA constructs the encrypted keys file and the nonencrypted
 parameters file. Hosts with no dependent clients can retrieve client
 parameter files from an archive or web page. The ``ntp-keygen`` program
@@ -268,7 +276,8 @@ algorithm must be the same for all participants in the NTP subnet.
 
 Example
 
-Returning to the example of Figure 1, Alice, Helen and Carol run run the
+Returning to the example of :numref:`autokey-example-fig`,
+Alice, Helen and Carol run run the
 Trusted Certificate (TC) scheme, internally, as the environment is
 secure and without threat from external attack, in particular a
 middleman masquerade. However, TH X of Carol is vulnerable to masquerade
@@ -286,7 +295,8 @@ necessary in typical scenarios. However, the Trusted Certificate (TC)
 scheme is recommended for national NTP time services, such as those
 operated by NIST and USNO. Configuration for TC is very simple.
 
-Referring to Figure 1, for each TH, A, B, R and X, as root: ::
+Referring to :numref:`autokey-example-fig`,
+for each TH, A, B, R and X, as root: ::
 
   # cd /usr/local/etc
   # ntp-keygen -T
@@ -335,7 +345,8 @@ Configuration - Identity Schemes
 The example in this section uses the IFF identity scheme, but others,
 including GQ and MV, can be used as well. It's best to start with a
 functioning TC configuration and add commands as necessary. We start
-with the subnets of Figure 1 configured as in the previous section.
+with the subnets of :numref:`autokey-example-fig`
+configured as in the previous section.
 Recall that the parent subnet TA for Alice is C and for Helen is S. Each
 of the TAs generates an encrypted server keys file and nonencrypted
 client parameters file for the IFF identity scheme using the ``-I``

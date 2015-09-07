@@ -18,13 +18,15 @@ statistics provide the following information.
    clock offset sample differencess in a sliding window of several
    samples. This is called *jitter* symbolized by the Greek letter φ.
 
-Figure 1 shows how the various measured statistics are collected and
+:numref:`stats-fig` shows how the various measured statistics are collected and
 compiled to calibrate NTP performance.
+
+.. _stats-fig:
 
 .. figure:: pic/stats.png
   :align: center
 
-  Figure 1. Statistics Budget
+  Statistics Budget
 
 The data represented in boxes labeled Server are contained in fields in
 packet received from the server. The data represented in boxes labeled

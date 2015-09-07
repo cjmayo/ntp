@@ -47,13 +47,15 @@ survivors is not greater than the *minclock threshold* set by the
 the pruning process terminates. The ``minclock`` default is 3, but can be
 changed to fit special conditions, as described on the :doc:`prefer` page.
 
+.. _cluster-fig:
+
 .. figure:: pic/flt7.png
   :align: center
 
-  Figure 1. Cluster Algorithm
+  Cluster Algorithm
 
-The second termination condition is more intricate. Figure 1 shows a
-round where a candidate of (a) is pruned to yield the candidates of (b).
+The second termination condition is more intricate. :numref:`cluster-fig` shows
+a round where a candidate of (a) is pruned to yield the candidates of (b).
 Let φ\ :sub:`max` be the maximum select jitter and φ\ :sub:`min` be
 the minimum peer jitter over all candidates on the list. In (a),
 candidate 1 has the highest select jitter, so φ\ :sub:`max` =

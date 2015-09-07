@@ -7,12 +7,14 @@ uses a sliding window of eight samples and picks out the sample with the
 least expected error. This page describes the algorithm design
 principles along with an example of typical performance.
 
+.. _wedge-fig:
+
 .. figure:: pic/flt5.png
   :align: center
 
-  Figure 1. Wedge Scattergram
+  Wedge Scattergram
 
-Figure 1 shows a typical *wedge scattergram* plotting sample points of
+:numref:`wedge-fig` shows a typical *wedge scattergram* plotting sample points of
 offset versus delay collected over a 24-hr period. As the delay
 increases, the offset variation increases, so the best samples are those
 at the lowest delay. There are two limb lines at slope ±0.5,
@@ -23,8 +25,8 @@ synchronize the system clock.
 
 The clock filter algorithm works best when the delays are statistically
 identical in the reciprocal directions between the server and client.
-This is apparent in Figure 1, where the scattergram is symmetric about
-the x axis through the apex sample. In configurations where the delays
+This is apparent in :numref:`wedge-fig`, where the scattergram is symmetric
+about the x axis through the apex sample. In configurations where the delays
 are not reciprocal, or where the transmission delays on the two
 directions are traffic dependent, this may not be the case. A common
 case with DSL links is when downloading or uploading a large file.
@@ -73,15 +75,22 @@ process inserts a dummy infinity sample in the shift register for each
 poll sent. After eight polls, the register returns to its original
 state.
 
-.. rst-class:: centered
+.. _raw-offsets-fig:
 
-  |image1|  |image2|
+.. figure:: pic/flt1.png
 
-  Figure 2. Raw (left) and Filtered (right) Offsets
+   Raw Offsets
 
-Figure 2 shows the performance of the algorithm for a typical Internet
-path over a 24-hr period. The graph on the left shows the raw offsets
-produced by the on-wired protocol, while the figure on the right shows
+.. _filtered-offsets-fig:
+
+.. figure:: pic/flt2.png
+
+   Filtered Offsets
+
+:numref:`raw-offsets-fig` and :numref:`filtered-offsets-fig` show
+the performance of the algorithm for a typical Internet
+path over a 24-hr period. :numref:`raw-offsets-fig` shows the raw offsets
+produced by the on-wired protocol, while :numref:`filtered-offsets-fig` shows
 the filtered offsets produced by the clock filter algorithm. If we
 consider the series formed as the absolute value of the offset samples,
 the mean error is defined as the mean of this series. Thus, the mean

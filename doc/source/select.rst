@@ -59,13 +59,16 @@ best offset estimate is the midpoint of its correctness interval. A
 candidate with a correctness interval that contains no points in the
 intersection interval is a falseticker.
 
+.. _correctness-fig:
+
 .. figure:: pic/flt3.png
   :align: center
 
-  Figure 1. Intersection Interval
+  Intersection Interval
 
-Figure 1 shows correctness intervals for each of four candidates A, B, C
-and D. We need to find the maximum number of candidates that contain
+:numref:`correctness-fig` shows correctness intervals
+for each of four candidates A, B, C and D.
+We need to find the maximum number of candidates that contain
 points in common. The result is the interval labeled DTSS. In the figure
 there are three truechimers A, B and C, and one falseticker D. In DTSS
 any point in the intersection interval can represent the true time;
@@ -93,15 +96,19 @@ time. On the other hand, the midpoint sample produced by the clock
 filter algorithm is the maximum likelihood estimate and thus best
 represents the truechimer time.
 
+.. _clock-select-fig:
+
 .. figure:: pic/flt6.png
   :align: center
 
-  Figure 2. Clock Select Algorithm
+  Clock Select Algorithm
 
-The algorithm operates as shown in Figure 2. Let *m* be the number of
+The algorithm operates as shown in :numref:`clock-select-fig`.
+Let *m* be the number of
 candidates and *f* the number of falsetickers, initially zero. Move a
 pointer from the leftmost endpoint towards the rightmost endpoint in
-Figure 1 and count the number of candidates, stopping when that number
+:numref:`correctness-fig` and count the number of candidates,
+stopping when that number
 reaches *m* − *f*; this is the left endpoint of the intersection
 interval. Then, do the same, but moving from the rightmost endpoint
 towards the leftmost endpoint; this is the right endpoint of the

@@ -60,12 +60,15 @@ should operate at the same stratum. All core servers and orphan children
 should include the same tos command in the configuration file. Each
 orphan child should include in the configuration file all root servers.
 
+.. _orphan-peer-fig:
+
 .. figure:: pic/peer.png
   :align: center
 
-  Figure 1. Orphan Peer Configuration
+  Orphan Peer Configuration
 
-For example, consider the peer network configuration in Figure 1, where
+For example, consider the peer network configuration in
+:numref:`orphan-peer-fig`, where
 two or more campus primary or secondary (stratum 2) servers are
 configured with reference clocks or public Internet primary servers and
 with each other using symmetric modes. With this configuration a server
@@ -73,13 +76,16 @@ that loses all sources continues to discipline the system clock using
 the other servers as backup. Only the core servers and orphan children
 need to be enabled for orphan mode.
 
+.. _orphan-broadcast-fig:
+
 .. figure:: pic/broad.png
   :align: center
 
-  Figure 2. Orphan Broadcast Configuration
+  Orphan Broadcast Configuration
 
 For broadcast networks each core server is configured in both broadcast
-server and broadcast client modes as shown in Figure 2. Orphan children
+server and broadcast client modes as shown in
+:numref:`orphan-broadcast-fig`. Orphan children
 operate as broadcast clients of all core servers. As in peer networks,
 the core servers back up each other and only they and the orphan
 children need to be enabled for orphan mode.
