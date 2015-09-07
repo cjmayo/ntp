@@ -375,7 +375,7 @@ security.
 
 The following commands all make authenticated requests.
 
-.. option::
+.. confval::
     addpeer peer_address [ keyid ] [ version ] [ minpoll# | prefer | minpoll N | maxpoll N [...] ]
     addpeer peer_address [ prefer | minpoll N | maxpoll N | keyid N | version N [...] ]
 
@@ -406,12 +406,12 @@ The following commands all make authenticated requests.
     when new interfaces appear (e.g. WLAN/PPP interfaces) at a later
     time and thus render the association operable.
 
-.. option:: addserver peer_address [ address [ keyid ] [ version ] [ minpoll | prefer | iburst | burst | minpoll N | maxpoll N [...] ] prefer | iburst | burst | minpoll N | maxpoll N | keyid N | version N [...] ]
+.. confval:: addserver peer_address [ address [ keyid ] [ version ] [ minpoll | prefer | iburst | burst | minpoll N | maxpoll N [...] ] prefer | iburst | burst | minpoll N | maxpoll N | keyid N | version N [...] ]
 
     Identical to the addpeer command, except that the operating mode is
     client.
 
-.. option:: broadcast peer_address [ keyid ] [ version ] [ prefer ]
+.. confval:: broadcast peer_address [ keyid ] [ version ] [ prefer ]
 
     Identical to the addpeer command, except that the operating mode is
     broadcast. In this case a valid non-zero key identifier and key are
