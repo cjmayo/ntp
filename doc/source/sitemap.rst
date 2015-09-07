@@ -17,8 +17,4 @@ Site Map
   contents/tocaudio
   contents/tocmisc
   contents/tocspecial
-
-.. toctree::
-  :hidden:
-  
   drivers/index
