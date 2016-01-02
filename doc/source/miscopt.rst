@@ -299,10 +299,12 @@ Miscellaneous Commands and Options
 
     .. confval:: memlock <Nmegabytes>
 
-        Specify the number of megabytes of memory that can be allocated.
-        Probably only available under Linux, this option is useful when
-        dropping root (the ``-i`` option). The default is 32 megabytes.
-        Setting this to zero will prevent any attemp to lock memory.
+        Specify the number of megabytes of memory that should be allocated
+        and locked. Probably only available under Linux, this option may be
+        may be useful when dropping root (the ``-i`` option). The default is
+        32 megabytes on non-Linux machines, and -1 under Linux. -1 means "do
+        not lock the process into memory". 0 means "lock whatever memory the
+        process wants into memory".
 
     .. confval:: stacksize <N4kPages>
 
