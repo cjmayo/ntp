@@ -155,10 +155,11 @@ Miscellaneous Commands and Options
 
 .. confval:: leapfile <leapfile>
 
-    This command loads the NIST leapseconds file and initializes the
+    This command loads the IERS leapseconds file and initializes the
     leapsecond values for the next leapsecond time, expiration time and
-    TAI offset. The file can be obtained directly from NIST national
-    time servers using ``ftp`` as the ASCII file ``pub/leap-seconds``.
+    TAI offset. The file can be obtained directly from the IERS at
+    https://hpiers.obspm.fr/iers/bul/bulc/ntp/leap-seconds.list or
+    ftp://hpiers.obspm.fr/iers/bul/bulc/ntp/leap-seconds.list.
     The *leapfile* is scanned when ``ntpd`` processes the ``leapfile``
     directive or when ``ntpd`` detects that *leapfile* has changed.
     ``ntpd`` checks once a day to see if the *leapfile* has changed.
